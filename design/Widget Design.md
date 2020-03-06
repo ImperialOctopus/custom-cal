@@ -20,3 +20,5 @@ Book page
   - Navigator controlled to use back button
   - Displays pages based on number and section
   - Navigator with onGenerateRoute with named argument of page number and section number
+- Page
+  - Takes Page object and draws it
