@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PageForwardButtonComponent extends StatelessWidget {
   final Function onPressed;
 
-  const PageForwardButtonComponent({@required this.onPressed});
+  const PageForwardButtonComponent({this.onPressed});
 
   @override
   Widget build(BuildContext context) {

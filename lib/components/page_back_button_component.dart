@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PageBackButtonComponent extends StatelessWidget {
   final Function onPressed;
 
-  const PageBackButtonComponent({@required this.onPressed});
+  const PageBackButtonComponent({this.onPressed});
 
   @override
   Widget build(BuildContext context) {
