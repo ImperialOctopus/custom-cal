@@ -5,22 +5,21 @@ import 'package:prototype_cal/model/section.dart';
 class SectionSelectComponent extends StatelessWidget {
   final List<Section> sections;
   final int activeSection;
-  final Function(int) onSectionTapped;
+  final Function(int) onSectionPressed;
   final double tabHeight;
   final double tabWidth;
   final double tabSpacing;
   final double inset;
 
   const SectionSelectComponent({
-    Key key,
     @required this.sections,
     @required this.activeSection,
-    @required this.onSectionTapped,
+    @required this.onSectionPressed,
     this.tabHeight = 64,
     this.tabWidth = 64,
     this.tabSpacing = 0,
     this.inset = 0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class SectionSelectComponent extends StatelessWidget {
         active: i == activeSection,
         height: tabHeight,
         width: tabWidth,
-        onTap: (int i) => onSectionTapped(i),
+        onTap: (int i) => onSectionPressed(i),
       ));
       // Add spacer if this isn't the last tab
       if (tabSpacing > 0 && i < sections.length - 1) {

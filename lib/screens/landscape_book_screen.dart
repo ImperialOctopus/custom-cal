@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:prototype_cal/components/section_select_component.dart';
-import 'package:prototype_cal/components/two_page_spread_component.dart';
 import 'package:prototype_cal/model/book.dart';
 import 'package:prototype_cal/model/page.dart';
 
-class LandscapeBookScreen extends StatefulWidget {
+class LandscapeBookScreen extends StatelessWidget {
   final EdgeInsetsGeometry padding = const EdgeInsets.all(16);
   final double tabHeight = 48;
   final double tabWidth = 48;
@@ -16,19 +15,12 @@ class LandscapeBookScreen extends StatefulWidget {
   const LandscapeBookScreen({@required this.book});
 
   @override
-  State<StatefulWidget> createState() => _LandscapeBookScreenState();
-}
-
-class _LandscapeBookScreenState extends State<LandscapeBookScreen> {
-  int activeSection = 0;
-  int activePage = 0;
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       padding: widget.padding,
       color: Theme.of(context).scaffoldBackgroundColor,
       child: Center(
+        child: 
         child: TwoPageSpreadComponent(
           sectionSelect: SectionSelectComponent(
             sections: widget.book.sections,
@@ -50,44 +42,4 @@ class _LandscapeBookScreenState extends State<LandscapeBookScreen> {
     );
   }
 
-  Page getPage(int index) {
-    if (index < widget.book.sections[activeSection].pages.length) {
-      return widget.book.sections[activeSection].pages[index];
-    } else {
-      return null;
-    }
-  }
-
-  void pageForward() {
-    setState(() {
-      activePage += 2;
-      if (activePage > widget.book.sections[activeSection].pages.length - 1) {
-        activePage = widget.book.sections[activeSection].pages.length - 1;
-      }
-    });
-  }
-
-  void pageBack() {
-    setState(() {
-      activePage -= 2;
-      if (activePage < 0) {
-        activePage = 0;
-      }
-    });
-  }
-
-  bool get showForwardButton {
-    return activePage < widget.book.sections[activeSection].pages.length - 2;
-  }
-
-  bool get showBackButton {
-    return activePage > 0;
-  }
-
-  void setSection(int newSection) {
-    setState(() {
-      activeSection = newSection;
-      activePage = 0;
-    });
-  }
 }
