@@ -6,17 +6,16 @@ class SectionSelectTabComponent extends StatelessWidget {
   final double width;
   final double height;
   final bool active;
-  final Function(int) onTap;
+  final Function(int) onPress;
 
   const SectionSelectTabComponent({
-    Key key,
     @required this.label,
     @required this.index,
     @required this.width,
     @required this.height,
     this.active = false,
-    this.onTap,
-  }) : super(key: key);
+    this.onPress,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class SectionSelectTabComponent extends StatelessWidget {
             child: label,
           ),
         ),
-        onTap: () => onTap(index),
+        onTap: () => onPress(index),
       ),
     );
   }

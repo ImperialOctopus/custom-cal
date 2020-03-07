@@ -36,7 +36,7 @@ class SectionSelectComponent extends StatelessWidget {
         active: i == activeSection,
         height: tabHeight,
         width: tabWidth,
-        onTap: (int i) => onSectionPressed(i),
+        onPress: (int i) => onSectionPressed(i),
       ));
       // Add spacer if this isn't the last tab
       if (tabSpacing > 0 && i < sections.length - 1) {
