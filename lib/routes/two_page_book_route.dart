@@ -36,7 +36,7 @@ class TwoPageBookRoute extends StatelessWidget {
 
   void onForwardPressed(BuildContext context, Bookmark bookmark) {
     Bookmark newBookmark;
-    if (bookmark.pageIndex >= bookmark.pagesInSection - 2) {
+    if (bookmark.pageIndex >= bookmark.pagesInSectionCount - 2) {
       newBookmark = bookmark;
     } else {
       newBookmark = bookmark.copyWith(pageIndex: bookmark.pageIndex + 2);
