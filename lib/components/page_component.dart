@@ -10,37 +10,59 @@ class PageComponent extends StatelessWidget {
   final Page page;
 
   const PageComponent({
-    Key key,
-    @required this.page,
+    this.page,
     this.foldEdge = FoldEdge.none,
-  }) : super(key: key);
-
-  const PageComponent.blank({this.foldEdge = FoldEdge.none})
-      : page = const Page(name: '', content: <Widget>[]);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: boxDecoration(context, foldEdge),
-      padding: EdgeInsets.all(padding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(page.name),
-          ...page.content,
-        ],
+      color: Theme.of(context).backgroundColor,
+      child: Container(
+        decoration: boxDecoration(context, foldEdge),
+        padding: EdgeInsets.all(padding),
+        child: pageContent(page),
       ),
     );
   }
 
-  BoxDecoration boxDecoration(BuildContext context, FoldEdge foldEdge) {
-    return BoxDecoration(
-      color: Theme.of(context).backgroundColor,
-      gradient: LinearGradient(
-          colors: [Colors.red, Colors.cyan],
-          begin: Alignment.centerRight,
-          end: Alignment(0.8, 0.0),
-          tileMode: TileMode.clamp),
+  Widget pageContent(Page page) {
+    if (page == null) {
+      return null;
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(page.name),
+        ...page.content,
+      ],
     );
+  }
+
+  BoxDecoration boxDecoration(BuildContext context, FoldEdge foldEdge) {
+    switch (foldEdge) {
+      case FoldEdge.right:
+        return BoxDecoration(
+          gradient: LinearGradient(
+              colors: [const Color(0x11666666), const Color(0x00000000)],
+              begin: Alignment.centerRight,
+              end: Alignment(0.8, 0.0),
+              tileMode: TileMode.clamp),
+        );
+        break;
+      case FoldEdge.left:
+        return BoxDecoration(
+          gradient: LinearGradient(
+              colors: [const Color(0x11666666), const Color(0x00000000)],
+              begin: Alignment.centerLeft,
+              end: Alignment(-0.8, 0.0),
+              tileMode: TileMode.clamp),
+        );
+        break;
+      case FoldEdge.none:
+      default:
+        return null;
+        break;
+    }
   }
 }

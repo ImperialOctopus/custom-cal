@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/page_component.dart';
 import 'package:prototype_cal/components/section_select_component.dart';
 import 'package:prototype_cal/model/page.dart';
 
@@ -9,6 +10,8 @@ class TwoPageSpreadComponent extends StatelessWidget {
   final SectionSelectComponent sectionSelect;
   final Page leftPage;
   final Page rightPage;
+  final bool showForwardButton;
+  final bool showBackButton;
   final Function onForwardPressed;
   final Function onBackPressed;
 
@@ -16,6 +19,8 @@ class TwoPageSpreadComponent extends StatelessWidget {
       {this.sectionSelect,
       this.leftPage,
       this.rightPage,
+      this.showForwardButton = false,
+      this.showBackButton = false,
       this.onForwardPressed,
       this.onBackPressed});
 
@@ -29,27 +34,41 @@ class TwoPageSpreadComponent extends StatelessWidget {
           Expanded(
             child: Stack(
               fit: StackFit.expand,
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Expanded(child: buildPage(leftPage)),
-                    Expanded(child: buildPage(rightPage)),
-                  ],
-                ),
-                Positioned(
-                  left: 0,
-                  bottom: 0,
-                  child: PageBackButtonComponent(
-                    onPressed: onBackPressed,
+              children: [
+                Container(
+                  color: Theme.of(context).backgroundColor,
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: PageComponent(
+                            page: leftPage, foldEdge: FoldEdge.right),
+                      ),
+                      Expanded(
+                        child: PageComponent(
+                            page: rightPage, foldEdge: FoldEdge.left),
+                      ),
+                    ],
                   ),
                 ),
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: PageForwardButtonComponent(
-                    onPressed: onForwardPressed,
-                  ),
-                ),
+                ...[
+                  showBackButton
+                      ? Positioned(
+                          left: 0,
+                          bottom: 0,
+                          child: PageBackButtonComponent(
+                            onPressed: onBackPressed,
+                          ))
+                      : null,
+                  showForwardButton
+                      ? Positioned(
+                          right: 0,
+                          bottom: 0,
+                          child: PageForwardButtonComponent(
+                            onPressed: onForwardPressed,
+                          ),
+                        )
+                      : null,
+                ]
               ],
             ),
           ),

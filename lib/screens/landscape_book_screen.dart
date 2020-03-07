@@ -41,6 +41,8 @@ class _LandscapeBookScreenState extends State<LandscapeBookScreen> {
           ),
           leftPage: getPage(activePage),
           rightPage: getPage(activePage + 1),
+          showForwardButton: showForwardButton,
+          showBackButton: showBackButton,
           onBackPressed: pageBack,
           onForwardPressed: pageForward,
         ),
@@ -72,6 +74,14 @@ class _LandscapeBookScreenState extends State<LandscapeBookScreen> {
         activePage = 0;
       }
     });
+  }
+
+  bool get showForwardButton {
+    return activePage < widget.book.sections[activeSection].pages.length - 2;
+  }
+
+  bool get showBackButton {
+    return activePage > 0;
   }
 
   void setSection(int newSection) {
