@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/two_page_book_viewer.dart';
-import 'package:prototype_cal/model/bookmark.dart';
 
-class TwoPageBookRoute extends PageRouteBuilder {
-  final Bookmark bookmark;
-
-  TwoPageBookRoute({@required this.bookmark})
+class SlideRightRoute extends PageRouteBuilder {
+  final Widget page;
+  SlideRightRoute({this.page})
       : super(
           pageBuilder: (
             BuildContext context,
             Animation<double> animation,
             Animation<double> secondaryAnimation,
           ) =>
-              TwoPageBookViewer(bookmark: bookmark),
+              page,
           transitionsBuilder: (
             BuildContext context,
             Animation<double> animation,

@@ -17,7 +17,7 @@ class Bookmark {
   Bookmark copyWith({Book book, int sectionIndex, int pageIndex}) {
     return Bookmark(
       book: book ?? this.book,
-      sectionIndex: section ?? this.sectionIndex,
+      sectionIndex: sectionIndex ?? this.sectionIndex,
       pageIndex: pageIndex ?? this.pageIndex,
     );
   }

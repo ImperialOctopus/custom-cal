@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/section_select_component.dart';
 import 'package:prototype_cal/model/book.dart';
-import 'package:prototype_cal/model/page.dart';
+import 'package:prototype_cal/model/bookmark.dart';
+import 'package:prototype_cal/routes/two_page_book_route.dart';
 
 class LandscapeBookScreen extends StatelessWidget {
   final EdgeInsetsGeometry padding = const EdgeInsets.all(16);
@@ -17,29 +17,21 @@ class LandscapeBookScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: widget.padding,
+      padding: padding,
       color: Theme.of(context).scaffoldBackgroundColor,
       child: Center(
-        child: 
-        child: TwoPageSpreadComponent(
-          sectionSelect: SectionSelectComponent(
-            sections: widget.book.sections,
-            activeSection: activeSection,
-            onSectionTapped: setSection,
-            tabHeight: widget.tabHeight,
-            tabWidth: widget.tabWidth,
-            tabSpacing: widget.tabSpacing,
-            inset: widget.tabsInset,
-          ),
-          leftPage: getPage(activePage),
-          rightPage: getPage(activePage + 1),
-          showForwardButton: showForwardButton,
-          showBackButton: showBackButton,
-          onBackPressed: pageBack,
-          onForwardPressed: pageForward,
+        child: Navigator(
+          onGenerateRoute: (RouteSettings routeSettings) {
+            return TwoPageBookRoute(
+              bookmark: Bookmark(
+                book: book,
+                pageIndex: 0,
+                sectionIndex: 0,
+              ),
+            );
+          },
         ),
       ),
     );
   }
-
 }
