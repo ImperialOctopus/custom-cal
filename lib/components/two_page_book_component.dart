@@ -31,8 +31,8 @@ class TwoPageBookComponent extends StatelessWidget {
       child: Column(
         children: <Widget>[
           SectionSelectComponent(
-            sections: bookmark.book.sections,
-            activeSection: bookmark.section,
+            sections: bookmark.sections,
+            activeSection: bookmark.sectionIndex,
             onSectionPressed: onSectionPressed,
             tabHeight: tabHeight,
             tabWidth: tabWidth,
@@ -64,12 +64,12 @@ class TwoPageBookComponent extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         child: PageComponent(
-                            page: getPage(bookmark.page),
+                            page: getPage(bookmark.pageIndex),
                             foldEdge: FoldEdge.right),
                       ),
                       Expanded(
                         child: PageComponent(
-                            page: getPage(bookmark.page + 1),
+                            page: getPage(bookmark.pageIndex + 1),
                             foldEdge: FoldEdge.left),
                       ),
                     ],
@@ -101,19 +101,15 @@ class TwoPageBookComponent extends StatelessWidget {
   }
 
   Page getPage(int index) {
-    if (index < bookmark.book.sections[bookmark.section].pages.length) {
-      return bookmark.book.sections[bookmark.section].pages[index];
+    if (index < bookmark.pagesInSectionCount) {
+      return bookmark.pages[index];
     } else {
       return null;
     }
   }
 
-  bool get showForwardButton {
-    return bookmark.page <
-        bookmark.book.sections[bookmark.section].pages.length - 2;
-  }
+  bool get showForwardButton =>
+      bookmark.pageIndex < bookmark.pagesInSectionCount - 2;
 
-  bool get showBackButton {
-    return bookmark.page > 0;
-  }
+  bool get showBackButton => bookmark.pageIndex > 0;
 }
