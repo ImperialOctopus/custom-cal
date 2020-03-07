@@ -22,9 +22,11 @@ class Bookmark {
     );
   }
 
-  int get sectionCount => book.sections.length;
-  int get pagesInSection => section.pages.length;
-
   Section get section => book.sections[sectionIndex];
+  List<Section> get sections => book.sections;
+  int get sectionCount => book.sections.length;
+
   Page get page => section.pages[pageIndex];
+  List<Page> get pages => section.pages;
+  int get pagesInSectionCount => section.pages.length;
 }
