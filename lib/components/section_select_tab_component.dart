@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SectionSelectButtonComponent extends StatelessWidget {
+class SectionSelectTabComponent extends StatelessWidget {
   final Widget label;
   final int index;
   final double width;
@@ -8,20 +8,21 @@ class SectionSelectButtonComponent extends StatelessWidget {
   final bool active;
   final Function(int) onTap;
 
-  const SectionSelectButtonComponent({
+  const SectionSelectTabComponent({
     Key key,
     @required this.label,
     @required this.index,
-    this.width = 64,
-    this.height = 64,
+    @required this.width,
+    @required this.height,
     this.active = false,
     this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.fromSize(
-      size: Size(width, height),
+    return SizedBox(
+      width: width,
+      height: height,
       child: GestureDetector(
         child: Container(
           color: active ? Colors.orange : Colors.pink,
