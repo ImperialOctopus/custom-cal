@@ -1,33 +1,32 @@
+import 'package:flutter/material.dart';
+
 import '../model/book.dart';
 import '../model/section.dart';
 import '../model/page.dart';
 
-Book data = Book(
+Book testBook = Book(
   name: 'Snakes vs Cows',
   sections: <Section>[
     Section(
-      name: 'Opening Section',
-      label: '1',
+      name: 'First Section',
+      label: Icon(Icons.home),
       pages: <Page>[
         Page(
           name: 'First Page',
-          content: 'Content of First Page',
-        ),
-        Page(
-          name: 'Second',
-          content: 'Content of Second Page',
+          content: <Widget>[
+            Text('First line'),
+            Text('Second line'),
+            Text('Third line'),
+            Center(
+              child: Image(
+                image: NetworkImage(
+                    'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+                height: 300,
+              ),
+            ),
+          ],
         ),
       ],
     ),
-    Section(
-      name: 'Section the Second',
-      label: 'B',
-      pages: <Page>[],
-    ),
-    Section(
-      name: '3! 3! 3!',
-      label: 'T',
-      pages: <Page>[],
-    )
   ],
 );
