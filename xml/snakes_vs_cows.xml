@@ -3,7 +3,8 @@
     <title>Snakes Versus Cows: A Balanced View</title>
     <section>
         <title>Appearance</title>
-        <color>#DDDDDD"</color>
+        <label>A</label>
+        <color>#DDDDDD</color>
         <optional>false</optional>
         <page>
             <title>Colour</title>
@@ -20,6 +21,7 @@
     </section>
     <section>
         <title>Milk</title>
+        <label>M</label>
         <color>#FF0044"</color>
         <optional>false</optional>
         <page>
