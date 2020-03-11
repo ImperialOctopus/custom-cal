@@ -19,18 +19,16 @@ class LandscapeBookScreen extends StatelessWidget {
     return Container(
       padding: padding,
       color: Theme.of(context).scaffoldBackgroundColor,
-      child: Center(
-        child: Navigator(
-          onGenerateRoute: (RouteSettings routeSettings) {
-            return TwoPageBookRoute(
-              bookmark: Bookmark(
-                book: book,
-                pageIndex: 0,
-                sectionIndex: 0,
-              ),
-            );
-          },
-        ),
+      child: Navigator(
+        onGenerateRoute: (RouteSettings routeSettings) {
+          return TwoPageBookRoute(
+            bookmark: Bookmark(
+              book: book,
+              pageIndex: 0,
+              sectionIndex: 0,
+            ),
+          );
+        },
       ),
     );
   }
