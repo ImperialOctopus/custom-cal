@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:prototype_cal/screens/landscape_book_screen.dart';
 import 'package:prototype_cal/services/test_data.dart';
+import 'package:prototype_cal/services/xml_service.dart';
 import 'package:prototype_cal/theme/styles.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  XmlService.test();
+  runApp(CalApp());
+}
 
-class MyApp extends StatelessWidget {
+class CalApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
