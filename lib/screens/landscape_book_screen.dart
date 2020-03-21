@@ -16,19 +16,21 @@ class LandscapeBookScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: padding,
-      color: Theme.of(context).scaffoldBackgroundColor,
-      child: Navigator(
-        onGenerateRoute: (RouteSettings routeSettings) {
-          return TwoPageBookRoute(
-            bookmark: Bookmark(
-              book: book,
-              pageIndex: 0,
-              sectionIndex: 0,
-            ),
-          );
-        },
+    return Scaffold(
+      body: Container(
+        padding: padding,
+        color: Theme.of(context).scaffoldBackgroundColor,
+        child: Navigator(
+          onGenerateRoute: (RouteSettings routeSettings) {
+            return TwoPageBookRoute(
+              bookmark: Bookmark(
+                book: book,
+                pageIndex: 0,
+                sectionIndex: 0,
+              ),
+            );
+          },
+        ),
       ),
     );
   }

@@ -10,6 +10,8 @@ Book testBook = Book(
     Section(
       name: 'First Section',
       label: Icon(Icons.home),
+      optional: false,
+      color: Colors.white,
       pages: <Page>[
         Page(
           name: 'First Page',
@@ -79,6 +81,8 @@ Book testBook = Book(
     Section(
       name: 'Second Section',
       label: Text('2'),
+      optional: false,
+      color: Colors.white,
       pages: <Page>[
         Page(
           name: 'First Page',
@@ -124,6 +128,8 @@ Book testBook = Book(
     Section(
       name: 'Second Section',
       label: Icon(Icons.pool),
+      optional: false,
+      color: Colors.white,
       pages: <Page>[
         Page(
           name: 'Final Section',
