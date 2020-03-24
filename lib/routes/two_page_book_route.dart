@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/two_page_book_viewer.dart';
+import 'package:prototype_cal/components/spread_two_component.dart';
 import 'package:prototype_cal/model/bookmark.dart';
 
 class TwoPageBookRoute extends PageRouteBuilder {
@@ -12,7 +12,7 @@ class TwoPageBookRoute extends PageRouteBuilder {
             Animation<double> animation,
             Animation<double> secondaryAnimation,
           ) =>
-              TwoPageBookViewer(bookmark: bookmark),
+              SpreadTwoComponent(bookmark: bookmark),
           transitionsBuilder: (
             BuildContext context,
             Animation<double> animation,

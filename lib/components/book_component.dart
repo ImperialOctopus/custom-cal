@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/two_page_book_component.dart';
 import 'package:prototype_cal/model/bookmark.dart';
 import 'package:prototype_cal/routes/two_page_book_route.dart';
 
-class TwoPageBookViewer extends StatelessWidget {
+import 'spread_two_component.dart';
+
+class BookComponent extends StatelessWidget {
   static const routeName = 'twoPageBookRoute';
 
   final Bookmark bookmark;
 
-  const TwoPageBookViewer({@required this.bookmark});
+  const BookComponent({@required this.bookmark});
 
   @override
   Widget build(BuildContext context) {
-    return TwoPageBookComponent(
+    return SpreadTwoComponent(
       bookmark: bookmark,
       onSectionPressed: (int i) => onSectionPressed(context, i, bookmark),
       onBackPressed: () => onBackPressed(context, bookmark),

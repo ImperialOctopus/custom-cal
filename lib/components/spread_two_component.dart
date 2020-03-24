@@ -4,13 +4,18 @@ import 'package:prototype_cal/components/section_select_component.dart';
 import 'package:prototype_cal/model/bookmark.dart';
 import 'package:prototype_cal/model/page.dart';
 
+import 'i_spread_component.dart';
 import 'page_back_button_component.dart';
 import 'page_forward_button_component.dart';
 
-class TwoPageBookComponent extends StatelessWidget {
+class SpreadTwoComponent extends StatelessWidget implements ISpreadComponent {
+  @override
   final Bookmark bookmark;
+  @override
   final Function(int) onSectionPressed;
+  @override
   final Function onForwardPressed;
+  @override
   final Function onBackPressed;
 
   final double tabHeight = 48;
@@ -18,7 +23,7 @@ class TwoPageBookComponent extends StatelessWidget {
   final double tabSpacing = 4;
   final double tabsInset = 16;
 
-  const TwoPageBookComponent(
+  const SpreadTwoComponent(
       {@required this.bookmark,
       this.onSectionPressed,
       this.onForwardPressed,
