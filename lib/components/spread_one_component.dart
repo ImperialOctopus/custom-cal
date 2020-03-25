@@ -32,77 +32,44 @@ class SpreadOneComponent extends StatelessWidget implements ISpreadComponent {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: AspectRatio(
-        aspectRatio: 1.6,
-        child: Column(
-          children: <Widget>[
-            SectionSelectComponent(
-              sections: bookmark.sections,
-              activeSection: bookmark.sectionIndex,
-              onSectionPressed: onSectionPressed,
-              tabHeight: tabHeight,
-              tabWidth: tabWidth,
-              tabSpacing: tabSpacing,
-              inset: tabsInset,
-            ),
-            Expanded(
-              child: Stack(
-                fit: StackFit.expand,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black12,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black38,
-                          blurRadius:
-                              5.0, // has the effect of softening the shadow
-                          spreadRadius:
-                              0.0, // has the effect of extending the shadow
-                          offset: Offset(
-                            -3, // horizontal, move right 10
-                            3, // vertical, move down 10
-                          ),
-                        )
-                      ],
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: PageComponent(
-                              page: getPage(bookmark.pageIndex),
-                              foldEdge: FoldEdge.right),
+      child: Column(
+        children: <Widget>[
+          SectionSelectComponent(
+            sections: bookmark.sections,
+            activeSection: bookmark.sectionIndex,
+            onSectionPressed: onSectionPressed,
+            tabHeight: tabHeight,
+            tabWidth: tabWidth,
+            tabSpacing: tabSpacing,
+            inset: tabsInset,
+          ),
+          Expanded(
+            child: Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                PageComponent(
+                    page: getPage(bookmark.pageIndex), foldEdge: FoldEdge.none),
+                showBackButton
+                    ? Positioned(
+                        left: 0,
+                        bottom: 0,
+                        child: PageBackButtonComponent(
+                          onPressed: onBackPressed,
+                        ))
+                    : null,
+                showForwardButton
+                    ? Positioned(
+                        right: 0,
+                        bottom: 0,
+                        child: PageForwardButtonComponent(
+                          onPressed: onForwardPressed,
                         ),
-                        Expanded(
-                          child: PageComponent(
-                              page: getPage(bookmark.pageIndex + 1),
-                              foldEdge: FoldEdge.left),
-                        ),
-                      ],
-                    ),
-                  ),
-                  showBackButton
-                      ? Positioned(
-                          left: 0,
-                          bottom: 0,
-                          child: PageBackButtonComponent(
-                            onPressed: onBackPressed,
-                          ))
-                      : null,
-                  showForwardButton
-                      ? Positioned(
-                          right: 0,
-                          bottom: 0,
-                          child: PageForwardButtonComponent(
-                            onPressed: onForwardPressed,
-                          ),
-                        )
-                      : null,
-                ].where((value) => value != null).toList(),
-              ),
+                      )
+                    : null,
+              ].where((value) => value != null).toList(),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -116,7 +83,7 @@ class SpreadOneComponent extends StatelessWidget implements ISpreadComponent {
   }
 
   bool get showForwardButton =>
-      bookmark.pageIndex < bookmark.pagesInSectionCount - 2;
+      bookmark.pageIndex < bookmark.pagesInSectionCount - 1;
 
   bool get showBackButton => bookmark.pageIndex > 0;
 }
