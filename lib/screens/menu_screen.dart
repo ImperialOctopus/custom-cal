@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/screens/landscape_book_screen.dart';
+import 'package:prototype_cal/screens/book_screen.dart';
 import 'package:prototype_cal/services/test_data.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -8,11 +8,11 @@ class MenuScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: FlatButton(
-          child: Text('Go on then'),
+          child: Text('Open test book'),
           onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => LandscapeBookScreen(book: testBook))),
+                  builder: (context) => BookScreen(book: testBook))),
         ),
       ),
     );
