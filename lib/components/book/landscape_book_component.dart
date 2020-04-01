@@ -1,58 +1,34 @@
 import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';
-import 'spread_two_component.dart';
+import 'landscape_spread_component.dart';
 
-enum Orientation { portrait, landscape }
-
-class BookComponent extends StatefulWidget {
+class LandscapeBookComponent extends StatefulWidget {
   final Bookmark bookmark;
-  final Orientation orientation;
 
-  const BookComponent({@required this.bookmark, @required this.orientation});
+  const LandscapeBookComponent({@required this.bookmark});
 
   @override
-  State<StatefulWidget> createState() => BookComponentState(bookmark: bookmark);
+  State<StatefulWidget> createState() =>
+      _LandscapeBookComponentState(bookmark: bookmark);
 }
 
-class BookComponentState extends State<BookComponent> {
+class _LandscapeBookComponentState extends State<LandscapeBookComponent> {
+  static const pageChange = 2;
+
   Bookmark _bookmark;
 
-  BookComponentState({@required Bookmark bookmark}) : _bookmark = bookmark;
+  _LandscapeBookComponentState({@required Bookmark bookmark})
+      : _bookmark = bookmark;
 
   @override
   Widget build(BuildContext context) {
-    switch (widget.orientation) {
-      case Orientation.portrait:
-        break;
-      case Orientation.landscape:
-        break;
-      default:
-    }
-  }
-
-  Widget _buildLandscape() {
-    return SpreadTwoComponent(
+    return LandscapeSpreadComponent(
       bookmark: _bookmark,
       onSectionPressed: _changeSection,
       onBackPressed: _pageBack,
       onForwardPressed: _pageForward,
     );
-  }
-
-  Widget _buildPortrait() {}
-
-  int get pageChange {
-    switch (widget.orientation) {
-      case Orientation.portrait:
-        return 1;
-        break;
-      case Orientation.landscape:
-        return 2;
-        break;
-      default:
-        throw FallThroughError();
-    }
   }
 
   void _changeSection(int i) {
