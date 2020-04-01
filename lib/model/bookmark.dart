@@ -14,6 +14,11 @@ class Bookmark {
       @required this.sectionIndex,
       @required this.pageIndex});
 
+  const Bookmark.first({@required Book book})
+      : book = book,
+        sectionIndex = 0,
+        pageIndex = 0;
+
   Bookmark copyWith({Book book, int sectionIndex, int pageIndex}) {
     return Bookmark(
       book: book ?? this.book,
