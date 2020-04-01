@@ -22,6 +22,16 @@ class BookComponentState extends State<BookComponent> {
 
   @override
   Widget build(BuildContext context) {
+    switch (widget.orientation) {
+      case Orientation.portrait:
+        break;
+      case Orientation.landscape:
+        break;
+      default:
+    }
+  }
+
+  Widget _buildLandscape() {
     return SpreadTwoComponent(
       bookmark: _bookmark,
       onSectionPressed: _changeSection,
@@ -29,6 +39,8 @@ class BookComponentState extends State<BookComponent> {
       onForwardPressed: _pageForward,
     );
   }
+
+  Widget _buildPortrait() {}
 
   int get pageChange {
     switch (widget.orientation) {
