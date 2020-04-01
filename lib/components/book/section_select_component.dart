@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/section_select_tab_component.dart';
-import 'package:prototype_cal/model/section.dart';
+
+import 'section_select_tab_component.dart';
+import '../../model/section.dart';
 
 class SectionSelectComponent extends StatelessWidget {
   final List<Section> sections;

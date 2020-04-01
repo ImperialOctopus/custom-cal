@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/page_component.dart';
-import 'package:prototype_cal/components/section_select_component.dart';
-import 'package:prototype_cal/model/bookmark.dart';
-import 'package:prototype_cal/model/page.dart';
 
-import 'i_spread_component.dart';
-import 'page_back_button_component.dart';
-import 'page_forward_button_component.dart';
+import '../../model/page.dart';
+import '../../model/bookmark.dart';
+import '../page/page_back_button_component.dart';
+import '../page/page_component.dart';
+import '../page/page_forward_button_component.dart';
+import 'section_select_component.dart';
 
-class SpreadOneComponent extends StatelessWidget implements ISpreadComponent {
-  @override
+class PortraitSpreadComponent extends StatelessWidget {
   final Bookmark bookmark;
-  @override
   final Function(int) onSectionPressed;
-  @override
   final Function onForwardPressed;
-  @override
   final Function onBackPressed;
 
   final double tabHeight = 48;
@@ -23,7 +18,7 @@ class SpreadOneComponent extends StatelessWidget implements ISpreadComponent {
   final double tabSpacing = 4;
   final double tabsInset = 16;
 
-  const SpreadOneComponent(
+  const PortraitSpreadComponent(
       {@required this.bookmark,
       this.onSectionPressed,
       this.onForwardPressed,
