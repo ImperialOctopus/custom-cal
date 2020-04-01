@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/book_component.dart';
-import 'package:prototype_cal/model/book.dart';
-import 'package:prototype_cal/model/bookmark.dart';
+
+import '../components/book/landscape_book_component.dart';
+import '../model/book.dart';
+import '../model/bookmark.dart';
 
 class BookScreen extends StatelessWidget {
   final EdgeInsetsGeometry padding = const EdgeInsets.all(16);
@@ -20,7 +21,7 @@ class BookScreen extends StatelessWidget {
       body: Container(
         padding: padding,
         color: Theme.of(context).scaffoldBackgroundColor,
-        child: BookComponent(
+        child: LandscapeBookComponent(
           bookmark: Bookmark.first(book: book),
         ),
       ),
