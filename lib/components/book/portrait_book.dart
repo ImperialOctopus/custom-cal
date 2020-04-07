@@ -1,55 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/model/section_data.dart';
 
+import 'book.dart';
 import '../../model/bookmark.dart';
 import '../spread/portrait_spread.dart';
+import '../section_controller/tabbed_section_controller.dart';
 
-class PortraitBook extends StatefulWidget {
+class PortraitBook extends Book {
+  @override
   final Bookmark bookmark;
 
+  @override
   const PortraitBook({@required this.bookmark});
 
   @override
-  State<StatefulWidget> createState() => _PortraitBookState(bookmark: bookmark);
-}
-
-class _PortraitBookState extends State<PortraitBook> {
-  static const pageChange = 2;
-
-  Bookmark _bookmark;
-
-  _PortraitBookState({@required Bookmark bookmark}) : _bookmark = bookmark;
+  int get pagesPerSpread => 1;
 
   @override
-  Widget build(BuildContext context) {
-    return PortraitSpread(
-      bookmark: _bookmark,
-      onSectionPressed: _changeSection,
-      onBackPressed: _pageBack,
-      onForwardPressed: _pageForward,
-    );
-  }
+  Widget buildSectionController(
+          {List<SectionData> sections,
+          int activeSection,
+          Function(int p1) onSectionPressed}) =>
+      TabbedSectionController(
+        sections: sections,
+        activeSection: activeSection,
+        onSectionPressed: onSectionPressed,
+      );
 
-  void _changeSection(int i) {
-    setState(() {
-      _bookmark = _bookmark.copyWith(sectionIndex: i, pageIndex: 0);
-    });
-  }
-
-  void _pageBack() {
-    setState(() {
-      if (_bookmark.pageIndex > 1) {
-        _bookmark =
-            _bookmark.copyWith(pageIndex: _bookmark.pageIndex - pageChange);
-      }
-    });
-  }
-
-  void _pageForward() {
-    setState(() {
-      if (_bookmark.pageIndex < _bookmark.pagesInSectionCount - pageChange) {
-        _bookmark =
-            _bookmark.copyWith(pageIndex: _bookmark.pageIndex + pageChange);
-      }
-    });
-  }
+  @override
+  Widget buildSpread({Bookmark bookmark}) => PortraitSpread(bookmark: bookmark);
 }
