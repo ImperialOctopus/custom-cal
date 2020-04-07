@@ -5,7 +5,7 @@ import '../../model/bookmark.dart';
 import '../page/page_back_button_component.dart';
 import '../page/page_component.dart';
 import '../page/page_forward_button_component.dart';
-import 'section_select_component.dart';
+import '../section_controller/tabbed_section_controller_component.dart';
 
 class PortraitSpreadComponent extends StatelessWidget {
   final Bookmark bookmark;
@@ -31,7 +31,7 @@ class PortraitSpreadComponent extends StatelessWidget {
         aspectRatio: 0.625,
         child: Column(
           children: <Widget>[
-            SectionSelectComponent(
+            TabbedSectionControllerComponent(
               sections: bookmark.sections,
               activeSection: bookmark.sectionIndex,
               onSectionPressed: onSectionPressed,
