@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';
-import '../page/page.dart';
+import 'page_component.dart';
 import 'spread.dart';
 
 class LandscapeSpread extends Spread {
@@ -21,11 +21,11 @@ class LandscapeSpread extends Spread {
     return Row(
       children: <Widget>[
         Expanded(
-          child:
-              Page(page: getPage(bookmark.pageIndex), foldEdge: FoldEdge.right),
+          child: PageComponent(
+              page: getPage(bookmark.pageIndex), foldEdge: FoldEdge.right),
         ),
         Expanded(
-          child: Page(
+          child: PageComponent(
               page: getPage(bookmark.pageIndex + 1), foldEdge: FoldEdge.left),
         ),
       ],

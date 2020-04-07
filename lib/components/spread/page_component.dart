@@ -4,12 +4,12 @@ import '../../model/page_data.dart';
 
 enum FoldEdge { left, right, none }
 
-class Page extends StatelessWidget {
+class PageComponent extends StatelessWidget {
   final double padding = 16;
   final FoldEdge foldEdge;
   final PageData page;
 
-  const Page({
+  const PageComponent({
     this.page,
     this.foldEdge = FoldEdge.none,
   });
