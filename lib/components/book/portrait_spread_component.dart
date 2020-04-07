@@ -27,44 +27,48 @@ class PortraitSpreadComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: <Widget>[
-          SectionSelectComponent(
-            sections: bookmark.sections,
-            activeSection: bookmark.sectionIndex,
-            onSectionPressed: onSectionPressed,
-            tabHeight: tabHeight,
-            tabWidth: tabWidth,
-            tabSpacing: tabSpacing,
-            inset: tabsInset,
-          ),
-          Expanded(
-            child: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                PageComponent(
-                    page: getPage(bookmark.pageIndex), foldEdge: FoldEdge.none),
-                showBackButton
-                    ? Positioned(
-                        left: 0,
-                        bottom: 0,
-                        child: PageBackButtonComponent(
-                          onPressed: onBackPressed,
-                        ))
-                    : null,
-                showForwardButton
-                    ? Positioned(
-                        right: 0,
-                        bottom: 0,
-                        child: PageForwardButtonComponent(
-                          onPressed: onForwardPressed,
-                        ),
-                      )
-                    : null,
-              ].where((value) => value != null).toList(),
+      child: AspectRatio(
+        aspectRatio: 0.625,
+        child: Column(
+          children: <Widget>[
+            SectionSelectComponent(
+              sections: bookmark.sections,
+              activeSection: bookmark.sectionIndex,
+              onSectionPressed: onSectionPressed,
+              tabHeight: tabHeight,
+              tabWidth: tabWidth,
+              tabSpacing: tabSpacing,
+              inset: tabsInset,
             ),
-          ),
-        ],
+            Expanded(
+              child: Stack(
+                fit: StackFit.expand,
+                children: <Widget>[
+                  PageComponent(
+                      page: getPage(bookmark.pageIndex),
+                      foldEdge: FoldEdge.none),
+                  showBackButton
+                      ? Positioned(
+                          left: 0,
+                          bottom: 0,
+                          child: PageBackButtonComponent(
+                            onPressed: onBackPressed,
+                          ))
+                      : null,
+                  showForwardButton
+                      ? Positioned(
+                          right: 0,
+                          bottom: 0,
+                          child: PageForwardButtonComponent(
+                            onPressed: onForwardPressed,
+                          ),
+                        )
+                      : null,
+                ].where((value) => value != null).toList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
