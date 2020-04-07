@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'page.dart';
+import 'page_data.dart';
 
-class Section {
+class SectionData {
   final String name;
   final Widget label;
   final Color color;
   final bool optional;
 
-  final List<Page> pages;
+  final List<PageData> pages;
 
-  const Section({
+  const SectionData({
     @required this.name,
     @required this.label,
     @required this.color,

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../model/page.dart';
 import '../../model/bookmark.dart';
-import '../page/page_back_button_component.dart';
-import '../page/page_component.dart';
-import '../page/page_forward_button_component.dart';
-import '../section_controller/tabbed_section_controller_component.dart';
+import '../../model/page_data.dart';
+import '../section_controller/tabbed_section_controller.dart';
+import '../page/page.dart';
+import '../page/page_button.dart';
 
-class PortraitSpreadComponent extends StatelessWidget {
+class PortraitSpread extends StatelessWidget {
   final Bookmark bookmark;
   final Function(int) onSectionPressed;
   final Function onForwardPressed;
@@ -18,7 +17,7 @@ class PortraitSpreadComponent extends StatelessWidget {
   final double tabSpacing = 4;
   final double tabsInset = 16;
 
-  const PortraitSpreadComponent(
+  const PortraitSpread(
       {@required this.bookmark,
       this.onSectionPressed,
       this.onForwardPressed,
@@ -31,7 +30,7 @@ class PortraitSpreadComponent extends StatelessWidget {
         aspectRatio: 0.625,
         child: Column(
           children: <Widget>[
-            TabbedSectionControllerComponent(
+            TabbedSectionController(
               sections: bookmark.sections,
               activeSection: bookmark.sectionIndex,
               onSectionPressed: onSectionPressed,
@@ -44,14 +43,15 @@ class PortraitSpreadComponent extends StatelessWidget {
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
-                  PageComponent(
+                  Page(
                       page: getPage(bookmark.pageIndex),
                       foldEdge: FoldEdge.none),
                   showBackButton
                       ? Positioned(
                           left: 0,
                           bottom: 0,
-                          child: PageBackButtonComponent(
+                          child: PageButton(
+                            iconData: Icons.arrow_back,
                             onPressed: onBackPressed,
                           ))
                       : null,
@@ -59,7 +59,8 @@ class PortraitSpreadComponent extends StatelessWidget {
                       ? Positioned(
                           right: 0,
                           bottom: 0,
-                          child: PageForwardButtonComponent(
+                          child: PageButton(
+                            iconData: Icons.arrow_forward,
                             onPressed: onForwardPressed,
                           ),
                         )
@@ -73,7 +74,7 @@ class PortraitSpreadComponent extends StatelessWidget {
     );
   }
 
-  Page getPage(int index) {
+  PageData getPage(int index) {
     if (index < bookmark.pagesInSectionCount) {
       return bookmark.pages[index];
     } else {

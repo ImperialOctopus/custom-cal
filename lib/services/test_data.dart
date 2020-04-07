@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../model/book.dart';
-import '../model/section.dart';
-import '../model/page.dart';
+import '../model/book_data.dart';
+import '../model/section_data.dart';
+import '../model/page_data.dart';
 
-Book testBook = Book(
+BookData testBook = BookData(
   name: 'Snakes vs Cows',
-  sections: <Section>[
-    Section(
+  sections: <SectionData>[
+    SectionData(
       name: 'First Section',
       label: Icon(Icons.home),
       optional: false,
       color: Colors.white,
-      pages: <Page>[
-        Page(
+      pages: <PageData>[
+        PageData(
           name: 'First Page',
           content: <Widget>[
             Text('First line'),
@@ -28,7 +28,7 @@ Book testBook = Book(
             ),
           ],
         ),
-        Page(
+        PageData(
           name: 'First Page',
           content: <Widget>[
             Text('First li2ne'),
@@ -43,7 +43,7 @@ Book testBook = Book(
             Text('LEAFES'),
           ],
         ),
-        Page(
+        PageData(
           name: 'Page with a Lady',
           content: <Widget>[
             Center(
@@ -55,7 +55,7 @@ Book testBook = Book(
             ),
           ],
         ),
-        Page(
+        PageData(
           name: 'First 4',
           content: <Widget>[
             Text('Oooooo'),
@@ -63,7 +63,7 @@ Book testBook = Book(
             Text('Outrageous'),
           ],
         ),
-        Page(
+        PageData(
           name: 'Owl Again',
           content: <Widget>[
             Text('Omaewamou Shindeiru'),
@@ -78,13 +78,13 @@ Book testBook = Book(
         ),
       ],
     ),
-    Section(
+    SectionData(
       name: 'Second Section',
       label: Text('2'),
       optional: false,
       color: Colors.white,
-      pages: <Page>[
-        Page(
+      pages: <PageData>[
+        PageData(
           name: 'First Page',
           content: <Widget>[
             Text('First line'),
@@ -92,7 +92,7 @@ Book testBook = Book(
             Text('Third line'),
           ],
         ),
-        Page(
+        PageData(
           name: 'Second Page',
           content: <Widget>[
             Text('First li2ne'),
@@ -107,7 +107,7 @@ Book testBook = Book(
             ),
           ],
         ),
-        Page(
+        PageData(
           name: 'Last Page',
           content: <Widget>[
             Text('Thank you'),
@@ -125,13 +125,13 @@ Book testBook = Book(
         ),
       ],
     ),
-    Section(
+    SectionData(
       name: 'Second Section',
       label: Icon(Icons.pool),
       optional: false,
       color: Colors.white,
-      pages: <Page>[
-        Page(
+      pages: <PageData>[
+        PageData(
           name: 'Final Section',
           content: <Widget>[
             Center(

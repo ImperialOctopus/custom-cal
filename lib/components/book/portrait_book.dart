@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';
-import 'landscape_spread_component.dart';
+import '../spread/portrait_spread.dart';
 
-class LandscapeBookComponent extends StatefulWidget {
+class PortraitBook extends StatefulWidget {
   final Bookmark bookmark;
 
-  const LandscapeBookComponent({@required this.bookmark});
+  const PortraitBook({@required this.bookmark});
 
   @override
-  State<StatefulWidget> createState() =>
-      _LandscapeBookComponentState(bookmark: bookmark);
+  State<StatefulWidget> createState() => _PortraitBookState(bookmark: bookmark);
 }
 
-class _LandscapeBookComponentState extends State<LandscapeBookComponent> {
+class _PortraitBookState extends State<PortraitBook> {
   static const pageChange = 2;
 
   Bookmark _bookmark;
 
-  _LandscapeBookComponentState({@required Bookmark bookmark})
-      : _bookmark = bookmark;
+  _PortraitBookState({@required Bookmark bookmark}) : _bookmark = bookmark;
 
   @override
   Widget build(BuildContext context) {
-    return LandscapeSpreadComponent(
+    return PortraitSpread(
       bookmark: _bookmark,
       onSectionPressed: _changeSection,
       onBackPressed: _pageBack,

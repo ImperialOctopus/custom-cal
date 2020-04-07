@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/model/section.dart';
 
-import 'book.dart';
-import 'page.dart';
+import 'book_data.dart';
+import 'section_data.dart';
+import 'page_data.dart';
 
 class Bookmark {
-  final Book book;
+  final BookData book;
   final int sectionIndex;
   final int pageIndex;
 
@@ -14,12 +14,12 @@ class Bookmark {
       @required this.sectionIndex,
       @required this.pageIndex});
 
-  const Bookmark.first({@required Book book})
+  const Bookmark.first({@required BookData book})
       : book = book,
         sectionIndex = 0,
         pageIndex = 0;
 
-  Bookmark copyWith({Book book, int sectionIndex, int pageIndex}) {
+  Bookmark copyWith({BookData book, int sectionIndex, int pageIndex}) {
     return Bookmark(
       book: book ?? this.book,
       sectionIndex: sectionIndex ?? this.sectionIndex,
@@ -27,11 +27,11 @@ class Bookmark {
     );
   }
 
-  Section get section => book.sections[sectionIndex];
-  List<Section> get sections => book.sections;
+  SectionData get section => book.sections[sectionIndex];
+  List<SectionData> get sections => book.sections;
   int get sectionCount => book.sections.length;
 
-  Page get page => section.pages[pageIndex];
-  List<Page> get pages => section.pages;
+  PageData get page => section.pages[pageIndex];
+  List<PageData> get pages => section.pages;
   int get pagesInSectionCount => section.pages.length;
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../components/book/portrait_book_component.dart';
-import '../model/book.dart';
+import '../components/book/portrait_book.dart';
+import '../model/book_data.dart';
 import '../model/bookmark.dart';
 
 class BookScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class BookScreen extends StatelessWidget {
   final double tabSpacing = 4;
   final double tabsInset = 16;
 
-  final Book book;
+  final BookData book;
 
   const BookScreen({@required this.book});
 
@@ -21,7 +21,7 @@ class BookScreen extends StatelessWidget {
       body: Container(
         padding: padding,
         color: Theme.of(context).scaffoldBackgroundColor,
-        child: PortraitBookComponent(
+        child: PortraitBook(
           bookmark: Bookmark.first(book: book),
         ),
       ),

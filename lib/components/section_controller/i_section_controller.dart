@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/model/section.dart';
+
+import '../../model/section_data.dart';
 
 abstract class ISectionController {
-  final List<Section> sections;
+  final List<SectionData> sections;
   final int activeSection;
   final Function(int) onSectionPressed;
 

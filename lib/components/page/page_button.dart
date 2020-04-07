@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
-class PageBackButtonComponent extends StatelessWidget {
+class PageButton extends StatelessWidget {
   final Function onPressed;
+  final IconData iconData;
 
-  const PageBackButtonComponent({this.onPressed});
+  const PageButton({
+    @required this.iconData,
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(Icons.arrow_back),
+      icon: Icon(iconData),
       onPressed: onPressed,
     );
   }

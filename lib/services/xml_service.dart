@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/extensions/hex_color.dart';
-import 'package:prototype_cal/model/book.dart';
-import 'package:prototype_cal/model/page.dart';
-import 'package:prototype_cal/model/section.dart';
 import 'package:xml/xml.dart';
 
+import '../extensions/hex_color.dart';
+import '../model/book_data.dart';
+import '../model/section_data.dart';
+import '../model/page_data.dart';
+
 class XmlService {
-  static Book loadXmlBook(String input) {
+  static BookData loadXmlBook(String input) {
     XmlDocument document;
     try {
       document = parse(input);
@@ -19,22 +20,22 @@ class XmlService {
         orElse: () => null));
   }
 
-  static Book buildBook(XmlElement bookNode) {
+  static BookData buildBook(XmlElement bookNode) {
     String title = bookNode.children
         .firstWhere(
             (XmlNode node) => node is XmlElement && node.name.local == 'title',
             orElse: () => null)
         ?.text;
-    List<Section> sections = bookNode.children
+    List<SectionData> sections = bookNode.children
         .where((XmlNode node) =>
             node is XmlElement && node.name.local == 'section')
         .map((XmlNode node) => buildSection(node as XmlElement))
         .toList();
 
-    return Book(name: title, sections: sections);
+    return BookData(name: title, sections: sections);
   }
 
-  static Section buildSection(XmlElement sectionNode) {
+  static SectionData buildSection(XmlElement sectionNode) {
     // Get title, if not specified set to an error message
     XmlNode titleNode = sectionNode.children.firstWhere(
         (XmlNode node) => node is XmlElement && node.name.local == 'title',
@@ -68,13 +69,13 @@ class XmlService {
         (optionalNode != null) ? optionalNode.text == 'true' : false;
 
     // Get pages
-    List<Page> pages = sectionNode.children
+    List<PageData> pages = sectionNode.children
         .where(
             (XmlNode node) => node is XmlElement && node.name.local == 'page')
         .map((XmlNode node) => buildPage(node as XmlElement))
         .toList();
 
-    return Section(
+    return SectionData(
       name: title,
       label: label,
       color: color,
@@ -83,7 +84,7 @@ class XmlService {
     );
   }
 
-  static Page buildPage(XmlElement pageNode) {
+  static PageData buildPage(XmlElement pageNode) {
     String title = pageNode.children
         .firstWhere(
             (XmlNode node) => node is XmlElement && node.name.local == 'title',
@@ -99,7 +100,7 @@ class XmlService {
         .where((element) => element != null)
         .toList();
 
-    return Page(
+    return PageData(
       name: title,
       content: content,
       note: note,
@@ -129,7 +130,7 @@ class XmlService {
     }
   }
 
-  static Book test() {
+  static BookData get testBookData {
     String string = '''
 <?xml version="1.0"?>
 <document>

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/model/page.dart';
+
+import '../../model/page_data.dart';
 
 enum FoldEdge { left, right, none }
 
-class PageComponent extends StatelessWidget {
+class Page extends StatelessWidget {
   final double padding = 16;
   final FoldEdge foldEdge;
-  final Page page;
+  final PageData page;
 
-  const PageComponent({
+  const Page({
     this.page,
     this.foldEdge = FoldEdge.none,
   });
@@ -25,7 +26,7 @@ class PageComponent extends StatelessWidget {
     );
   }
 
-  Widget pageContent(Page page) {
+  Widget pageContent(PageData page) {
     if (page == null) {
       return null;
     }

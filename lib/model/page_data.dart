@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-class Page {
+class PageData {
   final String name;
   final List<Widget> content;
   final String note;
 
-  const Page({
+  const PageData({
     @required this.name,
     @required this.content,
     this.note,

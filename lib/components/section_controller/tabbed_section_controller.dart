@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/model/section.dart';
 
+import '../../model/section_data.dart';
 import 'i_section_controller.dart';
 
-class TabbedSectionControllerComponent extends StatelessWidget
+class TabbedSectionController extends StatelessWidget
     implements ISectionController {
   @override
-  final List<Section> sections;
+  final List<SectionData> sections;
   @override
   final int activeSection;
   @override
@@ -17,7 +17,7 @@ class TabbedSectionControllerComponent extends StatelessWidget
   final double tabSpacing;
   final double inset;
 
-  const TabbedSectionControllerComponent({
+  const TabbedSectionController({
     @required this.sections,
     @required this.activeSection,
     @required this.onSectionPressed,
@@ -36,7 +36,7 @@ class TabbedSectionControllerComponent extends StatelessWidget
 
     for (int i = 0; i < sections.length; i++) {
       // Add tab component
-      list.add(SectionTabComponent(
+      list.add(SectionTab(
         label: sections[i].label,
         index: i,
         active: i == activeSection,
@@ -54,7 +54,7 @@ class TabbedSectionControllerComponent extends StatelessWidget
   }
 }
 
-class SectionTabComponent extends StatelessWidget {
+class SectionTab extends StatelessWidget {
   final Widget label;
   final int index;
   final double width;
@@ -62,7 +62,7 @@ class SectionTabComponent extends StatelessWidget {
   final bool active;
   final Function(int) onPress;
 
-  const SectionTabComponent({
+  const SectionTab({
     @required this.label,
     @required this.index,
     @required this.width,
