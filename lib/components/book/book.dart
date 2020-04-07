@@ -4,18 +4,21 @@ import '../../model/bookmark.dart';
 import '../../model/section_data.dart';
 
 abstract class Book extends StatefulWidget {
-  final Bookmark bookmark;
+  final Bookmark startingBookmark;
 
-  const Book({@required this.bookmark});
+  const Book({@required this.startingBookmark});
 
   @override
-  State<StatefulWidget> createState() => _BookState(bookmark: bookmark);
+  State<StatefulWidget> createState() => _BookState(bookmark: startingBookmark);
 
-  bool get backEnabled => bookmark.pageIndex > 0;
-  bool get forwardEnabled =>
+  bool backEnabled(Bookmark bookmark) => bookmark.pageIndex > 0;
+  bool forwardEnabled(Bookmark bookmark) =>
       bookmark.pageIndex < bookmark.pagesInSectionCount - pagesPerSpread;
 
   int get pagesPerSpread;
+
+  Widget buildLayout(Bookmark bookmark, Function(int i) changeSection,
+      Function pageBack, Function pageForward);
 
   Widget buildSpread({
     @required Bookmark bookmark,
@@ -34,63 +37,8 @@ class _BookState extends State<Book> {
   _BookState({@required this.bookmark});
 
   @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: AspectRatio(
-        aspectRatio: 1.6,
-        child: Column(
-          children: <Widget>[
-            widget.buildSectionController(
-              sections: bookmark.sections,
-              activeSection: bookmark.sectionIndex,
-              onSectionPressed: _changeSection,
-            ),
-            Expanded(
-              child: Stack(
-                fit: StackFit.expand,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black12,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black38,
-                          blurRadius:
-                              5.0, // has the effect of softening the shadow
-                          spreadRadius:
-                              0.0, // has the effect of extending the shadow
-                          offset: Offset(
-                            -3, // horizontal, move right 10
-                            3, // vertical, move down 10
-                          ),
-                        )
-                      ],
-                    ),
-                    child: widget.buildSpread(bookmark: bookmark),
-                  ),
-                  Positioned(
-                      left: 0,
-                      bottom: 0,
-                      child: TurnPageButton(
-                        iconData: Icons.arrow_back,
-                        onPressed: widget.backEnabled ? _pageBack : null,
-                      )),
-                  Positioned(
-                    right: 0,
-                    bottom: 0,
-                    child: TurnPageButton(
-                      iconData: Icons.arrow_forward,
-                      onPressed: widget.forwardEnabled ? _pageForward : null,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) =>
+      widget.buildLayout(bookmark, _changeSection, _pageBack, _pageForward);
 
   void _changeSection(int i) {
     setState(() {
@@ -100,7 +48,7 @@ class _BookState extends State<Book> {
 
   void _pageBack() {
     setState(() {
-      if (bookmark.pageIndex > 1) {
+      if (widget.backEnabled(bookmark)) {
         bookmark = bookmark.copyWith(
             pageIndex: bookmark.pageIndex - widget.pagesPerSpread);
       }
@@ -109,8 +57,7 @@ class _BookState extends State<Book> {
 
   void _pageForward() {
     setState(() {
-      if (bookmark.pageIndex <
-          bookmark.pagesInSectionCount - widget.pagesPerSpread) {
+      if (widget.forwardEnabled(bookmark)) {
         bookmark = bookmark.copyWith(
             pageIndex: bookmark.pageIndex + widget.pagesPerSpread);
       }

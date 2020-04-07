@@ -21,8 +21,8 @@ class PortraitSpread extends Spread {
     return Row(
       children: <Widget>[
         Expanded(
-          child:
-              Page(page: getPage(bookmark.pageIndex), foldEdge: FoldEdge.none),
+          child: PageComponent(
+              page: getPage(bookmark.pageIndex), foldEdge: FoldEdge.none),
         ),
       ],
     );

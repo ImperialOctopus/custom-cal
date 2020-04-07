@@ -8,15 +8,14 @@ import '../section_controller/tabbed_section_controller.dart';
 
 class LandscapeBook extends Book {
   @override
-  final Bookmark bookmark;
+  final Bookmark startingBookmark;
 
   @override
-  const LandscapeBook({@required this.bookmark});
+  const LandscapeBook({@required this.startingBookmark});
 
   @override
   int get pagesPerSpread => 2;
 
-  @override
   Widget buildSectionController(
           {List<SectionData> sections,
           int activeSection,
@@ -30,4 +29,64 @@ class LandscapeBook extends Book {
   @override
   Widget buildSpread({Bookmark bookmark}) =>
       LandscapeSpread(bookmark: bookmark);
+
+  @override
+  Widget buildLayout(Bookmark bookmark, Function(int i) changeSection,
+      Function pageBack, Function pageForward) {
+    return Center(
+      child: AspectRatio(
+        aspectRatio: 1.6,
+        child: Column(
+          children: <Widget>[
+            buildSectionController(
+              sections: bookmark.sections,
+              activeSection: bookmark.sectionIndex,
+              onSectionPressed: changeSection,
+            ),
+            Expanded(
+              child: Stack(
+                fit: StackFit.expand,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black12,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black38,
+                          blurRadius:
+                              5.0, // has the effect of softening the shadow
+                          spreadRadius:
+                              0.0, // has the effect of extending the shadow
+                          offset: Offset(
+                            -3, // horizontal, move right 10
+                            3, // vertical, move down 10
+                          ),
+                        )
+                      ],
+                    ),
+                    child: buildSpread(bookmark: bookmark),
+                  ),
+                  Positioned(
+                      left: 0,
+                      bottom: 0,
+                      child: TurnPageButton(
+                        iconData: Icons.arrow_back,
+                        onPressed: backEnabled(bookmark) ? pageBack : null,
+                      )),
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: TurnPageButton(
+                      iconData: Icons.arrow_forward,
+                      onPressed: forwardEnabled(bookmark) ? pageForward : null,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
