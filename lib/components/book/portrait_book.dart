@@ -18,7 +18,7 @@ class PortraitBook extends Book {
   const PortraitBook({@required this.startingBookmark});
 
   @override
-  int get pagesPerSpread => 2;
+  int get pagesPerSpread => 1;
 
   @override
   SectionController buildSectionController({

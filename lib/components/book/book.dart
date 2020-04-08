@@ -50,18 +50,22 @@ class _BookState extends State<Book> {
 
   _BookState({@required this.bookmark});
 
-////TODO this
   @override
   Widget build(BuildContext context) => widget.buildLayout(
         sectionController: widget.buildSectionController(
-          sections: null,
-          activeSection: null,
-          onSectionPressed: null,
+          sections: bookmark.sections,
+          activeSection: bookmark.sectionIndex,
+          onSectionPressed: _changeSection,
         ),
         spread: widget.buildSpread(
-          bookmark: null,
+          bookmark: bookmark,
         ),
-        controlLayer: widget.buildControlLayer(),
+        controlLayer: widget.buildControlLayer(
+          backEnabled: widget.backEnabled(bookmark),
+          onBackPressed: _pageBack,
+          forwardEnabled: widget.forwardEnabled(bookmark),
+          onForwardPressed: _pageForward,
+        ),
       );
 
   void _changeSection(int i) {
