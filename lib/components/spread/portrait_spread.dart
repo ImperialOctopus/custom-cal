@@ -13,7 +13,6 @@ class PortraitSpread extends Spread {
   final double tabSpacing = 4;
   final double tabsInset = 16;
 
-  @override
   const PortraitSpread({@required this.bookmark});
 
   @override

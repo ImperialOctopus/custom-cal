@@ -5,7 +5,6 @@ import 'page_component.dart';
 import 'spread.dart';
 
 class LandscapeSpread extends Spread {
-  @override
   final Bookmark bookmark;
 
   final double tabHeight = 48;
@@ -13,7 +12,6 @@ class LandscapeSpread extends Spread {
   final double tabSpacing = 4;
   final double tabsInset = 16;
 
-  @override
   const LandscapeSpread({@required this.bookmark});
 
   @override

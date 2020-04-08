@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../spread/spread.dart';
+import '../control_layer/control_layer.dart';
+import '../layout/layout.dart';
+import '../section_controller/section_controller.dart';
 import '../../model/bookmark.dart';
 import '../../model/section_data.dart';
 
@@ -8,27 +12,37 @@ abstract class Book extends StatefulWidget {
 
   const Book({@required this.startingBookmark});
 
-  @override
-  State<StatefulWidget> createState() => _BookState(bookmark: startingBookmark);
+  int get pagesPerSpread;
+
+  Layout buildLayout({
+    @required SectionController sectionController,
+    @required Spread spread,
+    @required ControlLayer controlLayer,
+  });
+
+  SectionController buildSectionController({
+    @required List<SectionData> sections,
+    @required int activeSection,
+    @required Function(int) onSectionPressed,
+  });
+
+  Spread buildSpread({
+    @required Bookmark bookmark,
+  });
+
+  ControlLayer buildControlLayer({
+    bool backEnabled,
+    Function onBackPressed,
+    bool forwardEnabled,
+    Function onForwardPressed,
+  });
 
   bool backEnabled(Bookmark bookmark) => bookmark.pageIndex > 0;
   bool forwardEnabled(Bookmark bookmark) =>
       bookmark.pageIndex < bookmark.pagesInSectionCount - pagesPerSpread;
 
-  int get pagesPerSpread;
-
-  Widget buildLayout(Bookmark bookmark, Function(int i) changeSection,
-      Function pageBack, Function pageForward);
-
-  Widget buildSpread({
-    @required Bookmark bookmark,
-  });
-
-  Widget buildSectionController({
-    @required List<SectionData> sections,
-    @required int activeSection,
-    @required Function(int) onSectionPressed,
-  });
+  @override
+  State<StatefulWidget> createState() => _BookState(bookmark: startingBookmark);
 }
 
 class _BookState extends State<Book> {
@@ -36,9 +50,19 @@ class _BookState extends State<Book> {
 
   _BookState({@required this.bookmark});
 
+////TODO this
   @override
-  Widget build(BuildContext context) =>
-      widget.buildLayout(bookmark, _changeSection, _pageBack, _pageForward);
+  Widget build(BuildContext context) => widget.buildLayout(
+        sectionController: widget.buildSectionController(
+          sections: null,
+          activeSection: null,
+          onSectionPressed: null,
+        ),
+        spread: widget.buildSpread(
+          bookmark: null,
+        ),
+        controlLayer: widget.buildControlLayer(),
+      );
 
   void _changeSection(int i) {
     setState(() {
@@ -62,23 +86,5 @@ class _BookState extends State<Book> {
             pageIndex: bookmark.pageIndex + widget.pagesPerSpread);
       }
     });
-  }
-}
-
-class TurnPageButton extends StatelessWidget {
-  final Function onPressed;
-  final IconData iconData;
-
-  const TurnPageButton({
-    @required this.iconData,
-    this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(iconData),
-      onPressed: onPressed,
-    );
   }
 }

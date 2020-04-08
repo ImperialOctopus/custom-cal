@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../model/section_data.dart';
-import 'i_section_controller.dart';
+import 'section_controller.dart';
 
-class TabbedSectionController extends StatelessWidget
-    implements ISectionController {
+class TabbedSectionController extends SectionController {
   @override
   final List<SectionData> sections;
   @override
