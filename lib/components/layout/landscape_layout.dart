@@ -1,20 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/control_layer/default_control_layer.dart';
+import 'package:prototype_cal/components/section_controller/tabbed_section_controller.dart';
+import 'package:prototype_cal/components/spread/landscape_spread.dart';
+import 'package:prototype_cal/model/section_data.dart';
 
-import '../control_layer/control_layer.dart';
+import '../../model/bookmark.dart';
 import '../layout/layout.dart';
-import '../section_controller/section_controller.dart';
-import '../spread/spread.dart';
 
 class LandscapeLayout extends Layout {
-  final SectionController sectionController;
-  final Spread spread;
-  final ControlLayer controlLayer;
+  final Bookmark bookmark;
+  final Function(int) changeSection;
+  final Function(int) changePage;
+
+  @override
+  final int pagesPerSpread = 2;
 
   const LandscapeLayout({
-    @required this.sectionController,
-    @required this.spread,
-    @required this.controlLayer,
+    @required this.bookmark,
+    @required this.changeSection,
+    @required this.changePage,
   });
+
+  Widget get sectionController {
+    return TabbedSectionController(
+      activeSection: null,
+      onSectionPressed: (int i) {},
+      sections: <SectionData>[],
+    );
+  }
+
+  Widget get controlLayer {
+    return DefaultControlLayer(
+      backEnabled: null,
+      onBackPressed: null,
+      forwardEnabled: null,
+      onForwardPressed: null,
+    );
+  }
+
+  Widget get spread {
+    return LandscapeSpread(
+      bookmark: null,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +56,7 @@ class LandscapeLayout extends Layout {
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
+                  controlLayer,
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.black12,
@@ -47,7 +76,6 @@ class LandscapeLayout extends Layout {
                     ),
                     child: spread,
                   ),
-                  controlLayer,
                 ],
               ),
             ),

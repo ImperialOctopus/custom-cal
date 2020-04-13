@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../control_layer/control_layer.dart';
-import '../section_controller/section_controller.dart';
-import '../spread/spread.dart';
+import '../../model/bookmark.dart';
 
 abstract class Layout extends StatelessWidget {
-  final SectionController sectionController;
-  final Spread spread;
-  final ControlLayer controlLayer;
+  final Bookmark bookmark;
+  final Function(int) changeSection;
+  final Function(int) changePage;
+
+  int get pagesPerSpread;
 
   const Layout({
-    @required this.sectionController,
-    @required this.spread,
-    @required this.controlLayer,
+    @required this.bookmark,
+    @required this.changeSection,
+    @required this.changePage,
   });
 }

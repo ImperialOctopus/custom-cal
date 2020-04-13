@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/book/landscape_book.dart';
+import '../components/book/book.dart';
 import '../model/book_data.dart';
 import '../model/bookmark.dart';
 
@@ -21,7 +21,7 @@ class BookScreen extends StatelessWidget {
       body: Container(
         padding: padding,
         color: Theme.of(context).scaffoldBackgroundColor,
-        child: LandscapeBook(
+        child: Book(
           startingBookmark: Bookmark.first(book: book),
         ),
       ),
