@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../components/page/note_box.dart';
 import '../model/book_data.dart';
 import '../model/section_data.dart';
 import '../model/page_data.dart';
@@ -26,6 +27,7 @@ BookData testBook = BookData(
                 height: 300,
               ),
             ),
+            NoteBox(child: Text('Banana note')),
           ],
         ),
         PageData(

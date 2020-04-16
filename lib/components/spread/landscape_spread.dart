@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';
-import 'page_component.dart';
+import '../page/page_component.dart';
 import 'spread.dart';
 
 /// Spread of two pages arranged for landscape viewing.

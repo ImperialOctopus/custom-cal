@@ -31,7 +31,7 @@ class PageComponent extends StatelessWidget {
       return null;
     }
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Text(page.name),
         ...page.content,
