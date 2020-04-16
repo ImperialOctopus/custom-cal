@@ -30,9 +30,9 @@ class PortraitLayout extends Layout {
   Widget get controlLayer {
     return DefaultControlLayer(
       backEnabled: bookmark.lastPageExists(),
-      onBackPressed: updateBookmark(bookmark.lastPage(pagesPerSpread)),
+      onBackPressed: () => updateBookmark(bookmark.lastPage(pagesPerSpread)),
       forwardEnabled: bookmark.nextPageExists(pagesPerSpread),
-      onForwardPressed: updateBookmark(bookmark.nextPage(pagesPerSpread)),
+      onForwardPressed: () => updateBookmark(bookmark.nextPage(pagesPerSpread)),
     );
   }
 
@@ -54,7 +54,6 @@ class PortraitLayout extends Layout {
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
-                  controlLayer,
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.black12,
@@ -74,6 +73,7 @@ class PortraitLayout extends Layout {
                     ),
                     child: spread,
                   ),
+                  controlLayer,
                 ],
               ),
             ),

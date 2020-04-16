@@ -22,7 +22,8 @@ class LandscapeLayout extends Layout {
   Widget get sectionController {
     return TabbedSectionController(
       activeSection: bookmark.sectionIndex,
-      onSectionPressed: (section) => bookmark.changeSection(section),
+      onSectionPressed: (section) =>
+          updateBookmark(bookmark.changeSection(section)),
       sections: bookmark.sections,
     );
   }
@@ -30,9 +31,9 @@ class LandscapeLayout extends Layout {
   Widget get controlLayer {
     return DefaultControlLayer(
       backEnabled: bookmark.lastPageExists(),
-      onBackPressed: updateBookmark(bookmark.lastPage(pagesPerSpread)),
+      onBackPressed: () => updateBookmark(bookmark.lastPage(pagesPerSpread)),
       forwardEnabled: bookmark.nextPageExists(pagesPerSpread),
-      onForwardPressed: updateBookmark(bookmark.nextPage(pagesPerSpread)),
+      onForwardPressed: () => updateBookmark(bookmark.nextPage(pagesPerSpread)),
     );
   }
 
@@ -54,7 +55,6 @@ class LandscapeLayout extends Layout {
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
-                  controlLayer,
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.black12,
@@ -74,6 +74,7 @@ class LandscapeLayout extends Layout {
                     ),
                     child: spread,
                   ),
+                  controlLayer,
                 ],
               ),
             ),
