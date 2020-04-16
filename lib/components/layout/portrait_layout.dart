@@ -22,7 +22,8 @@ class PortraitLayout extends Layout {
   Widget get sectionController {
     return TabbedSectionController(
       activeSection: bookmark.sectionIndex,
-      onSectionPressed: (section) => bookmark.changeSection(section),
+      onSectionPressed: (section) =>
+          updateBookmark(bookmark.changeSection(section)),
       sections: bookmark.sections,
     );
   }
