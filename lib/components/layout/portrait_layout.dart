@@ -11,7 +11,6 @@ class PortraitLayout extends StatelessWidget {
 
   final int pagesPerSpread = 1;
 
-  @override
   const PortraitLayout({
     @required this.bookmark,
     @required this.updateBookmark,

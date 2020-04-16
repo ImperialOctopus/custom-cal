@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';
 import 'landscape_layout.dart';
-import 'layout.dart';
 import 'portrait_layout.dart';
 
-class OrientedLayout extends Layout {
+class OrientedLayout extends StatelessWidget {
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
 

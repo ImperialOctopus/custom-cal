@@ -4,15 +4,13 @@ import '../control_layer/default_control_layer.dart';
 import '../section_controller/tabbed_section_controller.dart';
 import '../spread/landscape_spread.dart';
 import '../../model/bookmark.dart';
-import 'layout.dart';
 
-class LandscapeLayout extends Layout {
+class LandscapeLayout extends StatelessWidget {
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
 
   final int pagesPerSpread = 2;
 
-  @override
   const LandscapeLayout({
     @required this.bookmark,
     @required this.updateBookmark,
