@@ -3,10 +3,13 @@ import 'package:prototype_cal/components/layout/landscape_layout.dart';
 
 import '../../model/bookmark.dart';
 
+/// Displays a book to the user.
 class Book extends StatefulWidget {
   final Bookmark startingBookmark;
 
-  const Book({@required this.startingBookmark});
+  const Book({
+    @required this.startingBookmark,
+  });
 
   @override
   State<StatefulWidget> createState() => BookState(bookmark: startingBookmark);
@@ -19,22 +22,29 @@ class BookState extends State<Book> {
 
   @override
   Widget build(BuildContext context) {
-    return LandscapeLayout(
-      bookmark: bookmark,
-      changeSection: _changeSection,
-      changePage: _changePage,
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        switch (orientation) {
+          case Orientation.landscape:
+            return LandscapeLayout(
+              bookmark: bookmark,
+              updateBookmark: _updateBookmark,
+            );
+          case Orientation.portrait:
+            return PortraitLayout(
+              bookmark: bookmark,
+              updateBookmark: _updateBookmark,
+            );
+          default:
+            throw FallThroughError();
+        }
+      },
     );
   }
 
-  void _changeSection(int i) {
+  void _updateBookmark(Bookmark newBookmark) {
     setState(() {
-      bookmark = bookmark.copyWith(sectionIndex: i, pageIndex: 0);
-    });
-  }
-
-  void _changePage(int i) {
-    setState(() {
-      bookmark = bookmark.copyWith(pageIndex: i);
+      bookmark = newBookmark;
     });
   }
 }

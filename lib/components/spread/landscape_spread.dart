@@ -4,6 +4,7 @@ import '../../model/bookmark.dart';
 import 'page_component.dart';
 import 'spread.dart';
 
+/// Spread of two pages arranged for landscape viewing.
 class LandscapeSpread extends Spread {
   final Bookmark bookmark;
 
