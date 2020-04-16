@@ -7,7 +7,7 @@ import '../model/section_data.dart';
 import '../model/page_data.dart';
 
 class XmlService {
-  static BookData loadXmlBook(String input) {
+  static BookData parseBookXml(String input) {
     XmlDocument document;
     try {
       document = parse(input);
@@ -15,12 +15,12 @@ class XmlService {
       print(e);
     }
 
-    return buildBook(document.children.firstWhere(
+    return _buildBook(document.children.firstWhere(
         (XmlNode node) => node is XmlElement && node.name.local == 'document',
         orElse: () => null));
   }
 
-  static BookData buildBook(XmlElement bookNode) {
+  static BookData _buildBook(XmlElement bookNode) {
     String title = bookNode.children
         .firstWhere(
             (XmlNode node) => node is XmlElement && node.name.local == 'title',
@@ -29,13 +29,13 @@ class XmlService {
     List<SectionData> sections = bookNode.children
         .where((XmlNode node) =>
             node is XmlElement && node.name.local == 'section')
-        .map((XmlNode node) => buildSection(node as XmlElement))
+        .map((XmlNode node) => _buildSection(node as XmlElement))
         .toList();
 
     return BookData(name: title, sections: sections);
   }
 
-  static SectionData buildSection(XmlElement sectionNode) {
+  static SectionData _buildSection(XmlElement sectionNode) {
     // Get title, if not specified set to an error message
     XmlNode titleNode = sectionNode.children.firstWhere(
         (XmlNode node) => node is XmlElement && node.name.local == 'title',
@@ -72,7 +72,7 @@ class XmlService {
     List<PageData> pages = sectionNode.children
         .where(
             (XmlNode node) => node is XmlElement && node.name.local == 'page')
-        .map((XmlNode node) => buildPage(node as XmlElement))
+        .map((XmlNode node) => _buildPage(node as XmlElement))
         .toList();
 
     return SectionData(
@@ -84,7 +84,7 @@ class XmlService {
     );
   }
 
-  static PageData buildPage(XmlElement pageNode) {
+  static PageData _buildPage(XmlElement pageNode) {
     String title = pageNode.children
         .firstWhere(
             (XmlNode node) => node is XmlElement && node.name.local == 'title',
@@ -96,7 +96,7 @@ class XmlService {
             orElse: () => null)
         ?.text;
     List<Widget> content = pageNode.children
-        .map((XmlNode paragraphNode) => buildParagraph(paragraphNode))
+        .map((XmlNode paragraphNode) => _buildParagraph(paragraphNode))
         .where((element) => element != null)
         .toList();
 
@@ -107,7 +107,7 @@ class XmlService {
     );
   }
 
-  static Widget buildParagraph(XmlNode paragraphNode) {
+  static Widget _buildParagraph(XmlNode paragraphNode) {
     if (paragraphNode is XmlElement) {
       switch (paragraphNode.name.local) {
         case 'paragraph':
@@ -128,42 +128,5 @@ class XmlService {
     } else {
       return null;
     }
-  }
-
-  static BookData get testBookData {
-    String string = '''
-<?xml version="1.0"?>
-<document>
-    <title>Snakes Versus Cows: A Balanced View</title>
-    <section>
-        <title>Appearance</title>
-        <color>#DDDDDD"</color>
-        <optional>false</optional>
-        <page>
-            <title>Colour</title>
-            <paragraph>Snakes and cows are both creatures that come in a variety of colours.</paragraph>
-            <paragraph>Snakes have the most colours and are therefore the best.</paragraph>
-            <note>Remember the 3C rule: Cows aren't Colourful enough to Consider</note>
-        </page>
-        <page>
-            <title>Number of Legs</title>
-            <paragraph>Cows: approximately 4 legs</paragraph>
-            <paragraph>Snakes: approximately 0 legs</paragraph>
-            <paragraph>Regarding leg number, cows are the clear winner with a lead of around 4.0 legs!</paragraph>
-        </page>
-    </section>
-    <section>
-        <title>Milk</title>
-        <color>#FF0044"</color>
-        <optional>false</optional>
-        <page>
-            <title>Process of Milking</title>
-            <paragraph>On this issue, the two sides are perfectly balanced.</paragraph>
-            <note>As all things should be!</note>
-        </page>
-    </section>
-</document>
-''';
-    return loadXmlBook(string);
   }
 }

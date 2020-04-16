@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../model/model.dart';
 import '../components/page/note_box.dart';
-import '../model/book_data.dart';
-import '../model/section_data.dart';
-import '../model/page_data.dart';
 
-BookData testBook = BookData(
+BookData testBookData = BookData(
   name: 'Snakes vs Cows',
   sections: <SectionData>[
     SectionData(
