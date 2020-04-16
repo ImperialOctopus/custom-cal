@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../control_layer/default_control_layer.dart';
 import '../section_controller/tabbed_section_controller.dart';
-import '../spread/landscape_spread.dart';
+import '../spread/portrait_spread.dart';
 import '../../model/bookmark.dart';
 import '../layout/layout.dart';
 
-class LandscapeLayout extends Layout {
+class PortraitLayout extends Layout {
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
 
   @override
-  final int pagesPerSpread = 2;
+  final int pagesPerSpread = 1;
 
   @override
-  const LandscapeLayout({
+  const PortraitLayout({
     @required this.bookmark,
     @required this.updateBookmark,
   });
@@ -37,7 +37,7 @@ class LandscapeLayout extends Layout {
   }
 
   Widget get spread {
-    return LandscapeSpread(
+    return PortraitSpread(
       bookmark: bookmark,
     );
   }
@@ -46,7 +46,7 @@ class LandscapeLayout extends Layout {
   Widget build(BuildContext context) {
     return Center(
       child: AspectRatio(
-        aspectRatio: 1.6,
+        aspectRatio: 0.625,
         child: Column(
           children: <Widget>[
             sectionController,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/layout/landscape_layout.dart';
 
+import '../layout/landscape_layout.dart';
+import '../layout/portrait_layout.dart';
 import '../../model/bookmark.dart';
 
 /// Displays a book to the user.
