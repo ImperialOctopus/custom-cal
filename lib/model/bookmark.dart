@@ -56,9 +56,9 @@ class Bookmark {
 
   /// Returns the bookmark corresponding to the following page spread.
   Bookmark nextPage(int pagesPerSpread) {
-    int page = pageIndex - pagesPerSpread;
-    if (page < 0) {
-      page = 0;
+    int page = pageIndex + pagesPerSpread;
+    if (page > pagesInSectionCount - 1) {
+      page = pagesInSectionCount - 1;
     }
     return copyWith(pageIndex: page);
   }
