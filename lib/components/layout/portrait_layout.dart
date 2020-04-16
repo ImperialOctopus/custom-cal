@@ -4,13 +4,11 @@ import '../control_layer/default_control_layer.dart';
 import '../section_controller/tabbed_section_controller.dart';
 import '../spread/portrait_spread.dart';
 import '../../model/bookmark.dart';
-import '../layout/layout.dart';
 
-class PortraitLayout extends Layout {
+class PortraitLayout extends StatelessWidget {
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
 
-  @override
   final int pagesPerSpread = 1;
 
   @override

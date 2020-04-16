@@ -10,9 +10,11 @@ class MenuScreen extends StatelessWidget {
         child: FlatButton(
           child: Text('Open test book'),
           onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => BookScreen(book: testBookData))),
+            context,
+            MaterialPageRoute(
+              builder: (context) => BookScreen(book: testBookData),
+            ),
+          ),
         ),
       ),
     );
