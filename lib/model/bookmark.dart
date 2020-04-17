@@ -35,28 +35,40 @@ class Bookmark {
   List<PageData> get pages => section.pages;
   int get pagesInSectionCount => section.pages.length;
 
+  PageData get nextPage => getPage(pageIndex + 1);
+  PageData get previousPage => getPage(pageIndex - 1);
+
+  // Returns data for page index in current section, or null if page doesn't exist.
+  PageData getPage(int index) {
+    if (index < pagesInSectionCount) {
+      return pages[index];
+    } else {
+      return null;
+    }
+  }
+
   /// True if there is a valid page before the current one.
-  bool lastPageExists() {
-    return pageIndex > 0;
+  bool pagesBeforeExist(int pages) {
+    return pageIndex - pages >= 0;
+  }
+
+  /// True if there is a valid page following the current one.
+  bool pagesAfterExist(int pages) {
+    return pageIndex < pagesInSectionCount - pages;
   }
 
   /// Returns the bookmark corresponding to the previous page spread.
-  Bookmark lastPage(int pagesPerSpread) {
-    int page = pageIndex - pagesPerSpread;
+  Bookmark turnBack(int pages) {
+    int page = pageIndex - pages;
     if (page < 0) {
       page = 0;
     }
     return copyWith(pageIndex: page);
   }
 
-  /// True if there is a valid page following the current one.
-  bool nextPageExists(int pagesPerSpread) {
-    return pageIndex < pagesInSectionCount - pagesPerSpread;
-  }
-
   /// Returns the bookmark corresponding to the following page spread.
-  Bookmark nextPage(int pagesPerSpread) {
-    int page = pageIndex + pagesPerSpread;
+  Bookmark turnForward(int pages) {
+    int page = pageIndex + pages;
     if (page > pagesInSectionCount - 1) {
       page = pagesInSectionCount - 1;
     }

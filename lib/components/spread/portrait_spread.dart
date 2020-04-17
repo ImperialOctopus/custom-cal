@@ -2,16 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';
 import '../page/page_component.dart';
-import 'spread.dart';
 
-class PortraitSpread extends Spread {
-  @override
+class PortraitSpread extends StatelessWidget {
   final Bookmark bookmark;
-
-  final double tabHeight = 48;
-  final double tabWidth = 48;
-  final double tabSpacing = 4;
-  final double tabsInset = 16;
 
   const PortraitSpread({@required this.bookmark});
 
@@ -21,7 +14,9 @@ class PortraitSpread extends Spread {
       children: <Widget>[
         Expanded(
           child: PageComponent(
-              page: getPage(bookmark.pageIndex), foldEdge: FoldEdge.none),
+            page: bookmark.getPage(bookmark.pageIndex),
+            foldEdge: FoldEdge.none,
+          ),
         ),
       ],
     );

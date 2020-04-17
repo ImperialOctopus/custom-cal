@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/spread/animated_landscape_spread.dart';
 
 import '../control_layer/default_control_layer.dart';
 import '../section_controller/tabbed_section_controller.dart';
-import '../spread/portrait_spread.dart';
 import '../../model/bookmark.dart';
 
-class PortraitLayout extends StatelessWidget {
+class AnimatedLandscapeLayout extends StatelessWidget {
+  final Bookmark oldBookmark;
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
+  final AnimationController controller;
+  final Animation animation;
 
-  final int pagesPerSpread = 1;
+  final int pagesPerSpread = 2;
 
-  const PortraitLayout({
+  const AnimatedLandscapeLayout({
+    @required this.oldBookmark,
     @required this.bookmark,
     @required this.updateBookmark,
+    @required this.controller,
+    @required this.animation,
   });
 
   Widget get sectionController {
@@ -36,8 +42,11 @@ class PortraitLayout extends StatelessWidget {
   }
 
   Widget get spread {
-    return PortraitSpread(
+    return AnimatedLandscapeSpread(
       bookmark: bookmark,
+      oldBookmark: oldBookmark,
+      controller: controller,
+      animation: animation,
     );
   }
 

@@ -27,10 +27,11 @@ class LandscapeLayout extends StatelessWidget {
 
   Widget get controlLayer {
     return DefaultControlLayer(
-      backEnabled: bookmark.lastPageExists(),
-      onBackPressed: () => updateBookmark(bookmark.lastPage(pagesPerSpread)),
-      forwardEnabled: bookmark.nextPageExists(pagesPerSpread),
-      onForwardPressed: () => updateBookmark(bookmark.nextPage(pagesPerSpread)),
+      backEnabled: bookmark.pagesBeforeExist(1),
+      onBackPressed: () => updateBookmark(bookmark.turnBack(pagesPerSpread)),
+      forwardEnabled: bookmark.pagesAfterExist(pagesPerSpread),
+      onForwardPressed: () =>
+          updateBookmark(bookmark.turnForward(pagesPerSpread)),
     );
   }
 
