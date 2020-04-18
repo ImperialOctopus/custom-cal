@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/spread/landscape_spread.dart';
 
 import '../page/page_component.dart';
 import '../../model/bookmark.dart';
@@ -11,9 +12,9 @@ class AnimatedLandscapeSpread extends StatelessWidget {
   final AnimationController controller;
   final Animation animation;
 
-  final double spacing = 2;
-  final _perspective = 0.003;
-  final _zeroAngle =
+  final double spacing = 0;
+  final double _perspective = 0.0001;
+  final double _zeroAngle =
       0.0001; // There's something wrong in the perspective transform, I use a very small value instead of zero to temporarily get it around.
 
   const AnimatedLandscapeSpread({
@@ -29,10 +30,14 @@ class AnimatedLandscapeSpread extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: animation,
-      builder: (_, __) => buildPages(),
-    );
+    if (_running) {
+      return AnimatedBuilder(
+        animation: animation,
+        builder: (_, __) => buildPages(),
+      );
+    } else {
+      return LandscapeSpread(bookmark: bookmark);
+    }
   }
 
   Widget buildPages() {
@@ -42,11 +47,9 @@ class AnimatedLandscapeSpread extends StatelessWidget {
         Expanded(
           child: _buildLeftFlipPanel(),
         ),
-        Padding(
-          padding: EdgeInsets.only(left: spacing),
-        ),
         Expanded(
           child: _buildRightFlipPanel(),
+          //child: Container(),
         ),
       ],
     );
@@ -55,20 +58,16 @@ class AnimatedLandscapeSpread extends StatelessWidget {
   Widget _buildLeftFlipPanel() {
     return Stack(
       children: [
-        Transform(
-          alignment: Alignment.bottomCenter,
-          transform: Matrix4.identity()
-            ..setEntry(3, 2, _perspective)
-            ..rotateX(_zeroAngle),
-          child: _leftStartPage,
-        ),
-        Transform(
-          alignment: Alignment.bottomCenter,
-          transform: Matrix4.identity()
-            ..setEntry(3, 2, _perspective)
-            ..rotateX(_isFirstPhase ? animation.value : math.pi / 2),
-          child: _leftEndPage,
-        ),
+        _leftStartPage,
+        _isSecondPhase
+            ? Transform(
+                alignment: Alignment.centerRight,
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, _perspective)
+                  ..rotateY(animation.value + math.pi),
+                child: _leftEndPage,
+              )
+            : Container(),
       ],
     );
   }
@@ -76,20 +75,16 @@ class AnimatedLandscapeSpread extends StatelessWidget {
   Widget _buildRightFlipPanel() {
     return Stack(
       children: [
-        Transform(
-          alignment: Alignment.topCenter,
-          transform: Matrix4.identity()
-            ..setEntry(3, 2, _perspective)
-            ..rotateX(_zeroAngle),
-          child: _rightEndPage,
-        ),
-        Transform(
-          alignment: Alignment.topCenter,
-          transform: Matrix4.identity()
-            ..setEntry(3, 2, _perspective)
-            ..rotateX(_isSecondPhase ? math.pi / 2 : -animation.value),
-          child: _rightStartPage,
-        )
+        _rightEndPage,
+        _isFirstPhase
+            ? Transform(
+                alignment: Alignment.centerLeft,
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, _perspective)
+                  ..rotateY(animation.value),
+                child: _rightStartPage,
+              )
+            : Container(),
       ],
     );
   }

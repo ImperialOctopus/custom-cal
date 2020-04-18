@@ -36,8 +36,7 @@ class AnimatedBookState extends State<AnimatedBook>
     super.initState();
 
     _controller = AnimationController(duration: _duration, vsync: this);
-    _animation =
-        Tween(begin: _zeroAngle, end: math.pi / 2).animate(_controller);
+    _animation = Tween(begin: _zeroAngle, end: math.pi).animate(_controller);
   }
 
   @override
@@ -61,7 +60,7 @@ class AnimatedBookState extends State<AnimatedBook>
     setState(() {
       oldBookmark = bookmark;
       bookmark = newBookmark;
-      _controller.forward(from: 0);
+      _controller.reverse(from: 1);
     });
   }
 }
