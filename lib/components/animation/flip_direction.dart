@@ -1,0 +1,1 @@
+enum FlipDirection { right, left }

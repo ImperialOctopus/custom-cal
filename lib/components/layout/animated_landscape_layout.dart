@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/spread/animated_landscape_spread.dart';
+import 'package:prototype_cal/components/control_layer/keyboard_control_layer.dart';
 
+import '../animation/flip_direction.dart';
+import '../spread/animated_landscape_spread.dart';
 import '../control_layer/default_control_layer.dart';
 import '../section_controller/tabbed_section_controller.dart';
 import '../../model/bookmark.dart';
 
 class AnimatedLandscapeLayout extends StatelessWidget {
-  final Bookmark oldBookmark;
-  final Bookmark bookmark;
+  final Bookmark startBookmark;
+  final Bookmark endBookmark;
+  final FlipDirection flipDirection;
   final Function(Bookmark) updateBookmark;
   final AnimationController controller;
   final Animation animation;
@@ -15,8 +18,9 @@ class AnimatedLandscapeLayout extends StatelessWidget {
   final int pagesPerSpread = 2;
 
   const AnimatedLandscapeLayout({
-    @required this.oldBookmark,
-    @required this.bookmark,
+    @required this.startBookmark,
+    @required this.endBookmark,
+    @required this.flipDirection,
     @required this.updateBookmark,
     @required this.controller,
     @required this.animation,
@@ -24,27 +28,28 @@ class AnimatedLandscapeLayout extends StatelessWidget {
 
   Widget get sectionController {
     return TabbedSectionController(
-      activeSection: bookmark.sectionIndex,
+      activeSection: endBookmark.sectionIndex,
       onSectionPressed: (section) =>
-          updateBookmark(bookmark.changeSection(section)),
-      sections: bookmark.sections,
+          updateBookmark(endBookmark.changeSection(section)),
+      sections: endBookmark.sections,
     );
   }
 
   Widget get controlLayer {
-    return DefaultControlLayer(
-      backEnabled: bookmark.pagesBeforeExist(1),
-      onBackPressed: () => updateBookmark(bookmark.turnBack(pagesPerSpread)),
-      forwardEnabled: bookmark.pagesAfterExist(pagesPerSpread),
+    return KeyboardControlLayer(
+      backEnabled: endBookmark.pagesBeforeExist(1),
+      onBackPressed: () => updateBookmark(endBookmark.turnBack(pagesPerSpread)),
+      forwardEnabled: endBookmark.pagesAfterExist(pagesPerSpread),
       onForwardPressed: () =>
-          updateBookmark(bookmark.turnForward(pagesPerSpread)),
+          updateBookmark(endBookmark.turnForward(pagesPerSpread)),
     );
   }
 
   Widget get spread {
     return AnimatedLandscapeSpread(
-      bookmark: bookmark,
-      oldBookmark: oldBookmark,
+      startBookmark: startBookmark,
+      endBookmark: endBookmark,
+      flipDirection: flipDirection,
       controller: controller,
       animation: animation,
     );
