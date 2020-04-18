@@ -14,7 +14,7 @@ class SectionData {
     @required this.name,
     @required this.label,
     @required this.color,
-    @required this.optional,
     @required this.pages,
+    this.optional = false,
   });
 }

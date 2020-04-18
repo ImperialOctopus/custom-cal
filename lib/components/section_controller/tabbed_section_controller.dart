@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../model/section_data.dart';
 import 'section_controller.dart';
+import 'section_tab.dart';
 
 class TabbedSectionController extends SectionController {
   @override
@@ -37,11 +38,11 @@ class TabbedSectionController extends SectionController {
       // Add tab component
       list.add(SectionTab(
         label: sections[i].label,
-        index: i,
+        color: sections[i].color,
         active: i == activeSection,
         height: tabHeight,
         width: tabWidth,
-        onPress: (int i) => onSectionPressed(i),
+        onPress: () => onSectionPressed(i),
       ));
       // Add spacer if this isn't the last tab
       if (tabSpacing > 0 && i < sections.length - 1) {
@@ -50,40 +51,5 @@ class TabbedSectionController extends SectionController {
     }
 
     return Row(children: list);
-  }
-}
-
-class SectionTab extends StatelessWidget {
-  final Widget label;
-  final int index;
-  final double width;
-  final double height;
-  final bool active;
-  final Function(int) onPress;
-
-  const SectionTab({
-    @required this.label,
-    @required this.index,
-    @required this.width,
-    @required this.height,
-    this.active = false,
-    this.onPress,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      height: height,
-      child: GestureDetector(
-        child: Container(
-          color: active ? Colors.orange : Colors.pink,
-          child: Center(
-            child: label,
-          ),
-        ),
-        onTap: () => onPress(index),
-      ),
-    );
   }
 }
