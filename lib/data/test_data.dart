@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prototype_cal/components/page/web_image.dart';
+import 'package:prototype_cal/components/section_controller/section_tab_label.dart';
 
 import '../model/model.dart';
 import '../components/page/note_box.dart';
@@ -9,7 +10,10 @@ BookData testBookData = BookData(
   sections: <SectionData>[
     SectionData(
       name: 'First Section',
-      label: Icon(Icons.home),
+      label: SectionTabLabel(
+        iconData: Icons.home,
+        label: 'Home',
+      ),
       color: Colors.orange,
       pages: <PageData>[
         PageData(
@@ -69,7 +73,9 @@ BookData testBookData = BookData(
     ),
     SectionData(
       name: 'Second Section',
-      label: Text('2'),
+      label: SectionTabLabel(
+        label: '2',
+      ),
       color: Colors.redAccent,
       pages: <PageData>[
         PageData(
@@ -109,9 +115,10 @@ BookData testBookData = BookData(
     ),
     SectionData(
       name: 'Second Section',
-      label: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Icon(Icons.pool), Text('Pool')]),
+      label: SectionTabLabel(
+        iconData: Icons.pool,
+        label: 'Pool',
+      ),
       color: Colors.lightGreen,
       pages: <PageData>[
         PageData(
