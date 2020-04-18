@@ -74,6 +74,7 @@ BookData testBookData = BookData(
     SectionData(
       name: 'Second Section',
       label: SectionTabLabel(
+        iconData: Icons.play_arrow,
         label: '2',
       ),
       color: Colors.redAccent,

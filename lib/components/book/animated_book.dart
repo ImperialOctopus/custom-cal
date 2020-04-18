@@ -62,11 +62,13 @@ class AnimatedBookState extends State<AnimatedBook>
   }
 
   void _updateBookmark(Bookmark newBookmark) {
-    setState(() {
-      startBookmark = endBookmark;
-      endBookmark = newBookmark;
-      _controller.forward(from: 0);
-    });
+    if (newBookmark.compareTo(endBookmark) != 0) {
+      setState(() {
+        startBookmark = endBookmark;
+        endBookmark = newBookmark;
+        _controller.forward(from: 0);
+      });
+    }
   }
 
   FlipDirection get _flipDirection {

@@ -29,8 +29,10 @@ class BookState extends State<Book> {
   }
 
   void _updateBookmark(Bookmark newBookmark) {
-    setState(() {
-      bookmark = newBookmark;
-    });
+    if (newBookmark.compareTo(bookmark) != 0) {
+      setState(() {
+        bookmark = newBookmark;
+      });
+    }
   }
 }
