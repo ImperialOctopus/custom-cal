@@ -25,7 +25,7 @@ BookData testBookData = BookData(
                 height: 300,
               ),
             ),
-            NoteBox(child: Text('Banana note')),
+            NoteBox(child: Text('Note')),
           ],
         ),
         PageData(
@@ -39,8 +39,8 @@ BookData testBookData = BookData(
                 height: 500,
               ),
             ),
-            Text('LEAVES'),
-            Text('LEAFES'),
+            Text('MESSAGE'),
+            Text('MESSAGE'),
           ],
         ),
         PageData(
@@ -66,7 +66,7 @@ BookData testBookData = BookData(
         PageData(
           name: 'Owl Again',
           content: <Widget>[
-            Text('Omaewamou Shindeiru'),
+            Text('pppppppppppppppppppppppp'),
             Center(
               child: Image(
                 image: NetworkImage(
