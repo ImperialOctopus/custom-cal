@@ -26,8 +26,6 @@ class AnimatedBookState extends State<AnimatedBook>
   Animation _animation;
 
   Duration _duration = Duration(seconds: 1);
-  final _zeroAngle =
-      0.0001; // There's something wrong in the perspective transform, I use a very small value instead of zero to temporarily get it around.
 
   AnimatedBookState({@required this.bookmark}) : oldBookmark = bookmark;
 
@@ -36,7 +34,11 @@ class AnimatedBookState extends State<AnimatedBook>
     super.initState();
 
     _controller = AnimationController(duration: _duration, vsync: this);
-    _animation = Tween(begin: _zeroAngle, end: math.pi).animate(_controller);
+    _animation = Tween(begin: 0, end: math.pi).animate(_controller);
+    // Rebuild when animation ends
+    _controller.addStatusListener((status) {
+      setState(() {});
+    });
   }
 
   @override
@@ -60,7 +62,7 @@ class AnimatedBookState extends State<AnimatedBook>
     setState(() {
       oldBookmark = bookmark;
       bookmark = newBookmark;
-      _controller.reverse(from: 1);
+      _controller.forward(from: 0);
     });
   }
 }

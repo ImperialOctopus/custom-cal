@@ -4,7 +4,7 @@ import 'book_data.dart';
 import 'section_data.dart';
 import 'page_data.dart';
 
-class Bookmark {
+class Bookmark implements Comparable<Bookmark> {
   final BookData book;
   final int sectionIndex;
   final int pageIndex;
@@ -78,5 +78,22 @@ class Bookmark {
   /// Returns a bookmark at the specified section.
   Bookmark changeSection(int section) {
     return copyWith(sectionIndex: section, pageIndex: 0);
+  }
+
+  @override
+  int compareTo(Bookmark other) {
+    if (sectionIndex > other.sectionIndex) {
+      return 1;
+    }
+    if (sectionIndex < other.sectionIndex) {
+      return -1;
+    }
+    if (pageIndex > other.pageIndex) {
+      return 1;
+    }
+    if (pageIndex < other.pageIndex) {
+      return -1;
+    }
+    return 0;
   }
 }
