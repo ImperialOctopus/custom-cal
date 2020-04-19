@@ -29,18 +29,18 @@ class Bookmark implements Comparable<Bookmark> {
 
   SectionData get section => book.sections[sectionIndex];
   List<SectionData> get sections => book.sections;
-  int get sectionCount => book.sections.length;
 
   PageData get page => section.pages[pageIndex];
   List<PageData> get pages => section.pages;
-  int get pagesInSectionCount => section.pages.length;
+
+  int get _pagesInSectionCount => section.pages.length;
 
   PageData get nextPage => getPage(pageIndex + 1);
   PageData get previousPage => getPage(pageIndex - 1);
 
   // Returns data for page index in current section, or null if page doesn't exist.
   PageData getPage(int index) {
-    if (index < pagesInSectionCount) {
+    if (index < _pagesInSectionCount) {
       return pages[index];
     } else {
       return null;
@@ -54,7 +54,7 @@ class Bookmark implements Comparable<Bookmark> {
 
   /// True if there is a valid page following the current one.
   bool pagesAfterExist(int pages) {
-    return pageIndex < pagesInSectionCount - pages;
+    return pageIndex < _pagesInSectionCount - pages;
   }
 
   /// Returns the bookmark corresponding to the previous page spread.
@@ -69,8 +69,8 @@ class Bookmark implements Comparable<Bookmark> {
   /// Returns the bookmark corresponding to the following page spread.
   Bookmark turnForward(int pages) {
     int page = pageIndex + pages;
-    if (page > pagesInSectionCount - 1) {
-      page = pagesInSectionCount - 1;
+    if (page > _pagesInSectionCount - 1) {
+      page = _pagesInSectionCount - 1;
     }
     return copyWith(pageIndex: page);
   }
