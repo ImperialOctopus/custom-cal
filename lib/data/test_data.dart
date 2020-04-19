@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/page/web_image.dart';
-import 'package:prototype_cal/components/section_controller/section_tab_label.dart';
 
-import '../model/model.dart';
+import '../components/page/web_image.dart';
+import '../components/section_controller/section_tab_label.dart';
+import '../model/book_data.dart';
+import '../model/section_data.dart';
+import '../model/page_data.dart';
 import '../components/page/note_box.dart';
 
 BookData testBookData = BookData(
