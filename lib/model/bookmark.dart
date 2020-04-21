@@ -73,8 +73,7 @@ class Bookmark implements Comparable<Bookmark> {
 
   /// True if there are at least the specified number of pages before this one in the book.
   bool pageBeforeExists(int pages) {
-    print(_pagesBefore);
-    return _pagesBefore - pages > 0;
+    return _pagesBefore - pages >= 0;
   }
 
   /// True if there are at least the specified number of pages after this one in the book.

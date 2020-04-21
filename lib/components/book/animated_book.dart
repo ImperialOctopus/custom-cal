@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/layout/animated_portrait_layout.dart';
 
 import '../animation/flip_direction.dart';
 import '../layout/animated_landscape_layout.dart';
@@ -51,7 +52,7 @@ class AnimatedBookState extends State<AnimatedBook>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedLandscapeLayout(
+    return AnimatedPortraitLayout(
       lastBookmark: lastBookmark,
       bookmark: bookmark,
       flipDirection: _flipDirection,
