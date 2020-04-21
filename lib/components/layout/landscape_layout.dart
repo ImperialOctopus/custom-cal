@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/control_layer/keyboard_control_layer.dart';
 
 import '../control_layer/default_control_layer.dart';
 import '../spread/landscape_spread.dart';
@@ -16,7 +17,7 @@ class LandscapeLayout extends DefaultLayout {
 
   @override
   Widget get controlLayer {
-    return DefaultControlLayer(
+    return KeyboardControlLayer(
       backEnabled: bookmark.pageBeforeExists(1),
       onBackPressed: () => updateBookmark(bookmark.pageBefore(2)),
       forwardEnabled: bookmark.pageAfterExistsInSection(1)

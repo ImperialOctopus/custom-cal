@@ -56,12 +56,12 @@ class AnimatedLandscapeSpread extends StatelessWidget {
       );
 
   Widget get _rightStartPage => PageComponent(
-        page: startBookmark.pageAfter(1).page,
+        page: startBookmark.getPageInSection(1),
         foldEdge: FoldEdge.left,
       );
 
   Widget get _rightEndPage => PageComponent(
-        page: endBookmark.pageAfter(1).page,
+        page: endBookmark.getPageInSection(1),
         foldEdge: FoldEdge.left,
       );
 }

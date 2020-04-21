@@ -25,7 +25,6 @@ class KeyboardControlLayer extends ControlLayer {
         RawKeyboardListener(
           focusNode: FocusNode()..requestFocus(),
           onKey: (RawKeyEvent rawKeyEvent) {
-            //print(rawKeyEvent);
             if (backEnabled &&
                 rawKeyEvent.runtimeType == RawKeyDownEvent &&
                 rawKeyEvent.logicalKey == LogicalKeyboardKey.arrowLeft) {

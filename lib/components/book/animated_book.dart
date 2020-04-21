@@ -17,18 +17,18 @@ class AnimatedBook extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() =>
-      AnimatedBookState(endBookmark: startingBookmark);
+      AnimatedBookState(bookmark: startingBookmark);
 }
 
 class AnimatedBookState extends State<AnimatedBook>
     with SingleTickerProviderStateMixin {
-  Bookmark startBookmark;
-  Bookmark endBookmark;
+  Bookmark lastBookmark;
+  Bookmark bookmark;
 
   AnimationController _controller;
   Animation _animation;
 
-  AnimatedBookState({@required this.endBookmark}) : startBookmark = endBookmark;
+  AnimatedBookState({@required this.bookmark}) : lastBookmark = bookmark;
 
   @override
   void initState() {
@@ -52,8 +52,8 @@ class AnimatedBookState extends State<AnimatedBook>
   @override
   Widget build(BuildContext context) {
     return AnimatedLandscapeLayout(
-      startBookmark: startBookmark,
-      endBookmark: endBookmark,
+      lastBookmark: lastBookmark,
+      bookmark: bookmark,
       flipDirection: _flipDirection,
       updateBookmark: _updateBookmark,
       controller: _controller,
@@ -62,17 +62,17 @@ class AnimatedBookState extends State<AnimatedBook>
   }
 
   void _updateBookmark(Bookmark newBookmark) {
-    if (newBookmark.compareTo(endBookmark) != 0) {
+    if (newBookmark.compareTo(bookmark) != 0) {
       setState(() {
-        startBookmark = endBookmark;
-        endBookmark = newBookmark;
+        lastBookmark = bookmark;
+        bookmark = newBookmark;
         _controller.forward(from: 0);
       });
     }
   }
 
   FlipDirection get _flipDirection {
-    if (endBookmark.compareTo(startBookmark) >= 0) {
+    if (bookmark.compareTo(lastBookmark) >= 0) {
       return FlipDirection.left;
     } else {
       return FlipDirection.right;

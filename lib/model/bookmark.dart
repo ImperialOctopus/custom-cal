@@ -45,7 +45,7 @@ class Bookmark implements Comparable<Bookmark> {
 
   /// Count of pages preceding the current one in the book.
   int get _pagesBefore {
-    int total = pageIndex + 1;
+    int total = pageIndex;
     for (int i = sectionIndex - 1; i >= 0; i--) {
       total += _pagesInSection(index: i);
     }
@@ -73,12 +73,13 @@ class Bookmark implements Comparable<Bookmark> {
 
   /// True if there are at least the specified number of pages before this one in the book.
   bool pageBeforeExists(int pages) {
+    print(_pagesBefore);
     return _pagesBefore - pages > 0;
   }
 
   /// True if there are at least the specified number of pages after this one in the book.
   bool pageAfterExists(int pages) {
-    return _pagesAfter - pages > 0;
+    return _pagesAfter - pages >= 0;
   }
 
   /// Gets the page if it's in this section, if not returns null.
@@ -110,7 +111,6 @@ class Bookmark implements Comparable<Bookmark> {
       }
     }
 
-    print("<" + _section.toString() + " " + _page.toString());
     return _copyWith(pageIndex: _page, sectionIndex: _section);
   }
 
@@ -128,7 +128,6 @@ class Bookmark implements Comparable<Bookmark> {
       _page = 0;
     }
 
-    print(">" + _section.toString() + " " + _page.toString());
     return _copyWith(pageIndex: _page, sectionIndex: _section);
   }
 
