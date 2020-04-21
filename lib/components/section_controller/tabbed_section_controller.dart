@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../model/section_data.dart';
-import 'section_controller.dart';
 import 'section_tab.dart';
 
-class TabbedSectionController extends SectionController {
-  @override
+class TabbedSectionController extends StatelessWidget {
   final List<SectionData> sections;
-  @override
   final int activeSection;
-  @override
   final Function(int i) onSectionPressed;
 
   final double tabHeight;
