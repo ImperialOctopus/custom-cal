@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../model/section_data.dart';
+import 'close_button_tab.dart';
 import 'section_tab.dart';
 
 class TabbedSectionController extends StatelessWidget {
@@ -8,19 +9,18 @@ class TabbedSectionController extends StatelessWidget {
   final int activeSection;
   final Function(int i) onSectionPressed;
 
-  final double tabHeight;
-  final double tabWidth;
-  final double tabSpacing;
-  final double inset;
+  final bool showCloseButton;
+
+  final double tabHeight = 64;
+  final double tabWidth = 64;
+  final double tabSpacing = 2;
+  final double inset = 2;
 
   const TabbedSectionController({
     @required this.sections,
     @required this.activeSection,
     @required this.onSectionPressed,
-    this.tabHeight = 64,
-    this.tabWidth = 64,
-    this.tabSpacing = 0,
-    this.inset = 0,
+    this.showCloseButton = true,
   });
 
   @override
@@ -32,18 +32,32 @@ class TabbedSectionController extends StatelessWidget {
 
     for (int i = 0; i < sections.length; i++) {
       // Add tab component
-      list.add(SectionTab(
-        label: sections[i].label,
-        color: sections[i].color,
-        active: i == activeSection,
-        height: tabHeight,
-        width: tabWidth,
-        onPress: () => onSectionPressed(i),
-      ));
+      list.add(
+        SectionTab(
+          label: sections[i].label,
+          color: sections[i].color,
+          active: i == activeSection,
+          height: tabHeight,
+          width: tabWidth,
+          onPress: () => onSectionPressed(i),
+        ),
+      );
       // Add spacer if this isn't the last tab
       if (tabSpacing > 0 && i < sections.length - 1) {
         list.add(SizedBox(width: tabSpacing));
       }
+    }
+
+    if (showCloseButton) {
+      list.add(Spacer());
+      list.add(
+        CloseButtonTab(
+          height: tabHeight,
+          width: tabWidth,
+          onPress: () => Navigator.pop(context),
+        ),
+      );
+      list.add(SizedBox.fromSize(size: Size(inset, 0)));
     }
 
     return Row(children: list);
