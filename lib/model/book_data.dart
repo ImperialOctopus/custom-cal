@@ -6,5 +6,8 @@ class BookData {
   final String name;
   final List<SectionData> sections;
 
-  const BookData({@required this.name, @required this.sections});
+  BookData({
+    @required this.name,
+    @required this.sections,
+  });
 }

@@ -8,10 +8,12 @@ import '../../model/bookmark.dart';
 class LandscapeLayout extends DefaultLayout {
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
+  final Function(int, int) hyperlinkFunction;
 
   const LandscapeLayout({
     @required this.bookmark,
     @required this.updateBookmark,
+    @required this.hyperlinkFunction,
   });
 
   @override
@@ -33,6 +35,7 @@ class LandscapeLayout extends DefaultLayout {
   Widget get spread {
     return LandscapeSpread(
       bookmark: bookmark,
+      hyperlinkFunction: hyperlinkFunction,
     );
   }
 }

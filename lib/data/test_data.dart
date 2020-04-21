@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/page/hyperlink.dart';
 
 import '../components/page/web_image.dart';
 import '../components/section_controller/section_tab_label.dart';
@@ -86,6 +87,13 @@ BookData testBookData = BookData(
           content: <Widget>[
             Text('First line'),
             Text('Second line'),
+            Hyperlink(
+              child: NoteBox(
+                child: Text('Back to Start'),
+              ),
+              section: 0,
+              page: 0,
+            ),
             Text('Third line'),
           ],
         ),

@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/page/hyperlink.dart';
 
 import '../../model/page_data.dart';
 
 enum FoldEdge { left, right, none }
 
 class PageComponent extends StatelessWidget {
-  final double padding = 16;
-  final FoldEdge foldEdge;
   final PageData page;
+  final Function(int, int) hyperlinkFunction;
+  final FoldEdge foldEdge;
+
+  final double padding = 16;
 
   const PageComponent({
-    this.page,
+    @required this.page,
+    @required this.hyperlinkFunction,
     this.foldEdge = FoldEdge.none,
   });
 
@@ -46,9 +50,16 @@ class PageComponent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Text(page.name),
-        ...page.content,
+        ...page.content.map((Widget widget) => processContent(widget)),
       ],
     );
+  }
+
+  Widget processContent(Widget widget) {
+    if (widget is Hyperlink) {
+      return widget.copyWith(onPressed: hyperlinkFunction);
+    }
+    return widget;
   }
 
   BoxDecoration boxDecoration(BuildContext context, FoldEdge foldEdge) {

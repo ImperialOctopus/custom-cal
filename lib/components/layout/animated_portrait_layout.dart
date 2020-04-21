@@ -12,6 +12,7 @@ class AnimatedPortraitLayout extends PortraitLayout {
   final Function(Bookmark) updateBookmark;
   final AnimationController controller;
   final Animation animation;
+  final Function(int, int) hyperlinkFunction;
 
   const AnimatedPortraitLayout({
     @required this.lastBookmark,
@@ -20,6 +21,7 @@ class AnimatedPortraitLayout extends PortraitLayout {
     @required this.updateBookmark,
     @required this.controller,
     @required this.animation,
+    @required this.hyperlinkFunction,
   });
 
   @override
@@ -30,6 +32,7 @@ class AnimatedPortraitLayout extends PortraitLayout {
       flipDirection: flipDirection,
       controller: controller,
       animation: animation,
+      hyperlinkFunction: hyperlinkFunction,
     );
   }
 }

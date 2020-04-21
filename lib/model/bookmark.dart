@@ -9,10 +9,11 @@ class Bookmark implements Comparable<Bookmark> {
   final int sectionIndex;
   final int pageIndex;
 
-  const Bookmark(
-      {@required this.book,
-      @required this.sectionIndex,
-      @required this.pageIndex});
+  const Bookmark({
+    @required this.book,
+    @required this.sectionIndex,
+    @required this.pageIndex,
+  });
 
   const Bookmark.firstPage({@required BookData book})
       : book = book,

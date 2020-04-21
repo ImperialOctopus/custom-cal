@@ -12,6 +12,7 @@ class AnimatedPortraitSpread extends StatelessWidget {
   final FlipDirection flipDirection;
   final AnimationController controller;
   final Animation animation;
+  final Function(int, int) hyperlinkFunction;
 
   const AnimatedPortraitSpread({
     @required this.startBookmark,
@@ -19,6 +20,7 @@ class AnimatedPortraitSpread extends StatelessWidget {
     @required this.flipDirection,
     @required this.controller,
     @required this.animation,
+    @required this.hyperlinkFunction,
   });
 
   bool get _isFirstPhase => controller.value < 0.5;
@@ -38,17 +40,22 @@ class AnimatedPortraitSpread extends StatelessWidget {
         ),
       );
     } else {
-      return PortraitSpread(bookmark: endBookmark);
+      return PortraitSpread(
+        bookmark: endBookmark,
+        hyperlinkFunction: hyperlinkFunction,
+      );
     }
   }
 
   Widget get _startPage => PageComponent(
         page: startBookmark.page,
         foldEdge: FoldEdge.none,
+        hyperlinkFunction: hyperlinkFunction,
       );
 
   Widget get _endPage => PageComponent(
         page: endBookmark.page,
         foldEdge: FoldEdge.none,
+        hyperlinkFunction: hyperlinkFunction,
       );
 }

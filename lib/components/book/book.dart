@@ -25,7 +25,12 @@ class BookState extends State<Book> {
     return OrientedLayout(
       bookmark: bookmark,
       updateBookmark: _updateBookmark,
+      hyperlinkFunction: _hyperlinkFunction,
     );
+  }
+
+  void _hyperlinkFunction(int page, int section) {
+    _updateBookmark(bookmark.changeSection(section).changePage(page));
   }
 
   void _updateBookmark(Bookmark newBookmark) {

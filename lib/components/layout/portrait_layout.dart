@@ -8,10 +8,12 @@ import '../../model/bookmark.dart';
 class PortraitLayout extends DefaultLayout {
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
+  final Function(int, int) hyperlinkFunction;
 
   const PortraitLayout({
     @required this.bookmark,
     @required this.updateBookmark,
+    @required this.hyperlinkFunction,
   });
 
   @override
@@ -28,6 +30,7 @@ class PortraitLayout extends DefaultLayout {
   Widget get spread {
     return PortraitSpread(
       bookmark: bookmark,
+      hyperlinkFunction: hyperlinkFunction,
     );
   }
 }

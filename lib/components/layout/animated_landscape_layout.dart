@@ -12,6 +12,7 @@ class AnimatedLandscapeLayout extends LandscapeLayout {
   final Function(Bookmark) updateBookmark;
   final AnimationController controller;
   final Animation animation;
+  final Function(int, int) hyperlinkFunction;
 
   const AnimatedLandscapeLayout({
     @required this.lastBookmark,
@@ -20,6 +21,7 @@ class AnimatedLandscapeLayout extends LandscapeLayout {
     @required this.updateBookmark,
     @required this.controller,
     @required this.animation,
+    @required this.hyperlinkFunction,
   });
 
   @override
@@ -30,6 +32,7 @@ class AnimatedLandscapeLayout extends LandscapeLayout {
       flipDirection: flipDirection,
       controller: controller,
       animation: animation,
+      hyperlinkFunction: hyperlinkFunction,
     );
   }
 }

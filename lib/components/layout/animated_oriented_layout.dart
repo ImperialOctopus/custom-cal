@@ -12,6 +12,7 @@ class AnimatedOrientedLayout extends StatelessWidget {
   final Function(Bookmark) updateBookmark;
   final AnimationController controller;
   final Animation animation;
+  final Function(int, int) hyperlinkFunction;
 
   const AnimatedOrientedLayout({
     @required this.lastBookmark,
@@ -20,6 +21,7 @@ class AnimatedOrientedLayout extends StatelessWidget {
     @required this.updateBookmark,
     @required this.controller,
     @required this.animation,
+    @required this.hyperlinkFunction,
   });
 
   @override
@@ -35,6 +37,7 @@ class AnimatedOrientedLayout extends StatelessWidget {
               updateBookmark: updateBookmark,
               controller: controller,
               animation: animation,
+              hyperlinkFunction: hyperlinkFunction,
             );
           case Orientation.portrait:
             return AnimatedPortraitLayout(
@@ -44,6 +47,7 @@ class AnimatedOrientedLayout extends StatelessWidget {
               updateBookmark: updateBookmark,
               controller: controller,
               animation: animation,
+              hyperlinkFunction: hyperlinkFunction,
             );
           default:
             throw FallThroughError();

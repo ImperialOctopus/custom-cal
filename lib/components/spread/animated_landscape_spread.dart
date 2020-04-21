@@ -13,6 +13,7 @@ class AnimatedLandscapeSpread extends StatelessWidget {
   final FlipDirection flipDirection;
   final AnimationController controller;
   final Animation animation;
+  final Function(int, int) hyperlinkFunction;
 
   const AnimatedLandscapeSpread({
     @required this.startBookmark,
@@ -20,6 +21,7 @@ class AnimatedLandscapeSpread extends StatelessWidget {
     @required this.flipDirection,
     @required this.controller,
     @required this.animation,
+    @required this.hyperlinkFunction,
   });
 
   bool get _isFirstPhase => controller.value < 0.5;
@@ -41,27 +43,34 @@ class AnimatedLandscapeSpread extends StatelessWidget {
         ),
       );
     } else {
-      return LandscapeSpread(bookmark: endBookmark);
+      return LandscapeSpread(
+        bookmark: endBookmark,
+        hyperlinkFunction: hyperlinkFunction,
+      );
     }
   }
 
   Widget get _leftStartPage => PageComponent(
         page: startBookmark.page,
         foldEdge: FoldEdge.right,
+        hyperlinkFunction: hyperlinkFunction,
       );
 
   Widget get _leftEndPage => PageComponent(
         page: endBookmark.page,
         foldEdge: FoldEdge.right,
+        hyperlinkFunction: hyperlinkFunction,
       );
 
   Widget get _rightStartPage => PageComponent(
         page: startBookmark.getPageInSection(1),
         foldEdge: FoldEdge.left,
+        hyperlinkFunction: hyperlinkFunction,
       );
 
   Widget get _rightEndPage => PageComponent(
         page: endBookmark.getPageInSection(1),
         foldEdge: FoldEdge.left,
+        hyperlinkFunction: hyperlinkFunction,
       );
 }

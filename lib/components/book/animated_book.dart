@@ -37,6 +37,7 @@ class AnimatedBookState extends State<AnimatedBook>
     _controller =
         AnimationController(duration: widget.animationDuration, vsync: this);
     _animation = Tween(begin: 0, end: pi).animate(_controller);
+
     // Rebuild when animation ends
     _controller.addStatusListener((status) {
       setState(() {});
@@ -58,7 +59,12 @@ class AnimatedBookState extends State<AnimatedBook>
       updateBookmark: _updateBookmark,
       controller: _controller,
       animation: _animation,
+      hyperlinkFunction: _hyperlinkFunction,
     );
+  }
+
+  void _hyperlinkFunction(int page, int section) {
+    _updateBookmark(bookmark.changeSection(section).changePage(page));
   }
 
   void _updateBookmark(Bookmark newBookmark) {
