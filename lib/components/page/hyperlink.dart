@@ -33,7 +33,6 @@ class Hyperlink extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print(onPressed);
         if (onPressed != null) {
           onPressed(page, section);
         }

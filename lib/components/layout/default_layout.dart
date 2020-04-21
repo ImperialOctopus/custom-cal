@@ -18,7 +18,7 @@ abstract class DefaultLayout extends StatelessWidget {
     );
   }
 
-  Widget get controlLayer;
+  List<Widget> get controlLayer;
 
   Widget get spread;
 
@@ -51,7 +51,10 @@ abstract class DefaultLayout extends StatelessWidget {
                   ),
                   child: spread,
                 ),
-                controlLayer,
+                Stack(
+                  fit: StackFit.expand,
+                  children: controlLayer,
+                ),
               ],
             ),
           ),

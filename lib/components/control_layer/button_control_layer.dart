@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'turn_page_button.dart';
-
-class DefaultControlLayer extends StatelessWidget {
+class ButtonControlLayer extends StatelessWidget {
   final bool backEnabled;
   final Function onBackPressed;
   final bool forwardEnabled;
   final Function onForwardPressed;
 
-  const DefaultControlLayer({
-    this.backEnabled = true,
-    this.onBackPressed,
-    this.forwardEnabled = true,
-    this.onForwardPressed,
+  const ButtonControlLayer({
+    @required this.backEnabled,
+    @required this.onBackPressed,
+    @required this.forwardEnabled,
+    @required this.onForwardPressed,
   });
 
   @override
@@ -36,6 +34,24 @@ class DefaultControlLayer extends StatelessWidget {
               onPressed: forwardEnabled ? onForwardPressed : null,
             )),
       ],
+    );
+  }
+}
+
+class TurnPageButton extends StatelessWidget {
+  final Function onPressed;
+  final IconData iconData;
+
+  const TurnPageButton({
+    @required this.iconData,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(iconData),
+      onPressed: onPressed,
     );
   }
 }
