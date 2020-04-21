@@ -31,7 +31,7 @@ The most appropriate markup for this project is XML.
   - Semantically tied with the whole page, not a specific part of it
     - May be displayed alongside or below the page
   - Not necessary for full understanding
-    - May be omited in some contexts
+    - May be omitted in some contexts
 - Many paragraphs
 
 ### Paragraph

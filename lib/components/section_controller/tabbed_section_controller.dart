@@ -13,8 +13,8 @@ class TabbedSectionController extends StatelessWidget {
 
   final double tabHeight = 64;
   final double tabWidth = 64;
-  final double tabSpacing = 2;
-  final double inset = 2;
+  final double tabSpacing = 4;
+  final double inset = 8;
 
   const TabbedSectionController({
     @required this.sections,

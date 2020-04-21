@@ -20,7 +20,6 @@ class BookScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: padding,
-        color: Theme.of(context).scaffoldBackgroundColor,
         child: AnimatedBook(
           startingBookmark: Bookmark.firstPage(book: book),
         ),
