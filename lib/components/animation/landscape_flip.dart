@@ -105,7 +105,7 @@ class LandscapeFlip extends StatelessWidget {
                       transform: Matrix4.identity()
                         ..setEntry(3, 2, perspective)
                         ..rotateY(pi - animationProgress),
-                      child: rightStart,
+                      child: rightEnd,
                     )
                   : Container(),
             ],
