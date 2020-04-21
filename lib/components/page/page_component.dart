@@ -21,16 +21,28 @@ class PageComponent extends StatelessWidget {
       child: Container(
         decoration: boxDecoration(context, foldEdge),
         padding: EdgeInsets.all(padding),
-        child: pageContent(page),
+        child: LayoutBuilder(builder:
+            (BuildContext context, BoxConstraints viewportConstraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: viewportConstraints.maxHeight,
+              ),
+              child: pageContent(page),
+            ),
+          );
+        }),
       ),
     );
   }
 
   Widget pageContent(PageData page) {
     if (page == null) {
-      return null;
+      return Container();
     }
     return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Text(page.name),

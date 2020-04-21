@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'turn_page_button.dart';
-import '../control_layer/control_layer.dart';
 
-class KeyboardControlLayer extends ControlLayer {
+class KeyboardControlLayer extends StatelessWidget {
   final bool backEnabled;
   final Function onBackPressed;
   final bool forwardEnabled;

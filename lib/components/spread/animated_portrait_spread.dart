@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/animation/flip_direction.dart';
-import 'package:prototype_cal/components/animation/portrait_flip.dart';
-import 'package:prototype_cal/components/page/page_component.dart';
-import 'package:prototype_cal/components/spread/portrait_spread.dart';
-import 'package:prototype_cal/model/bookmark.dart';
+
+import '../animation/flip_direction.dart';
+import '../animation/portrait_flip.dart';
+import '../page/page_component.dart';
+import '../spread/portrait_spread.dart';
+import '../../model/bookmark.dart';
 
 class AnimatedPortraitSpread extends StatelessWidget {
   final Bookmark startBookmark;

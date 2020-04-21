@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/layout/landscape_layout.dart';
 
+import 'landscape_layout.dart';
 import '../animation/flip_direction.dart';
 import '../spread/animated_landscape_spread.dart';
 import '../../model/bookmark.dart';

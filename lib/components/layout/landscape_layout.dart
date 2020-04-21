@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/control_layer/keyboard_control_layer.dart';
 
-import '../control_layer/default_control_layer.dart';
+import 'default_layout.dart';
+import '../control_layer/keyboard_control_layer.dart';
 import '../spread/landscape_spread.dart';
 import '../../model/bookmark.dart';
-import 'default_layout.dart';
 
 class LandscapeLayout extends DefaultLayout {
   final Bookmark bookmark;

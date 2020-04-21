@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/control_layer/default_control_layer.dart';
-import 'package:prototype_cal/components/section_controller/tabbed_section_controller.dart';
-import 'package:prototype_cal/components/spread/landscape_spread.dart';
-import 'package:prototype_cal/model/bookmark.dart';
+
+import '../section_controller/tabbed_section_controller.dart';
+import '../../model/bookmark.dart';
 
 abstract class DefaultLayout extends StatelessWidget {
   Bookmark get bookmark;

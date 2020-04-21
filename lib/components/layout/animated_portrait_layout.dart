@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/animation/flip_direction.dart';
-import 'package:prototype_cal/components/layout/portrait_layout.dart';
-import 'package:prototype_cal/components/spread/animated_portrait_spread.dart';
-import 'package:prototype_cal/model/bookmark.dart';
+
+import 'portrait_layout.dart';
+import '../animation/flip_direction.dart';
+import '../spread/animated_portrait_spread.dart';
+import '../../model/bookmark.dart';
 
 class AnimatedPortraitLayout extends PortraitLayout {
   final Bookmark lastBookmark;

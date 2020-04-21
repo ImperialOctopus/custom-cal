@@ -1,9 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/layout/animated_portrait_layout.dart';
 
+import '../layout/animated_oriented_layout.dart';
 import '../animation/flip_direction.dart';
-import '../layout/animated_landscape_layout.dart';
 import '../../model/bookmark.dart';
 
 /// Displays a book to the user.
@@ -52,7 +51,7 @@ class AnimatedBookState extends State<AnimatedBook>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedPortraitLayout(
+    return AnimatedOrientedLayout(
       lastBookmark: lastBookmark,
       bookmark: bookmark,
       flipDirection: _flipDirection,

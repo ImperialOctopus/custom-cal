@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'turn_page_button.dart';
-import '../control_layer/control_layer.dart';
 
-class DefaultControlLayer extends ControlLayer {
+class DefaultControlLayer extends StatelessWidget {
   final bool backEnabled;
   final Function onBackPressed;
   final bool forwardEnabled;

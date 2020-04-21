@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+
 import 'section_data.dart';
 
 class BookData {
