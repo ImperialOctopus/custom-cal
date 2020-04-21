@@ -14,7 +14,7 @@ class PortraitSpread extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: PageComponent(
-            page: bookmark.getPage(bookmark.pageIndex),
+            page: bookmark.page,
             foldEdge: FoldEdge.none,
           ),
         ),

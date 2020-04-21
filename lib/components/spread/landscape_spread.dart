@@ -15,13 +15,13 @@ class LandscapeSpread extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: PageComponent(
-            page: bookmark.getPage(bookmark.pageIndex),
+            page: bookmark.page,
             foldEdge: FoldEdge.right,
           ),
         ),
         Expanded(
           child: PageComponent(
-            page: bookmark.getPage(bookmark.pageIndex + 1),
+            page: bookmark.getPageInSection(1),
             foldEdge: FoldEdge.left,
           ),
         ),

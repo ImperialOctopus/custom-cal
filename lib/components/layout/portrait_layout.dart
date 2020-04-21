@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/control_layer/keyboard_control_layer.dart';
 
-import '../control_layer/default_control_layer.dart';
 import '../section_controller/tabbed_section_controller.dart';
 import '../spread/portrait_spread.dart';
 import '../../model/bookmark.dart';
@@ -8,8 +8,6 @@ import '../../model/bookmark.dart';
 class PortraitLayout extends StatelessWidget {
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
-
-  final int pagesPerSpread = 1;
 
   const PortraitLayout({
     @required this.bookmark,
@@ -26,12 +24,11 @@ class PortraitLayout extends StatelessWidget {
   }
 
   Widget get controlLayer {
-    return DefaultControlLayer(
-      backEnabled: bookmark.pagesBeforeExist(1),
-      onBackPressed: () => updateBookmark(bookmark.turnBack(pagesPerSpread)),
-      forwardEnabled: bookmark.pagesAfterExist(pagesPerSpread),
-      onForwardPressed: () =>
-          updateBookmark(bookmark.turnForward(pagesPerSpread)),
+    return KeyboardControlLayer(
+      backEnabled: bookmark.pageBeforeExists(1),
+      onBackPressed: () => updateBookmark(bookmark.pageBefore(1)),
+      forwardEnabled: bookmark.pageAfterExists(1),
+      onForwardPressed: () => updateBookmark(bookmark.pageAfter(1)),
     );
   }
 

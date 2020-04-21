@@ -9,8 +9,6 @@ class LandscapeLayout extends StatelessWidget {
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
 
-  final int pagesPerSpread = 2;
-
   const LandscapeLayout({
     @required this.bookmark,
     @required this.updateBookmark,
@@ -27,11 +25,15 @@ class LandscapeLayout extends StatelessWidget {
 
   Widget get controlLayer {
     return DefaultControlLayer(
-      backEnabled: bookmark.pagesBeforeExist(1),
-      onBackPressed: () => updateBookmark(bookmark.turnBack(pagesPerSpread)),
-      forwardEnabled: bookmark.pagesAfterExist(pagesPerSpread),
-      onForwardPressed: () =>
-          updateBookmark(bookmark.turnForward(pagesPerSpread)),
+      backEnabled: bookmark.pageBeforeExists(1),
+      onBackPressed: () => updateBookmark(bookmark.pageBefore(2)),
+      forwardEnabled: bookmark.pageAfterExistsInSection(1)
+          ? bookmark.pageAfterExists(2)
+          : bookmark.pageAfterExists(1),
+      onForwardPressed: () => updateBookmark(
+          bookmark.pageAfterExistsInSection(1)
+              ? bookmark.pageAfter(2)
+              : bookmark.pageAfter(1)),
     );
   }
 

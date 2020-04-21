@@ -22,7 +22,7 @@ class BookScreen extends StatelessWidget {
         padding: padding,
         color: Theme.of(context).scaffoldBackgroundColor,
         child: AnimatedBook(
-          startingBookmark: Bookmark.first(book: book),
+          startingBookmark: Bookmark.firstPage(book: book),
         ),
       ),
     );

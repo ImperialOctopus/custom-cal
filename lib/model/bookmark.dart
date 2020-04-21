@@ -14,12 +14,22 @@ class Bookmark implements Comparable<Bookmark> {
       @required this.sectionIndex,
       @required this.pageIndex});
 
-  const Bookmark.first({@required BookData book})
+  const Bookmark.firstPage({@required BookData book})
       : book = book,
         sectionIndex = 0,
         pageIndex = 0;
 
-  Bookmark copyWith({BookData book, int sectionIndex, int pageIndex}) {
+  Bookmark.lastPage({@required BookData book})
+      : book = book,
+        sectionIndex = book.sections.length - 1,
+        pageIndex = book.sections.last.pages.length - 1;
+
+  List<SectionData> get sections => book.sections;
+
+  SectionData get section => book.sections[sectionIndex];
+  PageData get page => section.pages[pageIndex];
+
+  Bookmark _copyWith({BookData book, int sectionIndex, int pageIndex}) {
     return Bookmark(
       book: book ?? this.book,
       sectionIndex: sectionIndex ?? this.sectionIndex,
@@ -27,57 +37,120 @@ class Bookmark implements Comparable<Bookmark> {
     );
   }
 
-  SectionData get section => book.sections[sectionIndex];
-  List<SectionData> get sections => book.sections;
-
-  PageData get page => section.pages[pageIndex];
-  List<PageData> get pages => section.pages;
-
-  int get _pagesInSectionCount => section.pages.length;
-
-  PageData get nextPage => getPage(pageIndex + 1);
-  PageData get previousPage => getPage(pageIndex - 1);
-
-  // Returns data for page index in current section, or null if page doesn't exist.
-  PageData getPage(int index) {
-    if (index < _pagesInSectionCount) {
-      return pages[index];
-    } else {
-      return null;
-    }
+  // Number of pages in the specified section. Defaults to current section.
+  int _pagesInSection({int index}) {
+    index ??= sectionIndex;
+    return sections[index].pages.length;
   }
 
-  /// True if there is a valid page before the current one.
-  bool pagesBeforeExist(int pages) {
+  /// Count of pages preceding the current one in the book.
+  int get _pagesBefore {
+    int total = pageIndex + 1;
+    for (int i = sectionIndex - 1; i >= 0; i--) {
+      total += _pagesInSection(index: i);
+    }
+    return total;
+  }
+
+  /// Count of pages following the current one in the book.
+  int get _pagesAfter {
+    int total = _pagesInSection() - (pageIndex + 1);
+    for (int i = sectionIndex + 1; i < sections.length; i++) {
+      total += _pagesInSection(index: i);
+    }
+    return total;
+  }
+
+  /// True if there are at least the specified number of pages before this one in the section.
+  bool pageBeforeExistsInSection(int pages) {
     return pageIndex - pages >= 0;
   }
 
-  /// True if there is a valid page following the current one.
-  bool pagesAfterExist(int pages) {
-    return pageIndex < _pagesInSectionCount - pages;
+  /// True if there are at least the specified number of pages after this one in the section.
+  bool pageAfterExistsInSection(int pages) {
+    return pageIndex + pages < _pagesInSection();
+  }
+
+  /// True if there are at least the specified number of pages before this one in the book.
+  bool pageBeforeExists(int pages) {
+    return _pagesBefore - pages > 0;
+  }
+
+  /// True if there are at least the specified number of pages after this one in the book.
+  bool pageAfterExists(int pages) {
+    return _pagesAfter - pages > 0;
+  }
+
+  /// Gets the page if it's in this section, if not returns null.
+  PageData getPageInSection(int pages) {
+    if (pages < 0) {
+      return pageBeforeExistsInSection(pages) ? pageBefore(pages).page : null;
+    } else if (pages == 0) {
+      return page;
+    } else {
+      return pageAfterExistsInSection(pages) ? pageAfter(pages).page : null;
+    }
   }
 
   /// Returns the bookmark corresponding to the previous page spread.
-  Bookmark turnBack(int pages) {
-    int page = pageIndex - pages;
-    if (page < 0) {
-      page = 0;
+  Bookmark pageBefore(int pages) {
+    if (!pageBeforeExists(pages)) {
+      return Bookmark.firstPage(book: book);
     }
-    return copyWith(pageIndex: page);
+    int _section = sectionIndex;
+    int _page = pageIndex - pages;
+
+    // Move section back if requested page is in the previous section.
+    if (_page < 0) {
+      _section--;
+      _page = _pagesInSection(index: _section) - 1;
+      // Prevent flipping back from skipping sections.
+      if (_page < 0) {
+        _page = 0;
+      }
+    }
+
+    print("<" + _section.toString() + " " + _page.toString());
+    return _copyWith(pageIndex: _page, sectionIndex: _section);
   }
 
   /// Returns the bookmark corresponding to the following page spread.
-  Bookmark turnForward(int pages) {
-    int page = pageIndex + pages;
-    if (page > _pagesInSectionCount - 1) {
-      page = _pagesInSectionCount - 1;
+  Bookmark pageAfter(int pages) {
+    if (!pageAfterExists(pages)) {
+      return Bookmark.lastPage(book: book);
     }
-    return copyWith(pageIndex: page);
+    int _section = sectionIndex;
+    int _page = pageIndex + pages;
+
+    // Move section forward if requested page is in the next section.
+    if (_page > _pagesInSection() - 1) {
+      _section++;
+      _page = 0;
+    }
+
+    print(">" + _section.toString() + " " + _page.toString());
+    return _copyWith(pageIndex: _page, sectionIndex: _section);
+  }
+
+  /// Returns a bookmark at the specified page.
+  Bookmark changePage(int _page) {
+    if (_page >= 0 && _page < _pagesInSection()) {
+      return _copyWith(pageIndex: _page);
+    } else {
+      throw ArgumentError(
+          "changePage failed: page " + _page.toString() + " does not exist.");
+    }
   }
 
   /// Returns a bookmark at the specified section.
-  Bookmark changeSection(int section) {
-    return copyWith(sectionIndex: section, pageIndex: 0);
+  Bookmark changeSection(int _section) {
+    if (_section >= 0 && _section < sections.length) {
+      return _copyWith(sectionIndex: _section, pageIndex: 0);
+    } else {
+      throw ArgumentError("changeSection failed: section " +
+          _section.toString() +
+          " does not exist.");
+    }
   }
 
   @override
