@@ -12,16 +12,32 @@ Dog breeds can be divided into seven broad categories based on what purpose they
 
 - List all dogs in order by breed
 
-## Sporting
-
 ## Hound
+
+Hounds were originally bred to hunt. They are divided into sighthounds and scent hounds based on whether they hunt with sight and speed, or scent and endurance.
+
+Common hounds include Beagles, Dachshunds, Greyhounds, and Whippets.
 
 ## Working
 
+Working dogs were bred as guard dogs, or for search and rescue. Familiar working dog breeds are the Dobermann, Newfoundland, and Great Dane.
+
 ## Terrier
+
+Terriers were originally bred to hunt vermin both above and below ground. Every terrier has "terrier" at the end of its name!
+
+## Gundog
+
+These were bred to help with shooting; either by finding live game or by retrieving shot and wounded animals.
+
+## Pastoral
+
+Pastoral dogs were bred to herd animals including sheep, cattle, and reindeer.
+
+## Utility
+
+The utility group contains breeds bred for a purpose not included in any of the other groups.
 
 ## Toy
 
-## Non-Sporting
-
-## Herding
+Toy breeds were bred as companion or lap dogs.
