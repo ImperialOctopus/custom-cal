@@ -15,18 +15,22 @@ class SwipeControlLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onHorizontalDragEnd: (DragEndDetails details) {
-        if (details.primaryVelocity > 0) {
-          if (forwardEnabled) {
-            onForwardPressed();
+    return Positioned.fill(
+      child: GestureDetector(
+        onHorizontalDragEnd: (DragEndDetails details) {
+          print(details);
+
+          if (details.primaryVelocity > 0) {
+            if (forwardEnabled) {
+              onForwardPressed();
+            }
+          } else {
+            if (backEnabled) {
+              onBackPressed();
+            }
           }
-        } else {
-          if (backEnabled) {
-            onBackPressed();
-          }
-        }
-      },
+        },
+      ),
     );
   }
 }
