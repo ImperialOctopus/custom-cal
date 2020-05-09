@@ -18,26 +18,54 @@ Hounds were originally bred to hunt. They are divided into sighthounds and scent
 
 Common hounds include Beagles, Dachshunds, Greyhounds, and Whippets.
 
+### Dachshund
+
+### Greyhound
+
 ## Working
 
 Working dogs were bred as guard dogs, or for search and rescue. Familiar working dog breeds are the Dobermann, Newfoundland, and Great Dane.
 
+### Dobermann
+
+### Great Dane
+
 ## Terrier
 
-Terriers were originally bred to hunt vermin both above and below ground. Every terrier has "terrier" at the end of its name!
+Terriers were originally bred to hunt vermin both above and below ground. Every terrier has "terrier" at the end of its name! (Not every dog with "terrier" is a terrier though...)
+
+### Scottish Terrier
+
+### Jack Russel Terrier
 
 ## Gundog
 
 These were bred to help with shooting; either by finding live game or by retrieving shot and wounded animals.
 
+### Labrador Retriever
+
+### Cocker Spaniel
+
 ## Pastoral
 
 Pastoral dogs were bred to herd animals including sheep, cattle, and reindeer.
+
+### Border Collie
+
+### Samoyed
 
 ## Utility
 
 The utility group contains breeds bred for a purpose not included in any of the other groups.
 
+### Bulldog
+
+### Poodle
+
 ## Toy
 
 Toy breeds were bred as companion or lap dogs.
+
+### Cavalier King Charles Spaniel
+
+### Pug
