@@ -20,6 +20,12 @@ Common hounds include Beagles, Dachshunds, Greyhounds, and Whippets.
 
 ### Dachshund
 
+Dachshunds have short legs and long bodies, bred to flush badgers and other burrowing animals out of their burrows. The miniature variety was used similarly to hunt rabbits and mice.
+
+The normal size Dachshund is 20 to 22 cm tall.
+
+Although their name comes from German, modern Germans call this dog the Dackel or Teckel.
+
 ### Greyhound
 
 ## Working
