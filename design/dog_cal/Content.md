@@ -10,7 +10,27 @@ Dog breeds can be divided into seven broad categories based on what purpose they
 
 ## Contents
 
-- List all dogs in order by breed
+- Hounds
+  - Dachshund
+  - Greyhound
+- Working
+  - Dobermann
+  - Great Dane
+- Terrier
+  - Scottish Terrier
+  - Jack Russel Terrier
+- Gundog
+  - Labrador Retriever
+  - Cocker Spaniel
+- Pastoral
+  - Border Collie
+  - Samoyed
+- Utility
+  - Bulldog
+  - Poodle
+- Toy
+  - Cavalier King Charles Spaniel
+  - Pug
 
 ## Hound
 
