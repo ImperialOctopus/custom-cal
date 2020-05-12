@@ -20,13 +20,17 @@ Common hounds include Beagles, Dachshunds, Greyhounds, and Whippets.
 
 ### Dachshund
 
-Dachshunds have short legs and long bodies, bred to flush badgers and other burrowing animals out of their burrows. The miniature variety was used similarly to hunt rabbits and mice.
+Dachshunds have short legs and long bodies, bred to flush badgers and other burrowing animals out of their burrows. The miniature variety was used similarly to hunt rabbits and mice. Dachshunds have three coat varieties: smooth, wirehaired, and longhaired.
 
-The normal size Dachshund is 20 to 22 cm tall.
+The normal size Dachshund is 20 to 22 cm tall. They have a life expectancy of around 12-16 years.
 
 Although their name comes from German, modern Germans call this dog the Dackel or Teckel.
 
 ### Greyhound
+
+Greyhounds were bred originally for hare coursing so have very long legs and a slim build to help them run fast (up to 40 mph) and corner sharply. Greyhound racing was introduced to the United States and United Kingdom in the 1920s.
+
+They have short fur and come in a wide variety of colours.
 
 ## Working
 
