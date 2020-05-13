@@ -108,6 +108,10 @@ Pastoral dogs were bred to herd animals including sheep, cattle, and reindeer.
 
 ### Border Collie
 
+The Border Collie was bred for herding sheep and cattle, and it's still often used for that today.
+
+They have a usually thick double coat. While usually black and white in colour, they can be found in most colours and patterns seen in dogs.
+
 ### Samoyed
 
 ## Utility
