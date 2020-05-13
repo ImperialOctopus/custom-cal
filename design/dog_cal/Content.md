@@ -72,6 +72,12 @@ Terriers were originally bred to hunt vermin both above and below ground. Every 
 
 ### Scottish Terrier
 
+The Scottish Terrier originates in Scotland as part of a group of highland terriers called the Skye Terriers. They were bred to hunt and fight badgers but throughout their history have been a popular pet breed.
+
+They have a wiry outer coat covering a soft, dense undercoat. Their coats vary in colour from black through to white.
+
+When the board game Monopoly was created, Scotties were among the most popular pets in the United States leading to their inclusion in the game as a player piece.
+
 ### Jack Russel Terrier
 
 ## Gundog
