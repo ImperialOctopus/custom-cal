@@ -64,6 +64,8 @@ Dobermanns come in four colours: black, blue, red, and fawn.
 
 ### Great Dane
 
+The Great Dane is a German breed originally created for hunting bears, boar, and deer. Both the tallest dog ever recorded and the tallest living dog are Great Danes.
+
 ## Terrier
 
 Terriers were originally bred to hunt vermin both above and below ground. Every terrier has "terrier" at the end of its name! (Not every dog with "terrier" is a terrier though...)
