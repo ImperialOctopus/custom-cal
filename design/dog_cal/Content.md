@@ -58,6 +58,10 @@ Working dogs were bred as guard dogs, or for search and rescue. Familiar working
 
 ### Dobermann
 
+The Dobermann was created by Karl Friedrich Louis Dobermann, a German tax collector, to protect him while collecting in dangerous areas. Dobermanns were used by the United States during World War II, and work as guard dogs or personal protection dogs.
+
+Dobermanns come in four colours: black, blue, red, and fawn.
+
 ### Great Dane
 
 ## Terrier
