@@ -80,6 +80,12 @@ When the board game Monopoly was created, Scotties were among the most popular p
 
 ### Jack Russel Terrier
 
+Jack Russel Terriers were bred originally for the sport of fox hunting. They were intended to be aggressive enough to chase the fox without injuring it.
+
+Since World War II, demand for fox hunting and therefore Jack Russels reduced. Since then, they have been used increasingly as companion dogs.
+
+Their coats are predominantly white, with black, brown, or tan markings. They are either smooth-coated, rough-coated, or a combination of the two known as broken-coated.
+
 ## Gundog
 
 These were bred to help with shooting; either by finding live game or by retrieving shot and wounded animals.
