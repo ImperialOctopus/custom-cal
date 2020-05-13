@@ -145,3 +145,7 @@ The Cavalier King Charles Spaniel emerged from the King Charles Spaniel as an at
 The breed has four recognised colours: Blenheim (white with chestnut markings), Black and Tan (black with tan highlights), Ruby (chestnut all over), and Tricolor (black and white with tan markings).
 
 ### Pug
+
+Pugs originate from China where they were kept as companion dogs. The line of pugs bred in the United Kingdom following their original import from China had longer legs and noses than modern pugs, but were replaced by a new wave of imports in 1860.
+
+Their coats can be fawn, apricot fawn, silver fawn, or black.
