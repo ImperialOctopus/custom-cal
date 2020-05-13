@@ -92,7 +92,13 @@ These were bred to help with shooting; either by finding live game or by retriev
 
 ### Labrador Retriever
 
+The Labrador Retriever is often called the most popular dog breed in the world. They make up 60-70% of guide dogs in the United States and are still sometimes used as working dogs to retrieve shot game as they were originally bred to do.
+
+Labradors are recognised as having three colours: black, yellow, and chocolate. They have a short, dense coat that is water-resistant.
+
 ### Cocker Spaniel
+
+
 
 ## Pastoral
 
