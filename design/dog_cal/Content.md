@@ -130,10 +130,18 @@ They have wide heads and shoulders and a protruding lower jaw. Their coats are s
 
 ### Poodle
 
+Poodles have three size variants: standard, miniature, and toy. The standard size is thought of as the original; the others were bred down to be smaller.
+
+They have a dense, curly coat that is unusual among dogs for being only a single coat rather than the usual double coat. The hairs grow continuously and curl around, requiring clipping to prevent matting. A wide array of clipping patterns are seen, varying by the work a poodle is used for or for fashion.
+
 ## Toy
 
 Toy breeds were bred as companion or lap dogs.
 
 ### Cavalier King Charles Spaniel
+
+The Cavalier King Charles Spaniel emerged from the King Charles Spaniel as an attempt to re-create how the breed looked in paintings of King Charles II. The breed is small for a spaniel and was kept as a lap dog.
+
+The breed has four recognised colours: Blenheim (white with chestnut markings), Black and Tan (black with tan highlights), Ruby (chestnut all over), and Tricolor (black and white with tan markings).
 
 ### Pug
