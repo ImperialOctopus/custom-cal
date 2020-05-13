@@ -114,11 +114,19 @@ They have a usually thick double coat. While usually black and white in colour, 
 
 ### Samoyed
 
+The Samoyed was bred to hunt, herd reindeer, and haul sledges.
+
+A distinguishing feature of the breed is the tail which curls up and is held touching its back. They have a dense, white, double-layered coat.
+
 ## Utility
 
 The utility group contains breeds bred for a purpose not included in any of the other groups.
 
 ### Bulldog
+
+Bulldogs were originally used in bull baiting but since its outlawing in 1835 they have become 
+
+They have wide heads and shoulders and a protruding lower jaw. Their coats are short and can be anywhere from white to red.
 
 ### Poodle
 
