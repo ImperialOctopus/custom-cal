@@ -98,7 +98,9 @@ Labradors are recognised as having three colours: black, yellow, and chocolate. 
 
 ### Cocker Spaniel
 
+Cocker Spaniels developed in the United Kingdom as a breed used for hunting the Eurasian woodcock. They are still used in the UK for hunting but are more often seen as pets.
 
+Modern Cocker Spaniels are the second most popular dog breed in the UK, beaten only by the Labrador Their coats come in a variety of colours including black, red, and gold. 
 
 ## Pastoral
 
