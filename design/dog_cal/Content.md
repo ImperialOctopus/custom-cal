@@ -124,7 +124,7 @@ The utility group contains breeds bred for a purpose not included in any of the 
 
 ### Bulldog
 
-Bulldogs were originally used in bull baiting but since its outlawing in 1835 they have become 
+Bulldogs were originally used in bull baiting but since its outlawing in 1835 they have become popular pets, and are considered by some to be a national symbol of the United Kingdom.
 
 They have wide heads and shoulders and a protruding lower jaw. Their coats are short and can be anywhere from white to red.
 

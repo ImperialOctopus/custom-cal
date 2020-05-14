@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LocalImage extends StatelessWidget {
+  static String prefix = 'assets/images/';
+
   final String location;
   final double height;
 
@@ -15,7 +17,7 @@ class LocalImage extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Center(
         child: Image(
-          image: AssetImage(location),
+          image: AssetImage(prefix + location),
           height: height,
         ),
       ),
