@@ -12,7 +12,9 @@ class SectionTabLabel extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         iconData != null ? Icon(iconData) : Container(),
-        label != null ? Text(label) : Container(),
+        label != null
+            ? FittedBox(fit: BoxFit.fitWidth, child: Text(label))
+            : Container(),
       ],
     );
   }
