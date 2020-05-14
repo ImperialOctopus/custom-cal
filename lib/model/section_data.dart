@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import 'page_data.dart';
 
 class SectionData {
-  final String name;
+  final String title;
   final Widget label;
   final Color color;
   final bool optional;
@@ -11,7 +11,7 @@ class SectionData {
   final List<PageData> pages;
 
   const SectionData({
-    @required this.name,
+    this.title,
     @required this.label,
     @required this.color,
     @required this.pages,

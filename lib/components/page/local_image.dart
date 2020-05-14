@@ -11,10 +11,13 @@ class LocalImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Image(
-        image: AssetImage(location),
-        height: height,
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: Center(
+        child: Image(
+          image: AssetImage(location),
+          height: height,
+        ),
       ),
     );
   }

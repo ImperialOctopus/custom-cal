@@ -40,14 +40,17 @@ class MenuScreen extends StatelessWidget {
                   book.title,
                   style: Theme.of(context).textTheme.headline2,
                 ),
+                Padding(padding: EdgeInsets.symmetric(vertical: 12.0)),
                 Text(
                   book.subtitle,
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
+                Padding(padding: EdgeInsets.symmetric(vertical: 4.0)),
                 Text(
                   book.credit,
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
+                Padding(padding: EdgeInsets.symmetric(vertical: 4.0)),
                 RaisedButton(
                   child: Text('Start'),
                   onPressed: () => Navigator.push(

@@ -48,13 +48,17 @@ class PageComponent extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: page.content.map((Widget widget) => processContent(widget)),
+      children:
+          page.content.map((Widget widget) => processContent(widget)).toList(),
     );
   }
 
   Widget processContent(Widget widget) {
     if (widget is Hyperlink) {
-      return widget.copyWith(onPressed: hyperlinkFunction);
+      return HyperlinkInternal(
+        hyperlink: widget,
+        hyperlinkFunction: hyperlinkFunction,
+      );
     }
     return widget;
   }

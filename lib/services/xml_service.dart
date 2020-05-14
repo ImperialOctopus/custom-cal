@@ -36,17 +36,11 @@ class XmlService {
   }
 
   static SectionData _buildSection(XmlElement sectionNode) {
-    // Get title, if not specified set to an error message
-    XmlNode titleNode = sectionNode.children.firstWhere(
-        (XmlNode node) => node is XmlElement && node.name.local == 'title',
-        orElse: () => null);
-    String title = (titleNode != null) ? titleNode.text : 'No Title Specified';
-
     // Get label, or if not specified use the first letter of the title
     XmlNode labelNode = sectionNode.children.firstWhere(
         (XmlNode node) => node is XmlElement && node.name.local == 'label',
         orElse: () => null);
-    String labelText = (labelNode != null) ? labelNode.text : title[0];
+    String labelText = (labelNode != null) ? labelNode.text : '';
     Widget label = Text(labelText);
 
     // Get the colour, or if not specified use white
@@ -76,7 +70,6 @@ class XmlService {
         .toList();
 
     return SectionData(
-      name: title,
       label: label,
       color: color,
       optional: optional,
