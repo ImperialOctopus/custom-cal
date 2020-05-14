@@ -89,6 +89,7 @@ final BookData dogSpeciesData = const BookData(
       title: 'Hounds',
       color: Colors.orange,
       label: SectionTabLabel(
+        iconData: Icons.,
         label: 'H',
       ),
       pages: [
