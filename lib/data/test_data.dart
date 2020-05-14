@@ -9,7 +9,7 @@ import '../model/page_data.dart';
 import '../components/page/note_box.dart';
 
 BookData testBookData = BookData(
-  name: 'Snakes vs Cows',
+  title: 'Snakes vs Cows',
   sections: <SectionData>[
     SectionData(
       name: 'First Section',

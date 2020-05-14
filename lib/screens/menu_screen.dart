@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/data/dog_species_data.dart';
+import 'package:prototype_cal/model/book_data.dart';
 
 import 'book_screen.dart';
 
 class MenuScreen extends StatelessWidget {
+  final BookData book;
+
+  const MenuScreen({this.book});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +37,15 @@ class MenuScreen extends StatelessWidget {
               //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Dog Species',
+                  book.title,
                   style: Theme.of(context).textTheme.headline2,
                 ),
                 Text(
-                  'Custom CAL App',
+                  book.subtitle,
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
                 Text(
-                  'Created by Zoey Child',
+                  book.credit,
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
                 RaisedButton(
@@ -49,7 +53,7 @@ class MenuScreen extends StatelessWidget {
                   onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => BookScreen(book: dogSpeciesData),
+                      builder: (context) => BookScreen(book: book),
                     ),
                   ),
                 ),

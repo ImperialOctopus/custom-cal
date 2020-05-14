@@ -32,7 +32,7 @@ class XmlService {
         .map((XmlNode node) => _buildSection(node as XmlElement))
         .toList();
 
-    return BookData(name: title, sections: sections);
+    return BookData(title: title, sections: sections);
   }
 
   static SectionData _buildSection(XmlElement sectionNode) {

@@ -7,10 +7,12 @@ import '../model/section_data.dart';
 import '../model/page_data.dart';
 
 BookData dogSpeciesData = BookData(
-  name: 'Dog Species',
+  title: 'Dog Species',
+  subtitle: 'Custom CAL App',
+  credit: 'Created by Zoey Child',
   sections: <SectionData>[
     SectionData(
-      name: 'Test',
+      name: 'Dog Species',
       label: SectionTabLabel(
         iconData: Icons.home,
         label: 'Home',

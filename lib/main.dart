@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/data/dog_species_data.dart';
 
 import 'package:prototype_cal/screens/menu_screen.dart';
 import 'package:prototype_cal/theme/styles.dart';
@@ -14,7 +15,7 @@ class CalApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: theme,
-      home: MenuScreen(),
+      home: MenuScreen(book: dogSpeciesData),
     );
   }
 }
