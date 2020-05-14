@@ -85,25 +85,13 @@ class XmlService {
   }
 
   static PageData _buildPage(XmlElement pageNode) {
-    String title = pageNode.children
-        .firstWhere(
-            (XmlNode node) => node is XmlElement && node.name.local == 'title',
-            orElse: () => null)
-        ?.text;
-    String note = pageNode.children
-        .firstWhere(
-            (XmlNode node) => node is XmlElement && node.name.local == 'note',
-            orElse: () => null)
-        ?.text;
     List<Widget> content = pageNode.children
         .map((XmlNode paragraphNode) => _buildParagraph(paragraphNode))
         .where((element) => element != null)
         .toList();
 
     return PageData(
-      name: title,
       content: content,
-      note: note,
     );
   }
 

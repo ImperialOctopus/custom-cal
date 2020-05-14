@@ -6,21 +6,20 @@ import '../model/book_data.dart';
 import '../model/section_data.dart';
 import '../model/page_data.dart';
 
-BookData dogSpeciesData = BookData(
+final BookData dogSpeciesData = const BookData(
   title: 'Dog Species',
   subtitle: 'Custom CAL App',
   credit: 'Created by Zoey Child',
   sections: <SectionData>[
     SectionData(
-      name: 'Dog Species',
+      name: 'Introduction',
       label: SectionTabLabel(
         iconData: Icons.home,
-        label: 'Home',
+        label: 'Introduction',
       ),
-      color: Colors.orange,
+      color: Colors.red,
       pages: <PageData>[
         PageData(
-          name: 'Test',
           content: <Widget>[
             LocalImage(location: 'assets/images/bulldog.jpg'),
           ],

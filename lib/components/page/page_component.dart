@@ -48,10 +48,7 @@ class PageComponent extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        Text(page.name),
-        ...page.content.map((Widget widget) => processContent(widget)),
-      ],
+      children: page.content.map((Widget widget) => processContent(widget)),
     );
   }
 
