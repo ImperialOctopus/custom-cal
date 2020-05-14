@@ -36,21 +36,21 @@ class MenuScreen extends StatelessWidget {
               //mainAxisAlignment: MainAxisAlignment.center,
               //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  book.title,
-                  style: Theme.of(context).textTheme.headline2,
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 12.0),
+                  child: Text(
+                    book.title,
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
                 ),
-                Padding(padding: EdgeInsets.symmetric(vertical: 12.0)),
                 Text(
                   book.subtitle,
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
-                Padding(padding: EdgeInsets.symmetric(vertical: 4.0)),
                 Text(
                   book.credit,
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
-                Padding(padding: EdgeInsets.symmetric(vertical: 4.0)),
                 RaisedButton(
                   child: Text('Start'),
                   onPressed: () => Navigator.push(
