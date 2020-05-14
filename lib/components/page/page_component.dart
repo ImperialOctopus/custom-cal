@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/components/page/contents_item.dart';
 import 'package:prototype_cal/components/page/hyperlink.dart';
 
 import '../../model/page_data.dart';
@@ -48,16 +49,27 @@ class PageComponent extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children:
-          page.content.map((Widget widget) => processContent(widget)).toList(),
+      children: page.content.map(processContent).toList(),
     );
   }
 
   Widget processContent(Widget widget) {
     if (widget is Hyperlink) {
       return HyperlinkInternal(
-        hyperlink: widget,
+        page: widget.page,
+        section: widget.section,
+        child: widget.child,
         hyperlinkFunction: hyperlinkFunction,
+      );
+    }
+    if (widget is ContentsItem) {
+      return widget.copyWith(
+        child: HyperlinkInternal(
+          page: widget.page,
+          section: widget.section,
+          child: widget.child,
+          hyperlinkFunction: hyperlinkFunction,
+        ),
       );
     }
     return widget;
