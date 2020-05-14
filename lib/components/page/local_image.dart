@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class WebImage extends StatelessWidget {
+class LocalImage extends StatelessWidget {
   final String location;
   final double height;
 
-  const WebImage({
+  const LocalImage({
     @required this.location,
     this.height = 300,
   });
@@ -13,7 +13,7 @@ class WebImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Image(
-        image: NetworkImage(location),
+        image: AssetImage(location),
         height: height,
       ),
     );
