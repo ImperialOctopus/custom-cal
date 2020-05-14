@@ -11,7 +11,7 @@ class ContentsItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 40.0 * indent),
       child: DefaultTextStyle(
-        style: Theme.of(context).textTheme.headline6,
+        style: Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 2),
         child: child,
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prototype_cal/components/page/contents_item.dart';
 import 'package:prototype_cal/components/page/hyperlink.dart';
 import 'package:prototype_cal/components/page/page_paragraph.dart';
+import 'package:prototype_cal/components/page/page_spacer.dart';
 import 'package:prototype_cal/components/page/page_title.dart';
 
 import '../components/section_controller/section_tab_label.dart';
@@ -49,6 +50,7 @@ final BookData dogSpeciesData = const BookData(
               indent: 2,
               child: Hyperlink(section: 2, page: 1, child: Text('Greyhound')),
             ),
+            PageSpacer(),
             ContentsItem(
               indent: 1,
               child: Hyperlink(section: 2, page: 1, child: Text('Working')),
@@ -61,6 +63,7 @@ final BookData dogSpeciesData = const BookData(
               indent: 2,
               child: Hyperlink(section: 2, page: 1, child: Text('Great Dane')),
             ),
+            PageSpacer(),
             ContentsItem(
               indent: 1,
               child: Hyperlink(section: 2, page: 1, child: Text('Terrier')),
@@ -75,6 +78,7 @@ final BookData dogSpeciesData = const BookData(
               child: Hyperlink(
                   section: 2, page: 1, child: Text('Jack Russel Terrier')),
             ),
+            PageSpacer(),
             ContentsItem(
               indent: 1,
               child: Hyperlink(section: 2, page: 1, child: Text('Gundog')),
@@ -89,6 +93,7 @@ final BookData dogSpeciesData = const BookData(
               child:
                   Hyperlink(section: 2, page: 1, child: Text('Cocker Spaniel')),
             ),
+            PageSpacer(),
             ContentsItem(
               indent: 1,
               child: Hyperlink(section: 2, page: 1, child: Text('Pastoral')),
@@ -102,6 +107,7 @@ final BookData dogSpeciesData = const BookData(
               indent: 2,
               child: Hyperlink(section: 2, page: 1, child: Text('Samoyed')),
             ),
+            PageSpacer(),
             ContentsItem(
               indent: 1,
               child: Hyperlink(section: 2, page: 1, child: Text('Utility')),
@@ -114,6 +120,7 @@ final BookData dogSpeciesData = const BookData(
               indent: 2,
               child: Hyperlink(section: 2, page: 1, child: Text('Poodle')),
             ),
+            PageSpacer(),
             ContentsItem(
               indent: 1,
               child: Hyperlink(section: 2, page: 1, child: Text('Toy')),

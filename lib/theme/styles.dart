@@ -11,5 +11,9 @@ ThemeData theme = ThemeData(
 
   // Define the default TextTheme. Use this to specify the default
   // text styling for headlines, titles, bodies of text, and more.
-  textTheme: GoogleFonts.firaSansTextTheme(),
+  textTheme: GoogleFonts.firaSansTextTheme().copyWith(
+    bodyText2:
+        GoogleFonts.firaSans(textStyle: ThemeData.light().textTheme.bodyText2)
+            .copyWith(fontSize: 16),
+  ),
 );
