@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prototype_cal/data/dog_species_data.dart';
 
 import 'book_screen.dart';
-import '../data/test_data.dart';
 
 class MenuScreen extends StatelessWidget {
   @override
@@ -49,7 +49,7 @@ class MenuScreen extends StatelessWidget {
                   onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => BookScreen(book: testBookData),
+                      builder: (context) => BookScreen(book: dogSpeciesData),
                     ),
                   ),
                 ),
