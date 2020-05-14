@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prototype_cal/components/page/contents_item.dart';
 import 'package:prototype_cal/components/page/local_image.dart';
 import 'package:prototype_cal/components/page/page_paragraph.dart';
@@ -20,6 +21,7 @@ final BookData dogSpeciesData = const BookData(
       color: Colors.red,
       label: SectionTabLabel(
         iconData: Icons.home,
+        label: 'Home',
       ),
       pages: [
         PageData(content: [
@@ -89,8 +91,8 @@ final BookData dogSpeciesData = const BookData(
       title: 'Hounds',
       color: Colors.orange,
       label: SectionTabLabel(
-        iconData: Icons.,
-        label: 'H',
+        iconData: FontAwesomeIcons.tachometerAlt,
+        label: 'Hound',
       ),
       pages: [
         PageData(content: [
@@ -135,7 +137,8 @@ final BookData dogSpeciesData = const BookData(
       title: 'Working',
       color: Colors.yellow,
       label: SectionTabLabel(
-        label: 'W',
+        iconData: FontAwesomeIcons.briefcase,
+        label: 'Working',
       ),
       pages: [
         PageData(content: [
@@ -171,7 +174,8 @@ final BookData dogSpeciesData = const BookData(
       title: 'Terrier',
       color: Colors.green,
       label: SectionTabLabel(
-        label: 'T',
+        iconData: FontAwesomeIcons.utensilSpoon,
+        label: 'Terrier',
       ),
       pages: [
         PageData(content: [
@@ -212,7 +216,8 @@ final BookData dogSpeciesData = const BookData(
       title: 'Gundog',
       color: Colors.lightBlue,
       label: SectionTabLabel(
-        label: 'G',
+        iconData: FontAwesomeIcons.dove,
+        label: 'Gundog',
       ),
       pages: [
         PageData(content: [
@@ -247,7 +252,8 @@ final BookData dogSpeciesData = const BookData(
       title: 'Pastoral',
       color: Colors.blue,
       label: SectionTabLabel(
-        label: 'P',
+        iconData: FontAwesomeIcons.tractor,
+        label: 'Pastoral',
       ),
       pages: [
         PageData(content: [
@@ -282,7 +288,8 @@ final BookData dogSpeciesData = const BookData(
       title: 'Utility',
       color: Colors.purple,
       label: SectionTabLabel(
-        label: 'W',
+        iconData: FontAwesomeIcons.wrench,
+        label: 'Utility',
       ),
       pages: [
         PageData(content: [
@@ -317,7 +324,8 @@ final BookData dogSpeciesData = const BookData(
       title: 'Toy',
       color: Colors.pink,
       label: SectionTabLabel(
-        label: 'T',
+        iconData: FontAwesomeIcons.shapes,
+        label: 'Toy',
       ),
       pages: [
         PageData(content: [
