@@ -36,52 +36,52 @@ final BookData dogSpeciesData = const BookData(
         ]),
         PageData(content: [
           PageTitle(text: 'Contents'),
-          ContentsItem(indent: 1, section: 2, page: 1, child: Text('Hounds')),
+          ContentsItem(indent: 1, section: 1, page: 0, child: Text('Hounds')),
           ContentsItem(
-              indent: 2, section: 2, page: 1, child: Text('Dachshund')),
+              indent: 2, section: 1, page: 0, child: Text('Greyhound')),
           ContentsItem(
-              indent: 2, section: 2, page: 1, child: Text('Greyhound')),
+              indent: 2, section: 1, page: 1, child: Text('Dachshund')),
           PageSpacer(),
-          ContentsItem(indent: 1, section: 2, page: 1, child: Text('Working')),
+          ContentsItem(indent: 1, section: 2, page: 0, child: Text('Working')),
           ContentsItem(
-              indent: 2, section: 2, page: 1, child: Text('Dobermann')),
+              indent: 2, section: 2, page: 0, child: Text('Dobermann')),
           ContentsItem(
               indent: 2, section: 2, page: 1, child: Text('Great Dane')),
           PageSpacer(),
-          ContentsItem(indent: 1, section: 2, page: 1, child: Text('Terrier')),
+          ContentsItem(indent: 1, section: 3, page: 0, child: Text('Terrier')),
           ContentsItem(
-              indent: 2, section: 2, page: 1, child: Text('Scottish Terrier')),
+              indent: 2, section: 3, page: 0, child: Text('Scottish Terrier')),
           ContentsItem(
               indent: 2,
-              section: 2,
+              section: 3,
               page: 1,
               child: Text('Jack Russel Terrier')),
           PageSpacer(),
-          ContentsItem(indent: 1, section: 2, page: 1, child: Text('Gundog')),
+          ContentsItem(indent: 1, section: 4, page: 0, child: Text('Gundog')),
           ContentsItem(
               indent: 2,
-              section: 2,
-              page: 1,
+              section: 4,
+              page: 0,
               child: Text('Labrador Retriever')),
           ContentsItem(
-              indent: 2, section: 2, page: 1, child: Text('Cocker Spaniel')),
+              indent: 2, section: 4, page: 1, child: Text('Cocker Spaniel')),
           PageSpacer(),
-          ContentsItem(indent: 1, section: 2, page: 1, child: Text('Pastoral')),
+          ContentsItem(indent: 1, section: 5, page: 0, child: Text('Pastoral')),
           ContentsItem(
-              indent: 2, section: 2, page: 1, child: Text('Border Collie')),
-          ContentsItem(indent: 2, section: 2, page: 1, child: Text('Samoyed')),
+              indent: 2, section: 5, page: 0, child: Text('Border Collie')),
+          ContentsItem(indent: 2, section: 5, page: 1, child: Text('Samoyed')),
           PageSpacer(),
-          ContentsItem(indent: 1, section: 2, page: 1, child: Text('Utility')),
-          ContentsItem(indent: 2, section: 2, page: 1, child: Text('Bulldog')),
-          ContentsItem(indent: 2, section: 2, page: 1, child: Text('Poodle')),
+          ContentsItem(indent: 1, section: 6, page: 0, child: Text('Utility')),
+          ContentsItem(indent: 2, section: 6, page: 0, child: Text('Bulldog')),
+          ContentsItem(indent: 2, section: 6, page: 1, child: Text('Poodle')),
           PageSpacer(),
-          ContentsItem(indent: 1, section: 2, page: 1, child: Text('Toy')),
+          ContentsItem(indent: 1, section: 7, page: 0, child: Text('Toy')),
           ContentsItem(
               indent: 2,
-              section: 2,
-              page: 1,
+              section: 7,
+              page: 0,
               child: Text('Cavalier King Charles Spaniel')),
-          ContentsItem(indent: 2, section: 2, page: 1, child: Text('Pug')),
+          ContentsItem(indent: 2, section: 7, page: 0, child: Text('Pug')),
         ]),
       ],
     ),
@@ -100,8 +100,6 @@ final BookData dogSpeciesData = const BookData(
           PageParagraph(
               text:
                   'Common hounds include Beagles, Dachshunds, Greyhounds, and Whippets.'),
-        ]),
-        PageData(content: [
           PageTitle(text: 'Greyhound'),
           PageParagraph(
               text:
@@ -125,8 +123,6 @@ final BookData dogSpeciesData = const BookData(
               text:
                   'Although their name comes from German, modern Germans call this dog the Dackel or Teckel.'),
           LocalImage(location: 'dachshund_wire.jpg'),
-        ]),
-        PageData(content: [
           LocalImage(
             location: 'dachshund_how_will_it_end.jpg',
             height: 600,
@@ -146,8 +142,6 @@ final BookData dogSpeciesData = const BookData(
           PageParagraph(
               text:
                   'Working dogs were bred as guard dogs, or for search and rescue. Familiar working dog breeds are the Dobermann, Newfoundland, and Great Dane.'),
-        ]),
-        PageData(content: [
           PageTitle(text: 'Dobermann'),
           PageParagraph(
               text:
@@ -157,8 +151,6 @@ final BookData dogSpeciesData = const BookData(
               text:
                   'Dobermanns come in four colours: black, blue, red, and fawn.'),
           LocalImage(location: 'dobermann_colours.jpg'),
-        ]),
-        PageData(content: [
           LocalImage(
             location: 'dobermann_puppies.jpg',
             height: 600,
@@ -186,8 +178,6 @@ final BookData dogSpeciesData = const BookData(
           PageParagraph(
               text:
                   'Terriers were originally bred to hunt vermin both above and below ground. Every terrier has "terrier" at the end of its name! (Not every dog with "terrier" is a terrier though...)'),
-        ]),
-        PageData(content: [
           PageTitle(text: 'Scottish Terrier'),
           PageParagraph(
               text:
@@ -229,8 +219,6 @@ final BookData dogSpeciesData = const BookData(
           PageParagraph(
               text:
                   'These were bred to help with shooting; either by finding live game or by retrieving shot and wounded animals.'),
-        ]),
-        PageData(content: [
           PageTitle(text: 'Labrador Retriever'),
           PageParagraph(
               text:
@@ -266,8 +254,6 @@ final BookData dogSpeciesData = const BookData(
           PageParagraph(
               text:
                   'Pastoral dogs were bred to herd animals including sheep, cattle, and reindeer.'),
-        ]),
-        PageData(content: [
           PageTitle(text: 'Border Collie'),
           PageParagraph(
               text:
@@ -303,8 +289,6 @@ final BookData dogSpeciesData = const BookData(
           PageParagraph(
               text:
                   'The utility group contains breeds bred for a purpose not included in any of the other groups.'),
-        ]),
-        PageData(content: [
           PageTitle(text: 'Bulldog'),
           PageParagraph(
               text:
@@ -338,8 +322,6 @@ final BookData dogSpeciesData = const BookData(
         PageData(content: [
           PageTitle(text: 'Toy'),
           PageParagraph(text: 'Toy breeds were bred as companion or lap dogs.'),
-        ]),
-        PageData(content: [
           PageTitle(text: 'Cavalier King Charles Spaniel'),
           PageParagraph(
               text:
