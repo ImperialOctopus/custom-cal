@@ -105,6 +105,27 @@ final BookData dogSpeciesData = const BookData(
               text:
                   'Common hounds include Beagles, Dachshunds, Greyhounds, and Whippets.'),
         ]),
+        PageData(content: [
+          PageTitle(text: 'Dachshund'),
+          PageParagraph(
+              text:
+                  'Dachshunds have short legs and long bodies, bred to flush badgers and other burrowing animals out of their burrows. The miniature variety was used similarly to hunt rabbits and mice. Dachshunds have three coat varieties: smooth, wirehaired, and longhaired.'),
+          PageParagraph(
+              text:
+                  'The normal size Dachshund is 20 to 22 cm tall. They have a life expectancy of around 12-16 years.'),
+          PageParagraph(
+              text:
+                  'Although their name comes from German, modern Germans call this dog the Dackel or Teckel.'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Greyhound'),
+          PageParagraph(
+              text:
+                  'Greyhounds were bred originally for hare coursing so have very long legs and a slim build to help them run fast (up to 40 mph) and corner sharply. Greyhound racing was introduced to the United States and United Kingdom in the 1920s.'),
+          PageParagraph(
+              text:
+                  'They have short fur and come in a wide variety of colours.'),
+        ]),
       ],
     ),
     SectionData(
@@ -119,6 +140,21 @@ final BookData dogSpeciesData = const BookData(
           PageParagraph(
               text:
                   'Working dogs were bred as guard dogs, or for search and rescue. Familiar working dog breeds are the Dobermann, Newfoundland, and Great Dane.'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Dobermann'),
+          PageParagraph(
+              text:
+                  'The Dobermann was created by Karl Friedrich Louis Dobermann, a German tax collector, to protect him while collecting in dangerous areas. Dobermanns were used by the United States during World War II, and work as guard dogs or personal protection dogs.'),
+          PageParagraph(
+              text:
+                  'Dobermanns come in four colours: black, blue, red, and fawn.'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Great Dane'),
+          PageParagraph(
+              text:
+                  'The Great Dane is a German breed originally created for hunting bears, boar, and deer. Both the tallest dog ever recorded and the tallest living dog are Great Danes.'),
         ]),
       ],
     ),
@@ -135,6 +171,30 @@ final BookData dogSpeciesData = const BookData(
               text:
                   'Terriers were originally bred to hunt vermin both above and below ground. Every terrier has "terrier" at the end of its name! (Not every dog with "terrier" is a terrier though...)'),
         ]),
+        PageData(content: [
+          PageTitle(text: 'Scottish Terrier'),
+          PageParagraph(
+              text:
+                  'The Scottish Terrier originates in Scotland as part of a group of highland terriers called the Skye Terriers. They were bred to hunt and fight badgers but throughout their history have been a popular pet breed.'),
+          PageParagraph(
+              text:
+                  'They have a wiry outer coat covering a soft, dense undercoat. Their coats vary in colour from black through to white.'),
+          PageParagraph(
+              text:
+                  'When the board game Monopoly was created, Scotties were among the most popular pets in the United States leading to their inclusion in the game as a player piece.'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Jack Russel Terrier'),
+          PageParagraph(
+              text:
+                  'Jack Russel Terriers were bred originally for the sport of fox hunting. They were intended to be aggressive enough to chase the fox without injuring it.'),
+          PageParagraph(
+              text:
+                  'Since World War II, demand for fox hunting and therefore Jack Russels reduced. Since then, they have been used increasingly as companion dogs.'),
+          PageParagraph(
+              text:
+                  'Their coats are predominantly white, with black, brown, or tan markings. They are either smooth-coated, rough-coated, or a combination of the two known as broken-coated.'),
+        ]),
       ],
     ),
     SectionData(
@@ -149,6 +209,24 @@ final BookData dogSpeciesData = const BookData(
           PageParagraph(
               text:
                   'These were bred to help with shooting; either by finding live game or by retrieving shot and wounded animals.'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Labrador Retriever'),
+          PageParagraph(
+              text:
+                  'The Labrador Retriever is often called the most popular dog breed in the world. They make up 60-70% of guide dogs in the United States and are still sometimes used as working dogs to retrieve shot game as they were originally bred to do.'),
+          PageParagraph(
+              text:
+                  'Labradors are recognised as having three colours: black, yellow, and chocolate. They have a short, dense coat that is water-resistant.'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Cocker Spaniel'),
+          PageParagraph(
+              text:
+                  'Cocker Spaniels developed in the United Kingdom as a breed used for hunting the Eurasian woodcock. They are still used in the UK for hunting but are more often seen as pets.'),
+          PageParagraph(
+              text:
+                  'Modern Cocker Spaniels are the second most popular dog breed in the UK, beaten only by the Labrador Their coats come in a variety of colours including black, red, and gold. '),
         ]),
       ],
     ),
@@ -165,6 +243,24 @@ final BookData dogSpeciesData = const BookData(
               text:
                   'Pastoral dogs were bred to herd animals including sheep, cattle, and reindeer.'),
         ]),
+        PageData(content: [
+          PageTitle(text: 'Border Collie'),
+          PageParagraph(
+              text:
+                  'The Border Collie was bred for herding sheep and cattle, and it\'s still often used for that today.'),
+          PageParagraph(
+              text:
+                  'They have a usually thick double coat. While usually black and white in colour, they can be found in most colours and patterns seen in dogs.'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Samoyed'),
+          PageParagraph(
+              text:
+                  'The Samoyed was bred to hunt, herd reindeer, and haul sledges.'),
+          PageParagraph(
+              text:
+                  'A distinguishing feature of the breed is the tail which curls up and is held touching its back. They have a dense, white, double-layered coat.'),
+        ]),
       ],
     ),
     SectionData(
@@ -180,6 +276,24 @@ final BookData dogSpeciesData = const BookData(
               text:
                   'The utility group contains breeds bred for a purpose not included in any of the other groups.'),
         ]),
+        PageData(content: [
+          PageTitle(text: 'Bulldog'),
+          PageParagraph(
+              text:
+                  'Bulldogs were originally used in bull baiting but since its outlawing in 1835 they have become popular pets, and are considered by some to be a national symbol of the United Kingdom.'),
+          PageParagraph(
+              text:
+                  'They have wide heads and shoulders and a protruding lower jaw. Their coats are short and can be anywhere from white to red.'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Poodle'),
+          PageParagraph(
+              text:
+                  'Poodles have three size variants: standard, miniature, and toy. The standard size is thought of as the original; the others were bred down to be smaller.'),
+          PageParagraph(
+              text:
+                  'They have a dense, curly coat that is unusual among dogs for being only a single coat rather than the usual double coat. The hairs grow continuously and curl around, requiring clipping to prevent matting. A wide array of clipping patterns are seen, varying by the work a poodle is used for or for fashion.'),
+        ]),
       ],
     ),
     SectionData(
@@ -192,6 +306,24 @@ final BookData dogSpeciesData = const BookData(
         PageData(content: [
           PageTitle(text: 'Toy'),
           PageParagraph(text: 'Toy breeds were bred as companion or lap dogs.'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Cavalier King Charles Spaniel'),
+          PageParagraph(
+              text:
+                  'The Cavalier King Charles Spaniel emerged from the King Charles Spaniel as an attempt to re-create how the breed looked in paintings of King Charles II. The breed is small for a spaniel and was kept as a lap dog.'),
+          PageParagraph(
+              text:
+                  'The breed has four recognised colours: Blenheim (white with chestnut markings), Black and Tan (black with tan highlights), Ruby (chestnut all over), and Tricolor (black and white with tan markings).'),
+        ]),
+        PageData(content: [
+          PageTitle(text: 'Pug'),
+          PageParagraph(
+              text:
+                  'Pugs originate from China where they were kept as companion dogs. The line of pugs bred in the United Kingdom following their original import from China had longer legs and noses than modern pugs, but were replaced by a new wave of imports in 1860.'),
+          PageParagraph(
+              text:
+                  'Their coats can be fawn, apricot fawn, silver fawn, or black.'),
         ]),
       ],
     ),
