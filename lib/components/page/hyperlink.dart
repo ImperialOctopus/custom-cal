@@ -23,19 +23,23 @@ class Hyperlink extends StatelessWidget {
 }
 
 class HyperlinkInternal extends StatelessWidget {
-  final Hyperlink hyperlink;
+  final int page;
+  final int section;
+  final Widget child;
   final Function(int, int) hyperlinkFunction;
 
   const HyperlinkInternal({
-    @required this.hyperlink,
+    @required this.page,
+    @required this.section,
+    @required this.child,
     @required this.hyperlinkFunction,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => hyperlinkFunction(hyperlink.page, hyperlink.section),
-      child: hyperlink.child,
+      onTap: () => hyperlinkFunction(page, section),
+      child: child,
     );
   }
 }

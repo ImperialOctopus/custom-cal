@@ -64,6 +64,7 @@ class AnimatedBookState extends State<AnimatedBook>
   }
 
   void _hyperlinkFunction(int page, int section) {
+    print(section.toString() + page.toString());
     _updateBookmark(bookmark.changeSection(section).changePage(page));
   }
 
