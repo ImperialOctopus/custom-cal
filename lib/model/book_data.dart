@@ -8,10 +8,10 @@ class BookData {
   final String credit;
   final List<SectionData> sections;
 
-  BookData({
+  const BookData({
     @required this.title,
-    this.subtitle,
-    this.credit,
+    this.subtitle = '',
+    this.credit = '',
     @required this.sections,
   });
 }
