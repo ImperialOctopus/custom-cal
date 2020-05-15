@@ -12,7 +12,7 @@ class Hyperlink extends StatelessWidget {
 
   const Hyperlink({
     @required this.section,
-    @required this.page,
+    this.page = 0,
     @required this.child,
   });
 

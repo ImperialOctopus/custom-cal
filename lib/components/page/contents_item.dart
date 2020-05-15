@@ -1,41 +1,49 @@
 import 'package:flutter/material.dart';
 
+enum ContentsItemStyle {
+  large,
+  normal,
+  small,
+}
+
 class ContentsItem extends StatelessWidget {
   final double indentStep = 40.0;
 
   final int indent;
-  final int section;
-  final int page;
   final Widget child;
+  final ContentsItemStyle style;
 
   const ContentsItem(
       {this.indent = 0,
-      @required this.section,
-      @required this.page,
-      @required this.child});
+      @required this.child,
+      this.style = ContentsItemStyle.normal});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: indentStep * indent),
       child: DefaultTextStyle(
-        style: Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 2),
+        style: _buildTextStyle(context),
         child: child,
       ),
     );
   }
 
-  ContentsItem copyWith({
-    int indent,
-    int section,
-    int page,
-    Widget child,
-  }) {
-    return ContentsItem(
-      indent: indent ?? this.indent,
-      section: section ?? this.section,
-      page: page ?? this.page,
-      child: child ?? this.child,
-    );
+  TextStyle _buildTextStyle(BuildContext context) {
+    switch (style) {
+      case ContentsItemStyle.large:
+        return Theme.of(context)
+            .textTheme
+            .headline6
+            .apply(decoration: TextDecoration.underline);
+        break;
+      case ContentsItemStyle.small:
+        return Theme.of(context).textTheme.bodyText1;
+        break;
+      case ContentsItemStyle.normal:
+      default:
+        return Theme.of(context).textTheme.bodyText2;
+        break;
+    }
   }
 }

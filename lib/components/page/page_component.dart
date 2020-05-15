@@ -62,16 +62,6 @@ class PageComponent extends StatelessWidget {
         hyperlinkFunction: hyperlinkFunction,
       );
     }
-    if (widget is ContentsItem) {
-      return widget.copyWith(
-        child: HyperlinkInternal(
-          page: widget.page,
-          section: widget.section,
-          child: widget.child,
-          hyperlinkFunction: hyperlinkFunction,
-        ),
-      );
-    }
     return widget;
   }
 

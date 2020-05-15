@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prototype_cal/components/page/contents_item.dart';
+import 'package:prototype_cal/components/page/hyperlink.dart';
 import 'package:prototype_cal/components/page/local_image.dart';
 import 'package:prototype_cal/components/page/page_paragraph.dart';
 import 'package:prototype_cal/components/page/page_spacer.dart';
@@ -38,52 +39,69 @@ final BookData dogSpeciesData = const BookData(
         ]),
         PageData(content: [
           PageTitle(text: 'Contents'),
-          ContentsItem(indent: 1, section: 1, page: 0, child: Text('Hounds')),
-          ContentsItem(
-              indent: 2, section: 1, page: 0, child: Text('Greyhound')),
-          ContentsItem(
-              indent: 2, section: 1, page: 1, child: Text('Dachshund')),
-          PageSpacer(),
-          ContentsItem(indent: 1, section: 2, page: 0, child: Text('Working')),
-          ContentsItem(
-              indent: 2, section: 2, page: 0, child: Text('Dobermann')),
-          ContentsItem(
-              indent: 2, section: 2, page: 1, child: Text('Great Dane')),
-          PageSpacer(),
-          ContentsItem(indent: 1, section: 3, page: 0, child: Text('Terrier')),
-          ContentsItem(
-              indent: 2, section: 3, page: 0, child: Text('Scottish Terrier')),
-          ContentsItem(
-              indent: 2,
-              section: 3,
-              page: 1,
-              child: Text('Jack Russel Terrier')),
-          PageSpacer(),
-          ContentsItem(indent: 1, section: 4, page: 0, child: Text('Gundog')),
-          ContentsItem(
-              indent: 2,
-              section: 4,
-              page: 0,
-              child: Text('Labrador Retriever')),
-          ContentsItem(
-              indent: 2, section: 4, page: 1, child: Text('Cocker Spaniel')),
-          PageSpacer(),
-          ContentsItem(indent: 1, section: 5, page: 0, child: Text('Pastoral')),
-          ContentsItem(
-              indent: 2, section: 5, page: 0, child: Text('Border Collie')),
-          ContentsItem(indent: 2, section: 5, page: 1, child: Text('Samoyed')),
-          PageSpacer(),
-          ContentsItem(indent: 1, section: 6, page: 0, child: Text('Utility')),
-          ContentsItem(indent: 2, section: 6, page: 0, child: Text('Bulldog')),
-          ContentsItem(indent: 2, section: 6, page: 1, child: Text('Poodle')),
-          PageSpacer(),
-          ContentsItem(indent: 1, section: 7, page: 0, child: Text('Toy')),
-          ContentsItem(
-              indent: 2,
-              section: 7,
-              page: 0,
-              child: Text('Cavalier King Charles Spaniel')),
-          ContentsItem(indent: 2, section: 7, page: 0, child: Text('Pug')),
+          Hyperlink(
+            section: 1,
+            child: ContentsItem(
+              indent: 1,
+              style: ContentsItemStyle.large,
+              child: Text('Hounds'),
+            ),
+          ),
+          ContentsItem(indent: 2, child: Text('Greyhound')),
+          ContentsItem(indent: 2, child: Text('Dachshund')),
+          Hyperlink(
+            section: 2,
+            child: ContentsItem(
+                indent: 1,
+                style: ContentsItemStyle.large,
+                child: Text('Working')),
+          ),
+          ContentsItem(indent: 2, child: Text('Dobermann')),
+          ContentsItem(indent: 2, child: Text('Great Dane')),
+          Hyperlink(
+            section: 3,
+            child: ContentsItem(
+                indent: 1,
+                style: ContentsItemStyle.large,
+                child: Text('Terrier')),
+          ),
+          ContentsItem(indent: 2, child: Text('Scottish Terrier')),
+          ContentsItem(indent: 2, child: Text('Jack Russel Terrier')),
+          Hyperlink(
+            section: 4,
+            child: ContentsItem(
+              indent: 1,
+              style: ContentsItemStyle.large,
+              child: Text('Gundog'),
+            ),
+          ),
+          ContentsItem(indent: 2, child: Text('Labrador Retriever')),
+          ContentsItem(indent: 2, child: Text('Cocker Spaniel')),
+          Hyperlink(
+            section: 5,
+            child: ContentsItem(
+                indent: 1,
+                style: ContentsItemStyle.large,
+                child: Text('Pastoral')),
+          ),
+          ContentsItem(indent: 2, child: Text('Border Collie')),
+          ContentsItem(indent: 2, child: Text('Samoyed')),
+          Hyperlink(
+            section: 6,
+            child: ContentsItem(
+                indent: 1,
+                style: ContentsItemStyle.large,
+                child: Text('Utility')),
+          ),
+          ContentsItem(indent: 2, child: Text('Bulldog')),
+          ContentsItem(indent: 2, child: Text('Poodle')),
+          Hyperlink(
+            section: 7,
+            child: ContentsItem(
+                indent: 1, style: ContentsItemStyle.large, child: Text('Toy')),
+          ),
+          ContentsItem(indent: 2, child: Text('Cavalier King Charles Spaniel')),
+          ContentsItem(indent: 2, child: Text('Pug')),
         ]),
       ],
     ),
@@ -131,21 +149,6 @@ final BookData dogSpeciesData = const BookData(
             height: 600,
           ),
         ]),
-        PageData(content: [
-          PageParagraph(
-            text: 'Oooooo',
-          ),
-        ]),
-        PageData(content: [
-          PageParagraph(
-            text: 'EEEeeeee',
-          ),
-        ]),
-        PageData(content: [
-          PageParagraph(
-            text: 'Aaaaa',
-          ),
-        ])
       ],
     ),
     SectionData(
