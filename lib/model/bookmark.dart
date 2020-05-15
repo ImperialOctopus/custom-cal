@@ -104,7 +104,9 @@ class Bookmark implements Comparable<Bookmark> {
     // Move section back if requested page is in the previous section.
     if (_page < 0) {
       _section--;
-      _page = _pagesInSection(index: _section) - pages;
+      _page = _pagesInSection(index: _section) - 1;
+      // Move two pages if last page spread is even.
+      _page -= _page % pages;
       // Prevent flipping back from skipping sections.
       if (_page < 0) {
         _page = 0;
@@ -127,6 +129,9 @@ class Bookmark implements Comparable<Bookmark> {
       _section++;
       _page = 0;
     }
+
+    // Round page down to divide by pages
+    _page -= _page % pages;
 
     return _copyWith(pageIndex: _page, sectionIndex: _section);
   }
