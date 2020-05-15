@@ -20,7 +20,7 @@ class PortraitLayout extends StatelessWidget {
   bool get _backEnabled => bookmark.pageBeforeExists(1);
   Function get _onBackPressed => () => updateBookmark(bookmark.pageBefore(1));
   bool get _forwardEnabled => bookmark.pageAfterExists(1);
-  Function get _onForwardPressed => updateBookmark(bookmark.pageAfter(1));
+  Function get _onForwardPressed => () => updateBookmark(bookmark.pageAfter(1));
 
   Widget get sectionController {
     return TabbedSectionController(
