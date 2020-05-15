@@ -5,7 +5,6 @@ import 'package:prototype_cal/components/animation/flip_direction.dart';
 class PortraitFlip extends StatelessWidget {
   final FlipDirection flipDirection;
   final double animationProgress;
-  final bool isFirstPhase;
 
   final Widget start;
   final Widget end;
@@ -15,7 +14,6 @@ class PortraitFlip extends StatelessWidget {
   const PortraitFlip({
     @required this.flipDirection,
     @required this.animationProgress,
-    @required this.isFirstPhase,
     @required this.start,
     @required this.end,
   });
@@ -37,15 +35,13 @@ class PortraitFlip extends StatelessWidget {
           child: Stack(
             children: [
               end,
-              isFirstPhase
-                  ? Transform(
-                      alignment: Alignment.centerLeft,
-                      transform: Matrix4.identity()
-                        ..setEntry(3, 2, perspective)
-                        ..rotateY(animationProgress),
-                      child: start,
-                    )
-                  : Container(),
+              Transform(
+                alignment: Alignment.centerLeft,
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, perspective)
+                  ..rotateY(animationProgress / 2),
+                child: start,
+              ),
             ],
           ),
           //child: Container(),
@@ -62,15 +58,13 @@ class PortraitFlip extends StatelessWidget {
           child: Stack(
             children: [
               start,
-              !isFirstPhase
-                  ? Transform(
-                      alignment: Alignment.centerLeft,
-                      transform: Matrix4.identity()
-                        ..setEntry(3, 2, perspective)
-                        ..rotateY(pi - animationProgress),
-                      child: end,
-                    )
-                  : Container(),
+              Transform(
+                alignment: Alignment.centerLeft,
+                transform: Matrix4.identity()
+                  ..setEntry(3, 2, perspective)
+                  ..rotateY((pi / 2) - (animationProgress / 2)),
+                child: end,
+              ),
             ],
           ),
           //child: Container(),

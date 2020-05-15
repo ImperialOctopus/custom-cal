@@ -23,7 +23,6 @@ class AnimatedPortraitSpread extends StatelessWidget {
     @required this.hyperlinkFunction,
   });
 
-  bool get _isFirstPhase => controller.value < 0.5;
   bool get _running => controller.isAnimating;
 
   @override
@@ -34,7 +33,6 @@ class AnimatedPortraitSpread extends StatelessWidget {
         builder: (_, __) => PortraitFlip(
           flipDirection: flipDirection,
           animationProgress: animation.value,
-          isFirstPhase: _isFirstPhase,
           start: _startPage,
           end: _endPage,
         ),
