@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/section_controller/tabbed_section_controller.dart';
 
+import '../section_controller/tabbed_section_controller.dart';
 import '../control_layer/button_control_layer.dart';
 import '../control_layer/keyboard_control_layer.dart';
 import '../spread/portrait_spread.dart';

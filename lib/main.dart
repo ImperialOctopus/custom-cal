@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/data/dog_species_data.dart';
 
-import 'package:prototype_cal/screens/menu_screen.dart';
-import 'package:prototype_cal/theme/styles.dart';
+import 'package:custom_cal/data/dog_species_data.dart';
+import 'package:custom_cal/screens/menu_screen.dart';
+import 'package:custom_cal/theme/styles.dart';
+
+const bookData = dogSpeciesData;
 
 void main() {
-  runApp(CalApp());
+  runApp(CustomCalApp());
 }
 
-class CalApp extends StatelessWidget {
-  // This widget is the root of your application.
+class CustomCalApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: bookData.title,
       theme: theme,
-      home: MenuScreen(book: dogSpeciesData),
+      home: MenuScreen(book: bookData),
     );
   }
 }

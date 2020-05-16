@@ -1,4 +1,4 @@
-package com.example.prototype_cal
+package com.example.custom_cal
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

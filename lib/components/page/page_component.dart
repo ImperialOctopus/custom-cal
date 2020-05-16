@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/page/hyperlink.dart';
 
+import 'hyperlink.dart';
 import '../../model/page_data.dart';
 
 enum FoldEdge { left, right, none }

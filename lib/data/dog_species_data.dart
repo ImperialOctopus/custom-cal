@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:prototype_cal/components/page/contents_item.dart';
-import 'package:prototype_cal/components/page/hyperlink.dart';
-import 'package:prototype_cal/components/page/local_image.dart';
-import 'package:prototype_cal/components/page/page_paragraph.dart';
-import 'package:prototype_cal/components/page/page_title.dart';
 
 import '../components/section_controller/section_tab_label.dart';
-import '../model/book_data.dart';
-import '../model/section_data.dart';
-import '../model/page_data.dart';
+import '../components/page/page.dart';
+import '../model/model.dart';
 
-final BookData dogSpeciesData = const BookData(
+const BookData dogSpeciesData = BookData(
   title: 'Dog Species',
   subtitle: 'Custom CAL App',
   credit: 'Created by Zoey Child',

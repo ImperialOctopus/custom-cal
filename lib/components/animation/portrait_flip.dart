@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/animation/flip_direction.dart';
+
+import '../animation/flip_direction.dart';
 
 class PortraitFlip extends StatelessWidget {
   final FlipDirection flipDirection;

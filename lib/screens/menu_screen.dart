@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/model/book_data.dart';
 
+import '../model/book_data.dart';
 import 'book_screen.dart';
 
 class MenuScreen extends StatelessWidget {
