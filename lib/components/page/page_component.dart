@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prototype_cal/components/page/contents_item.dart';
 import 'package:prototype_cal/components/page/hyperlink.dart';
 
 import '../../model/page_data.dart';

@@ -11,56 +11,58 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        alignment: Alignment.center,
+      body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-            color: Colors.black12,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black38,
-                blurRadius: 5.0, // has the effect of softening the shadow
-                spreadRadius: 0.0, // has the effect of extending the shadow
-                offset: Offset(
-                  -3, // horizontal, move right 10
-                  3, // vertical, move down 10
-                ),
-              )
-            ],
-          ),
+          alignment: Alignment.center,
           child: Container(
-            color: Theme.of(context).backgroundColor,
-            padding: EdgeInsets.all(32),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              //mainAxisAlignment: MainAxisAlignment.center,
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12.0),
-                  child: Text(
-                    book.title,
-                    style: Theme.of(context).textTheme.headline2,
+            decoration: BoxDecoration(
+              color: Colors.black12,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black38,
+                  blurRadius: 5.0, // has the effect of softening the shadow
+                  spreadRadius: 0.0, // has the effect of extending the shadow
+                  offset: Offset(
+                    -3, // horizontal, move right 10
+                    3, // vertical, move down 10
                   ),
-                ),
-                Text(
-                  book.subtitle,
-                  style: Theme.of(context).textTheme.subtitle1,
-                ),
-                Text(
-                  book.credit,
-                  style: Theme.of(context).textTheme.subtitle1,
-                ),
-                RaisedButton(
-                  child: Text('Start'),
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BookScreen(book: book),
+                )
+              ],
+            ),
+            child: Container(
+              color: Theme.of(context).backgroundColor,
+              padding: EdgeInsets.all(32),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                //mainAxisAlignment: MainAxisAlignment.center,
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                    child: Text(
+                      book.title,
+                      style: Theme.of(context).textTheme.headline2,
                     ),
                   ),
-                ),
-              ],
+                  Text(
+                    book.subtitle,
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  Text(
+                    book.credit,
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  RaisedButton(
+                    child: Text('Start'),
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookScreen(book: book),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

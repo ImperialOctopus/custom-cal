@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prototype_cal/components/book/animated_book.dart';
-import 'package:prototype_cal/components/book/book.dart';
-
 import '../model/book_data.dart';
 import '../model/bookmark.dart';
 
@@ -19,10 +17,12 @@ class BookScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: padding,
-        child: AnimatedBook(
-          startingBookmark: Bookmark.firstPage(book: book),
+      body: SafeArea(
+        child: Container(
+          padding: padding,
+          child: AnimatedBook(
+            startingBookmark: Bookmark.firstPage(book: book),
+          ),
         ),
       ),
     );

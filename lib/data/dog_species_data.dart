@@ -4,7 +4,6 @@ import 'package:prototype_cal/components/page/contents_item.dart';
 import 'package:prototype_cal/components/page/hyperlink.dart';
 import 'package:prototype_cal/components/page/local_image.dart';
 import 'package:prototype_cal/components/page/page_paragraph.dart';
-import 'package:prototype_cal/components/page/page_spacer.dart';
 import 'package:prototype_cal/components/page/page_title.dart';
 
 import '../components/section_controller/section_tab_label.dart';
