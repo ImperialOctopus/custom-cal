@@ -21,12 +21,12 @@ class XmlService {
   }
 
   static BookData _buildBook(XmlElement bookNode) {
-    String title = bookNode.children
+    var title = bookNode.children
         .firstWhere(
             (XmlNode node) => node is XmlElement && node.name.local == 'title',
             orElse: () => null)
         ?.text;
-    List<SectionData> sections = bookNode.children
+    var sections = bookNode.children
         .where((XmlNode node) =>
             node is XmlElement && node.name.local == 'section')
         .map((XmlNode node) => _buildSection(node as XmlElement))
@@ -37,17 +37,17 @@ class XmlService {
 
   static SectionData _buildSection(XmlElement sectionNode) {
     // Get label, or if not specified use the first letter of the title
-    XmlNode labelNode = sectionNode.children.firstWhere(
+    var labelNode = sectionNode.children.firstWhere(
         (XmlNode node) => node is XmlElement && node.name.local == 'label',
         orElse: () => null);
-    String labelText = (labelNode != null) ? labelNode.text : '';
+    var labelText = (labelNode != null) ? labelNode.text : '';
     Widget label = Text(labelText);
 
     // Get the colour, or if not specified use white
-    XmlNode colorNode = sectionNode.children.firstWhere(
+    var colorNode = sectionNode.children.firstWhere(
         (XmlNode node) => node is XmlElement && node.name.local == 'color',
         orElse: () => null);
-    String colorString = (colorNode != null) ? colorNode.text : '#FFFFFF';
+    var colorString = (colorNode != null) ? colorNode.text : '#FFFFFF';
     Color color;
     try {
       color = HexColor(colorString);
@@ -56,14 +56,13 @@ class XmlService {
     }
 
     // Get whether this section is optional, defaults to false
-    XmlNode optionalNode = sectionNode.children.firstWhere(
+    var optionalNode = sectionNode.children.firstWhere(
         (XmlNode node) => node is XmlElement && node.name.local == 'optional',
         orElse: () => null);
-    bool optional =
-        (optionalNode != null) ? optionalNode.text == 'true' : false;
+    var optional = (optionalNode != null) ? optionalNode.text == 'true' : false;
 
     // Get pages
-    List<PageData> pages = sectionNode.children
+    var pages = sectionNode.children
         .where(
             (XmlNode node) => node is XmlElement && node.name.local == 'page')
         .map((XmlNode node) => _buildPage(node as XmlElement))
@@ -78,7 +77,7 @@ class XmlService {
   }
 
   static PageData _buildPage(XmlElement pageNode) {
-    List<Widget> content = pageNode.children
+    var content = pageNode.children
         .map((XmlNode paragraphNode) => _buildParagraph(paragraphNode))
         .where((element) => element != null)
         .toList();

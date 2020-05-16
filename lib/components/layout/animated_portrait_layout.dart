@@ -6,13 +6,17 @@ import '../spread/animated_portrait_spread.dart';
 import '../../model/bookmark.dart';
 
 class AnimatedPortraitLayout extends PortraitLayout {
-  final Bookmark lastBookmark;
+  @override
   final Bookmark bookmark;
-  final FlipDirection flipDirection;
+  @override
   final Function(Bookmark) updateBookmark;
+  @override
+  final Function(int, int) hyperlinkFunction;
+
+  final Bookmark lastBookmark;
+  final FlipDirection flipDirection;
   final AnimationController controller;
   final Animation animation;
-  final Function(int, int) hyperlinkFunction;
 
   const AnimatedPortraitLayout({
     @required this.lastBookmark,

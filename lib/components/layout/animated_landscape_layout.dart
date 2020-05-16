@@ -6,13 +6,17 @@ import '../spread/animated_landscape_spread.dart';
 import '../../model/bookmark.dart';
 
 class AnimatedLandscapeLayout extends LandscapeLayout {
-  final Bookmark lastBookmark;
+  @override
   final Bookmark bookmark;
-  final FlipDirection flipDirection;
+  @override
   final Function(Bookmark) updateBookmark;
+  @override
+  final Function(int, int) hyperlinkFunction;
+
+  final Bookmark lastBookmark;
+  final FlipDirection flipDirection;
   final AnimationController controller;
   final Animation animation;
-  final Function(int, int) hyperlinkFunction;
 
   const AnimatedLandscapeLayout({
     @required this.lastBookmark,

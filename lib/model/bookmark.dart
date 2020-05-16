@@ -46,8 +46,8 @@ class Bookmark implements Comparable<Bookmark> {
 
   /// Count of pages preceding the current one in the book.
   int get _pagesBefore {
-    int total = pageIndex;
-    for (int i = sectionIndex - 1; i >= 0; i--) {
+    var total = pageIndex;
+    for (var i = sectionIndex - 1; i >= 0; i--) {
       total += _pagesInSection(index: i);
     }
     return total;
@@ -55,8 +55,8 @@ class Bookmark implements Comparable<Bookmark> {
 
   /// Count of pages following the current one in the book.
   int get _pagesAfter {
-    int total = _pagesInSection() - (pageIndex + 1);
-    for (int i = sectionIndex + 1; i < sections.length; i++) {
+    var total = _pagesInSection() - (pageIndex + 1);
+    for (var i = sectionIndex + 1; i < sections.length; i++) {
       total += _pagesInSection(index: i);
     }
     return total;
@@ -98,8 +98,8 @@ class Bookmark implements Comparable<Bookmark> {
     if (!pageBeforeExists(pages)) {
       return Bookmark.firstPage(book: book);
     }
-    int _section = sectionIndex;
-    int _page = pageIndex - pages;
+    var _section = sectionIndex;
+    var _page = pageIndex - pages;
 
     // Move section back if requested page is in the previous section.
     if (_page < 0) {
@@ -121,8 +121,8 @@ class Bookmark implements Comparable<Bookmark> {
     if (!pageAfterExists(pages)) {
       return Bookmark.lastPage(book: book);
     }
-    int _section = sectionIndex;
-    int _page = pageIndex + pages;
+    var _section = sectionIndex;
+    var _page = pageIndex + pages;
 
     // Move section forward if requested page is in the next section.
     if (_page > _pagesInSection() - 1) {
@@ -142,7 +142,7 @@ class Bookmark implements Comparable<Bookmark> {
       return _copyWith(pageIndex: _page);
     } else {
       throw ArgumentError(
-          "changePage failed: page " + _page.toString() + " does not exist.");
+          'changePage failed: page ' + _page.toString() + ' does not exist.');
     }
   }
 
@@ -151,9 +151,9 @@ class Bookmark implements Comparable<Bookmark> {
     if (_section >= 0 && _section < sections.length) {
       return _copyWith(sectionIndex: _section, pageIndex: 0);
     } else {
-      throw ArgumentError("changeSection failed: section " +
+      throw ArgumentError('changeSection failed: section ' +
           _section.toString() +
-          " does not exist.");
+          ' does not exist.');
     }
   }
 
