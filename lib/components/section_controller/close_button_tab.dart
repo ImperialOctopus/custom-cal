@@ -4,7 +4,9 @@ import 'section_tab.dart';
 
 class CloseButtonTab extends SectionTab {
   @override
-  final Widget label = Icon(Icons.clear);
+  final String label = 'Close';
+  @override
+  final IconData icon = Icons.clear;
   @override
   final Color color = Colors.redAccent;
   @override
@@ -15,11 +17,11 @@ class CloseButtonTab extends SectionTab {
   @override
   final double height;
   @override
-  final Function onPress;
+  final Function onTap;
 
   CloseButtonTab({
     @required this.width,
     @required this.height,
-    this.onPress,
+    this.onTap,
   });
 }

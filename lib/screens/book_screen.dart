@@ -5,7 +5,8 @@ import '../model/book_data.dart';
 import '../model/bookmark.dart';
 
 class BookScreen extends StatelessWidget {
-  final EdgeInsetsGeometry padding = const EdgeInsets.all(16);
+  static const EdgeInsetsGeometry padding = EdgeInsets.all(16);
+
   final double tabHeight = 48;
   final double tabWidth = 48;
   final double tabSpacing = 4;

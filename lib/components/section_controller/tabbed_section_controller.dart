@@ -35,11 +35,12 @@ class TabbedSectionController extends StatelessWidget {
       list.add(
         SectionTab(
           label: sections[i].label,
+          icon: sections[i].icon,
           color: sections[i].color,
           active: i == activeSection,
           height: tabHeight,
           width: tabWidth,
-          onPress: () => onSectionPressed(i),
+          onTap: () => onSectionPressed(i),
         ),
       );
       // Add spacer if this isn't the last tab
@@ -54,7 +55,7 @@ class TabbedSectionController extends StatelessWidget {
         CloseButtonTab(
           height: tabHeight,
           width: tabWidth,
-          onPress: () => Navigator.pop(context),
+          onTap: () => Navigator.pop(context),
         ),
       );
       list.add(SizedBox.fromSize(size: Size(inset, 0)));

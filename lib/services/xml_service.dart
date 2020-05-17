@@ -36,30 +36,29 @@ class XmlService {
   }
 
   static SectionData _buildSection(XmlElement sectionNode) {
-    // Get label, or if not specified use the first letter of the title
+    // Get title
+    var titleNode = sectionNode.children.firstWhere(
+        (XmlNode node) => node is XmlElement && node.name.local == 'title',
+        orElse: () => null);
+    var title = titleNode?.text;
+
+    // Get label
     var labelNode = sectionNode.children.firstWhere(
         (XmlNode node) => node is XmlElement && node.name.local == 'label',
         orElse: () => null);
-    var labelText = (labelNode != null) ? labelNode.text : '';
-    Widget label = Text(labelText);
+    var label = labelNode?.text;
 
     // Get the colour, or if not specified use white
     var colorNode = sectionNode.children.firstWhere(
         (XmlNode node) => node is XmlElement && node.name.local == 'color',
         orElse: () => null);
-    var colorString = (colorNode != null) ? colorNode.text : '#FFFFFF';
+    var colorString = colorNode?.text ?? '#FFFFFF';
     Color color;
     try {
       color = HexColor(colorString);
     } catch (_) {
       color = const Color(0xFFFFFFFF);
     }
-
-    // Get whether this section is optional, defaults to false
-    var optionalNode = sectionNode.children.firstWhere(
-        (XmlNode node) => node is XmlElement && node.name.local == 'optional',
-        orElse: () => null);
-    var optional = (optionalNode != null) ? optionalNode.text == 'true' : false;
 
     // Get pages
     var pages = sectionNode.children
@@ -69,9 +68,10 @@ class XmlService {
         .toList();
 
     return SectionData(
+      title: title,
+      icon: null,
       label: label,
       color: color,
-      optional: optional,
       pages: pages,
     );
   }

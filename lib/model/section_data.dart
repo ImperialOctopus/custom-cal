@@ -4,17 +4,17 @@ import 'page_data.dart';
 
 class SectionData {
   final String title;
-  final Widget label;
+  final String label;
+  final IconData icon;
   final Color color;
-  final bool optional;
 
   final List<PageData> pages;
 
   const SectionData({
     this.title,
-    @required this.label,
+    this.label,
+    this.icon,
     @required this.color,
     @required this.pages,
-    this.optional = false,
   });
 }

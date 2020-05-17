@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SectionTab extends StatelessWidget {
-  final Widget label;
+  final String label;
+  final IconData icon;
   final Color color;
-
   final double width;
   final double height;
   final bool active;
-  final Function onPress;
+  final Function onTap;
 
   const SectionTab({
-    @required this.label,
+    this.label,
+    this.icon,
     @required this.color,
     @required this.width,
     @required this.height,
     this.active = false,
-    this.onPress,
+    this.onTap,
   });
 
   @override
@@ -24,6 +26,7 @@ class SectionTab extends StatelessWidget {
       width: width,
       height: height,
       child: GestureDetector(
+        onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
             border: active
@@ -36,11 +39,33 @@ class SectionTab extends StatelessWidget {
             color: color,
           ),
           child: Center(
-            child: label,
+            child: SectionTabLabel(
+              iconData: icon,
+              label: label,
+            ),
           ),
         ),
-        onTap: onPress,
       ),
+    );
+  }
+}
+
+class SectionTabLabel extends StatelessWidget {
+  final IconData iconData;
+  final String label;
+
+  const SectionTabLabel({this.iconData, this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        iconData != null ? FaIcon(iconData) : Container(),
+        label != null
+            ? FittedBox(fit: BoxFit.fitWidth, child: Text(label))
+            : Container(),
+      ],
     );
   }
 }

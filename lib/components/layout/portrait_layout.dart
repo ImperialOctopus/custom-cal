@@ -1,3 +1,4 @@
+import 'package:custom_cal/components/section_controller/list_section_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../section_controller/tabbed_section_controller.dart';
@@ -23,7 +24,7 @@ class PortraitLayout extends StatelessWidget {
   Function get _onForwardPressed => () => updateBookmark(bookmark.pageAfter(1));
 
   Widget get sectionController {
-    return TabbedSectionController(
+    return ListSectionController(
       activeSection: bookmark.sectionIndex,
       onSectionPressed: (section) =>
           updateBookmark(bookmark.changeSection(section)),
@@ -65,42 +66,39 @@ class PortraitLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: <Widget>[
-          sectionController,
-          Expanded(
-            child: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black12,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black38,
-                        blurRadius:
-                            5.0, // has the effect of softening the shadow
-                        spreadRadius:
-                            0.0, // has the effect of extending the shadow
-                        offset: Offset(
-                          -3, // horizontal, move right 10
-                          3, // vertical, move down 10
-                        ),
-                      )
-                    ],
-                  ),
-                  child: spread,
+    return Column(
+      children: <Widget>[
+        sectionController,
+        Expanded(
+          child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.black12,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black38,
+                      blurRadius: 5.0, // has the effect of softening the shadow
+                      spreadRadius:
+                          0.0, // has the effect of extending the shadow
+                      offset: Offset(
+                        -3, // horizontal, move right 10
+                        3, // vertical, move down 10
+                      ),
+                    )
+                  ],
                 ),
-                Stack(
-                  fit: StackFit.expand,
-                  children: controlLayer,
-                ),
-              ],
-            ),
+                child: spread,
+              ),
+              Stack(
+                fit: StackFit.expand,
+                children: controlLayer,
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
