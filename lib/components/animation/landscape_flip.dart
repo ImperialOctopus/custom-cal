@@ -47,7 +47,7 @@ class LandscapeFlip extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       transform: Matrix4.identity()
                         ..setEntry(3, 2, perspective)
-                        ..rotateY(animationProgress + pi),
+                        ..rotateY((animationProgress * pi) + pi),
                       child: leftEnd,
                     )
                   : Container(),
@@ -63,7 +63,7 @@ class LandscapeFlip extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       transform: Matrix4.identity()
                         ..setEntry(3, 2, perspective)
-                        ..rotateY(animationProgress),
+                        ..rotateY(animationProgress * pi),
                       child: rightStart,
                     )
                   : Container(),
@@ -88,7 +88,7 @@ class LandscapeFlip extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       transform: Matrix4.identity()
                         ..setEntry(3, 2, perspective)
-                        ..rotateY(-animationProgress),
+                        ..rotateY(-(animationProgress * pi)),
                       child: leftStart,
                     )
                   : Container(),
@@ -104,7 +104,7 @@ class LandscapeFlip extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       transform: Matrix4.identity()
                         ..setEntry(3, 2, perspective)
-                        ..rotateY(pi - animationProgress),
+                        ..rotateY(pi - (animationProgress * pi)),
                       child: rightEnd,
                     )
                   : Container(),

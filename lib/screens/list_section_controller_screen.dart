@@ -3,7 +3,7 @@ import 'package:custom_cal/model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class ListSectionControllerScreen extends StatelessWidget {
+class ListSectionControllerScreen extends StatefulWidget {
   static const EdgeInsetsGeometry padding = EdgeInsets.all(16);
 
   final List<SectionData> sections;
@@ -17,13 +17,24 @@ class ListSectionControllerScreen extends StatelessWidget {
   });
 
   @override
+  _ListSectionControllerScreenState createState() =>
+      _ListSectionControllerScreenState(activeSection: activeSection);
+}
+
+class _ListSectionControllerScreenState
+    extends State<ListSectionControllerScreen> {
+  int activeSection;
+
+  _ListSectionControllerScreenState({@required this.activeSection});
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: padding,
+          padding: ListSectionControllerScreen.padding,
           child: Column(
-            children: List.generate(sections.length, (index) {
+            children: List.generate(widget.sections.length, (index) {
               if (index == activeSection) {
                 return Hero(
                   tag: 'ActiveSection',
@@ -40,13 +51,16 @@ class ListSectionControllerScreen extends StatelessWidget {
   }
 
   SectionListElement _buildListElement(BuildContext context, int index) {
-    final section = sections[index];
+    final section = widget.sections[index];
     return SectionListElement(
       color: section.color,
       leading: section.icon != null ? FaIcon(section.icon) : null,
       title: Text(section.title),
       onTap: () {
-        onSectionPressed(index);
+        setState(() {
+          activeSection = index;
+          widget.onSectionPressed(index);
+        });
         Navigator.of(context).pop();
       },
     );

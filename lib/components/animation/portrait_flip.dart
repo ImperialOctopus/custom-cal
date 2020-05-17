@@ -40,7 +40,7 @@ class PortraitFlip extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, perspective)
-                  ..rotateY(animationProgress / 2),
+                  ..rotateY((animationProgress * pi) / 2),
                 child: start,
               ),
             ],
@@ -63,7 +63,7 @@ class PortraitFlip extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, perspective)
-                  ..rotateY((pi / 2) - (animationProgress / 2)),
+                  ..rotateY((pi / 2) - ((animationProgress * pi) / 2)),
                 child: end,
               ),
             ],

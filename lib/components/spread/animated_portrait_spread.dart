@@ -1,7 +1,7 @@
+import 'package:custom_cal/components/animation/portrait_swipe.dart';
 import 'package:flutter/material.dart';
 
 import '../animation/flip_direction.dart';
-import '../animation/portrait_flip.dart';
 import '../page/page_component.dart';
 import '../spread/portrait_spread.dart';
 import '../../model/bookmark.dart';
@@ -30,7 +30,7 @@ class AnimatedPortraitSpread extends StatelessWidget {
     if (_running) {
       return AnimatedBuilder(
         animation: animation,
-        builder: (_, __) => PortraitFlip(
+        builder: (_, __) => PortraitSwipe(
           flipDirection: flipDirection,
           animationProgress: animation.value,
           start: _startPage,

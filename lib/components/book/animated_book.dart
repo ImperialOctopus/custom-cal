@@ -36,7 +36,7 @@ class AnimatedBookState extends State<AnimatedBook>
 
     _controller =
         AnimationController(duration: widget.animationDuration, vsync: this);
-    _animation = Tween(begin: 0.0, end: pi).animate(_controller);
+    _animation = Tween(begin: 0.0, end: 1).animate(_controller);
 
     // Rebuild when animation ends
     _controller.addStatusListener((status) {
