@@ -1,6 +1,7 @@
+import 'package:custom_cal/components/layout/landscape_layout.dart';
+import 'package:custom_cal/components/layout/portrait_layout.dart';
 import 'package:flutter/material.dart';
 
-import '../layout/oriented_layout.dart';
 import '../../model/bookmark.dart';
 
 /// Displays a book to the user.
@@ -22,10 +23,25 @@ class BookState extends State<Book> {
 
   @override
   Widget build(BuildContext context) {
-    return OrientedLayout(
-      bookmark: bookmark,
-      updateBookmark: _updateBookmark,
-      hyperlinkFunction: _hyperlinkFunction,
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        switch (orientation) {
+          case Orientation.landscape:
+            return LandscapeLayout(
+              bookmark: bookmark,
+              updateBookmark: _updateBookmark,
+              hyperlinkFunction: _hyperlinkFunction,
+            );
+          case Orientation.portrait:
+            return PortraitLayout(
+              bookmark: bookmark,
+              updateBookmark: _updateBookmark,
+              hyperlinkFunction: _hyperlinkFunction,
+            );
+          default:
+            throw FallThroughError();
+        }
+      },
     );
   }
 

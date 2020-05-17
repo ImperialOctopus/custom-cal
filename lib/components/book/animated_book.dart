@@ -1,7 +1,7 @@
-import 'dart:math';
+import 'package:custom_cal/components/layout/animated_landscape_layout.dart';
+import 'package:custom_cal/components/layout/animated_portrait_layout.dart';
 import 'package:flutter/material.dart';
 
-import '../layout/animated_oriented_layout.dart';
 import '../animation/flip_direction.dart';
 import '../../model/bookmark.dart';
 
@@ -52,14 +52,33 @@ class AnimatedBookState extends State<AnimatedBook>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedOrientedLayout(
-      lastBookmark: lastBookmark,
-      bookmark: bookmark,
-      flipDirection: _flipDirection,
-      updateBookmark: _updateBookmark,
-      controller: _controller,
-      animation: _animation,
-      hyperlinkFunction: _hyperlinkFunction,
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        switch (orientation) {
+          case Orientation.landscape:
+            return AnimatedLandscapeLayout(
+              lastBookmark: lastBookmark,
+              bookmark: bookmark,
+              flipDirection: _flipDirection,
+              updateBookmark: _updateBookmark,
+              controller: _controller,
+              animation: _animation,
+              hyperlinkFunction: _hyperlinkFunction,
+            );
+          case Orientation.portrait:
+            return AnimatedPortraitLayout(
+              lastBookmark: lastBookmark,
+              bookmark: bookmark,
+              flipDirection: _flipDirection,
+              updateBookmark: _updateBookmark,
+              controller: _controller,
+              animation: _animation,
+              hyperlinkFunction: _hyperlinkFunction,
+            );
+          default:
+            throw FallThroughError();
+        }
+      },
     );
   }
 
