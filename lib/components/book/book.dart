@@ -1,5 +1,7 @@
 import 'package:custom_cal/components/layout/landscape_layout.dart';
 import 'package:custom_cal/components/layout/portrait_layout.dart';
+import 'package:custom_cal/components/spread/landscape_spread.dart';
+import 'package:custom_cal/components/spread/portrait_spread.dart';
 import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';
@@ -31,12 +33,20 @@ class BookState extends State<Book> {
               bookmark: bookmark,
               updateBookmark: _updateBookmark,
               hyperlinkFunction: _hyperlinkFunction,
+              spread: LandscapeSpread(
+                bookmark: bookmark,
+                hyperlinkFunction: _hyperlinkFunction,
+              ),
             );
           case Orientation.portrait:
             return PortraitLayout(
               bookmark: bookmark,
               updateBookmark: _updateBookmark,
               hyperlinkFunction: _hyperlinkFunction,
+              spread: PortraitSpread(
+                bookmark: bookmark,
+                hyperlinkFunction: _hyperlinkFunction,
+              ),
             );
           default:
             throw FallThroughError();

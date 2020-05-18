@@ -10,11 +10,13 @@ class PortraitLayout extends StatelessWidget {
   final Bookmark bookmark;
   final Function(Bookmark) updateBookmark;
   final Function(int, int) hyperlinkFunction;
+  final Widget spread;
 
   const PortraitLayout({
     @required this.bookmark,
     @required this.updateBookmark,
     @required this.hyperlinkFunction,
+    @required this.spread,
   });
 
   bool get _backEnabled => bookmark.pageBeforeExists(1);
@@ -54,13 +56,6 @@ class PortraitLayout extends StatelessWidget {
       ),
       */
     ];
-  }
-
-  Widget get spread {
-    return PortraitSpread(
-      bookmark: bookmark,
-      hyperlinkFunction: hyperlinkFunction,
-    );
   }
 
   @override

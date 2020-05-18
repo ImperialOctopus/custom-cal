@@ -1,5 +1,7 @@
-import 'package:custom_cal/components/layout/animated_landscape_layout.dart';
-import 'package:custom_cal/components/layout/animated_portrait_layout.dart';
+import 'package:custom_cal/components/layout/landscape_layout.dart';
+import 'package:custom_cal/components/layout/portrait_layout.dart';
+import 'package:custom_cal/components/spread/animated_landscape_spread.dart';
+import 'package:custom_cal/components/spread/animated_portrait_spread.dart';
 import 'package:flutter/material.dart';
 
 import '../animation/flip_direction.dart';
@@ -56,24 +58,32 @@ class AnimatedBookState extends State<AnimatedBook>
       builder: (context, orientation) {
         switch (orientation) {
           case Orientation.landscape:
-            return AnimatedLandscapeLayout(
-              lastBookmark: lastBookmark,
+            return LandscapeLayout(
               bookmark: bookmark,
-              flipDirection: _flipDirection,
               updateBookmark: _updateBookmark,
-              controller: _controller,
-              animation: _animation,
               hyperlinkFunction: _hyperlinkFunction,
+              spread: AnimatedLandscapeSpread(
+                startBookmark: lastBookmark,
+                endBookmark: bookmark,
+                flipDirection: _flipDirection,
+                controller: _controller,
+                animation: _animation,
+                hyperlinkFunction: _hyperlinkFunction,
+              ),
             );
           case Orientation.portrait:
-            return AnimatedPortraitLayout(
-              lastBookmark: lastBookmark,
+            return PortraitLayout(
               bookmark: bookmark,
-              flipDirection: _flipDirection,
               updateBookmark: _updateBookmark,
-              controller: _controller,
-              animation: _animation,
               hyperlinkFunction: _hyperlinkFunction,
+              spread: AnimatedPortraitSpread(
+                startBookmark: lastBookmark,
+                endBookmark: bookmark,
+                flipDirection: _flipDirection,
+                controller: _controller,
+                animation: _animation,
+                hyperlinkFunction: _hyperlinkFunction,
+              ),
             );
           default:
             throw FallThroughError();
