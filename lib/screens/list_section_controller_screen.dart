@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ListSectionControllerScreen extends StatefulWidget {
-  static const EdgeInsetsGeometry padding = EdgeInsets.all(16);
-
   final List<SectionData> sections;
   final int activeSection;
   final Function(int i) onSectionPressed;
@@ -32,39 +30,23 @@ class _ListSectionControllerScreenState
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: ListSectionControllerScreen.padding,
           child: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.black12,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black38,
-                      blurRadius: 5.0, // has the effect of softening the shadow
-                      spreadRadius:
-                          0.0, // has the effect of extending the shadow
-                      offset: Offset(
-                        -3, // horizontal, move right 10
-                        3, // vertical, move down 10
-                      ),
-                    )
-                  ],
-                ),
-                child: Column(
-                  children: List.generate(widget.sections.length, (index) {
-                    if (index == activeSection) {
-                      return Hero(
-                        tag: 'ActiveSection',
-                        child: _buildListElement(context, index),
-                      );
-                    } else {
-                      return _buildListElement(context, index);
-                    }
-                  }),
-                ),
+            children: List.generate(widget.sections.length, (index) {
+              if (index == activeSection) {
+                return Hero(
+                  tag: 'ActiveSection',
+                  child: _buildListElement(context, index),
+                );
+              } else {
+                return _buildListElement(context, index);
+              }
+            })
+              ..add(
+                CloseListElement(onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
+                }),
               ),
-            ],
           ),
         ),
       ),

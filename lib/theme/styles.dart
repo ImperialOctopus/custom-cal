@@ -5,7 +5,6 @@ ThemeData theme = ThemeData(
   // Define the default brightness and colors.
   brightness: Brightness.light,
   backgroundColor: Colors.white,
-  scaffoldBackgroundColor: Colors.grey,
   primaryColor: Colors.lightBlue[800],
   accentColor: Colors.cyan[600],
 

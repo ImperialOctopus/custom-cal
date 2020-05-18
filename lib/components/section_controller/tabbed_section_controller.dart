@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../model/section_data.dart';
-import 'close_button_tab.dart';
 import 'section_tab.dart';
 
 class TabbedSectionController extends StatelessWidget {
@@ -15,6 +14,7 @@ class TabbedSectionController extends StatelessWidget {
   final double tabWidth = 64;
   final double tabSpacing = 4;
   final double inset = 8;
+  final Color background = const Color(0xFFE0E0E0);
 
   const TabbedSectionController({
     @required this.sections,
@@ -61,6 +61,9 @@ class TabbedSectionController extends StatelessWidget {
       list.add(SizedBox.fromSize(size: Size(inset, 0)));
     }
 
-    return Row(children: list);
+    return Container(
+      color: background,
+      child: Row(children: list),
+    );
   }
 }

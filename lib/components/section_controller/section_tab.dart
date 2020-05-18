@@ -69,3 +69,18 @@ class SectionTabLabel extends StatelessWidget {
     );
   }
 }
+
+class CloseButtonTab extends SectionTab {
+  const CloseButtonTab({
+    @required double width,
+    @required double height,
+    @required Function onTap,
+  }) : super(
+          label: 'Close',
+          icon: Icons.clear,
+          color: Colors.redAccent,
+          width: width,
+          height: height,
+          onTap: onTap,
+        );
+}

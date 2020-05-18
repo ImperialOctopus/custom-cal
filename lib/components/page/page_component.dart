@@ -24,7 +24,7 @@ class PageComponent extends StatelessWidget {
       color: Theme.of(context).backgroundColor,
       child: Container(
         decoration: boxDecoration(context, foldEdge),
-        padding: EdgeInsets.all(padding),
+        padding: EdgeInsets.symmetric(horizontal: padding),
         child: LayoutBuilder(builder:
             (BuildContext context, BoxConstraints viewportConstraints) {
           return SingleChildScrollView(
@@ -32,7 +32,10 @@ class PageComponent extends StatelessWidget {
               constraints: BoxConstraints(
                 minHeight: viewportConstraints.maxHeight,
               ),
-              child: pageContent(page),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: padding),
+                child: pageContent(page),
+              ),
             ),
           );
         }),

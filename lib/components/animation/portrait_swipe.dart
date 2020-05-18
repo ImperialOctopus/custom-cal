@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'flip_direction.dart';
 
 class PortraitSwipe extends StatelessWidget {
-  static const double padding = 32;
-
   final FlipDirection flipDirection;
   final Animation animation;
   final Widget start;
@@ -28,7 +26,7 @@ class PortraitSwipe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width - padding;
+    final width = MediaQuery.of(context).size.width;
 
     switch (flipDirection) {
       case FlipDirection.left:

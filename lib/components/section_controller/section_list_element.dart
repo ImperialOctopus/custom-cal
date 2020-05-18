@@ -52,3 +52,13 @@ class SectionListElement extends StatelessWidget {
     );
   }
 }
+
+class CloseListElement extends SectionListElement {
+  const CloseListElement({Function onTap})
+      : super(
+          title: const Text('Close Book'),
+          leading: const Icon(Icons.clear),
+          color: Colors.redAccent,
+          onTap: onTap,
+        );
+}
