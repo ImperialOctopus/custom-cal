@@ -19,6 +19,15 @@ class PortraitFlip extends StatelessWidget {
     @required this.end,
   });
 
+  static PortraitFlip builder(FlipDirection flipDirection, Animation animation,
+          Widget start, Widget end) =>
+      PortraitFlip(
+        flipDirection: flipDirection,
+        animation: animation,
+        start: start,
+        end: end,
+      );
+
   @override
   Widget build(BuildContext context) {
     if (flipDirection == FlipDirection.left) {

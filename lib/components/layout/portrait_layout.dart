@@ -59,39 +59,32 @@ class PortraitLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        sectionController,
-        Expanded(
-          child: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.black12,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black38,
-                      blurRadius: 5.0, // has the effect of softening the shadow
-                      spreadRadius:
-                          0.0, // has the effect of extending the shadow
-                      offset: Offset(
-                        -3, // horizontal, move right 10
-                        3, // vertical, move down 10
-                      ),
-                    )
-                  ],
-                ),
-                child: spread,
-              ),
-              Stack(
-                fit: StackFit.expand,
-                children: controlLayer,
-              ),
-            ],
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.black12,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black38,
+            blurRadius: 5.0, // has the effect of softening the shadow
+            spreadRadius: 0.0, // has the effect of extending the shadow
+            offset: Offset(
+              -3, // horizontal, move right 10
+              3, // vertical, move down 10
+            ),
+          )
+        ],
+      ),
+      child: Column(
+        children: [
+          sectionController,
+          Expanded(
+            child: Stack(
+              fit: StackFit.expand,
+              children: [spread, ...controlLayer],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -17,6 +17,15 @@ class PortraitSwipe extends StatelessWidget {
     @required this.end,
   });
 
+  static PortraitSwipe builder(FlipDirection flipDirection, Animation animation,
+          Widget start, Widget end) =>
+      PortraitSwipe(
+        flipDirection: flipDirection,
+        animation: animation,
+        start: start,
+        end: end,
+      );
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width - padding;

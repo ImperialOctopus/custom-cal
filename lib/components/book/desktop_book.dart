@@ -1,28 +1,29 @@
-import 'package:custom_cal/components/animation/portrait_flip.dart';
+import 'package:flutter/material.dart';
+
+import 'package:custom_cal/components/animation/portrait_swipe.dart';
 import 'package:custom_cal/components/layout/landscape_layout.dart';
 import 'package:custom_cal/components/layout/portrait_layout.dart';
-import 'package:custom_cal/components/spread/animated_landscape_spread.dart';
 import 'package:custom_cal/components/spread/animated_portrait_spread.dart';
-import 'package:flutter/material.dart';
+import 'package:custom_cal/components/spread/landscape_spread.dart';
 
 import '../animation/flip_direction.dart';
 import '../../model/bookmark.dart';
 
-class AnimatedBook extends StatefulWidget {
+class DesktopBook extends StatefulWidget {
   final Bookmark startingBookmark;
 
   final Duration animationDuration = const Duration(milliseconds: 300);
 
-  const AnimatedBook({
+  const DesktopBook({
     @required this.startingBookmark,
   });
 
   @override
   State<StatefulWidget> createState() =>
-      AnimatedBookState(bookmark: startingBookmark);
+      DesktopBookState(bookmark: startingBookmark);
 }
 
-class AnimatedBookState extends State<AnimatedBook>
+class DesktopBookState extends State<DesktopBook>
     with SingleTickerProviderStateMixin {
   Bookmark lastBookmark;
   Bookmark bookmark;
@@ -30,7 +31,7 @@ class AnimatedBookState extends State<AnimatedBook>
   AnimationController _controller;
   Animation _animation;
 
-  AnimatedBookState({@required this.bookmark}) : lastBookmark = bookmark;
+  DesktopBookState({@required this.bookmark}) : lastBookmark = bookmark;
 
   @override
   void initState() {
@@ -62,11 +63,8 @@ class AnimatedBookState extends State<AnimatedBook>
               bookmark: bookmark,
               updateBookmark: _updateBookmark,
               hyperlinkFunction: _hyperlinkFunction,
-              spread: AnimatedLandscapeSpread(
-                startBookmark: lastBookmark,
-                endBookmark: bookmark,
-                flipDirection: _flipDirection,
-                animation: _animation,
+              spread: LandscapeSpread(
+                bookmark: bookmark,
                 hyperlinkFunction: _hyperlinkFunction,
               ),
             );
@@ -81,7 +79,7 @@ class AnimatedBookState extends State<AnimatedBook>
                 flipDirection: _flipDirection,
                 animation: _animation,
                 hyperlinkFunction: _hyperlinkFunction,
-                animationBuilder: PortraitFlip.builder,
+                animationBuilder: PortraitSwipe.builder,
               ),
             );
           default:

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';
 
-/// Displays a book to the user.
 class Book extends StatefulWidget {
   final Bookmark startingBookmark;
 

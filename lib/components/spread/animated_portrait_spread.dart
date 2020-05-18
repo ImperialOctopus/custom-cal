@@ -1,4 +1,3 @@
-import 'package:custom_cal/components/animation/portrait_swipe.dart';
 import 'package:flutter/material.dart';
 
 import '../animation/flip_direction.dart';
@@ -12,6 +11,7 @@ class AnimatedPortraitSpread extends StatelessWidget {
   final FlipDirection flipDirection;
   final Animation animation;
   final Function(int, int) hyperlinkFunction;
+  final Function(FlipDirection, Animation, Widget, Widget) animationBuilder;
 
   const AnimatedPortraitSpread({
     @required this.startBookmark,
@@ -19,6 +19,7 @@ class AnimatedPortraitSpread extends StatelessWidget {
     @required this.flipDirection,
     @required this.animation,
     @required this.hyperlinkFunction,
+    @required this.animationBuilder,
   });
 
   bool get _running => !animation.isCompleted;
@@ -28,11 +29,11 @@ class AnimatedPortraitSpread extends StatelessWidget {
     if (_running) {
       return AnimatedBuilder(
         animation: animation,
-        builder: (_, __) => PortraitSwipe(
-          flipDirection: flipDirection,
-          animation: animation,
-          start: _startPage,
-          end: _endPage,
+        builder: (_, __) => animationBuilder(
+          flipDirection,
+          animation,
+          _startPage,
+          _endPage,
         ),
       );
     } else {
