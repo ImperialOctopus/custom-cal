@@ -13,10 +13,13 @@ class WebImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.0),
-      child: Center(
-        child: Image(
-          image: NetworkImage(location),
-          height: height,
+      child: ConstrainedBox(
+        constraints: BoxConstraints.expand(height: height),
+        child: Center(
+          child: Image(
+            image: NetworkImage(location),
+            height: height,
+          ),
         ),
       ),
     );

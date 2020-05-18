@@ -1,6 +1,6 @@
+import 'package:custom_cal/components/book/web_book.dart';
 import 'package:flutter/material.dart';
 
-import '../components/book/animated_book.dart';
 import '../model/book_data.dart';
 import '../model/bookmark.dart';
 
@@ -22,7 +22,7 @@ class BookScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           padding: padding,
-          child: AnimatedBook(
+          child: WebBook(
             startingBookmark: Bookmark.firstPage(book: book),
           ),
         ),
