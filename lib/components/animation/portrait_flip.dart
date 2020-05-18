@@ -5,7 +5,7 @@ import '../animation/flip_direction.dart';
 
 class PortraitFlip extends StatelessWidget {
   final FlipDirection flipDirection;
-  final double animationProgress;
+  final Animation animation;
 
   final Widget start;
   final Widget end;
@@ -14,7 +14,7 @@ class PortraitFlip extends StatelessWidget {
 
   const PortraitFlip({
     @required this.flipDirection,
-    @required this.animationProgress,
+    @required this.animation,
     @required this.start,
     @required this.end,
   });
@@ -40,7 +40,7 @@ class PortraitFlip extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, perspective)
-                  ..rotateY((animationProgress * pi) / 2),
+                  ..rotateY((animation.value * pi) / 2),
                 child: start,
               ),
             ],
@@ -63,7 +63,7 @@ class PortraitFlip extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, perspective)
-                  ..rotateY((pi / 2) - ((animationProgress * pi) / 2)),
+                  ..rotateY((pi / 2) - ((animation.value * pi) / 2)),
                 child: end,
               ),
             ],

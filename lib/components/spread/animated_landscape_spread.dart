@@ -11,7 +11,6 @@ class AnimatedLandscapeSpread extends StatelessWidget {
   final Bookmark startBookmark;
   final Bookmark endBookmark;
   final FlipDirection flipDirection;
-  final AnimationController controller;
   final Animation animation;
   final Function(int, int) hyperlinkFunction;
 
@@ -19,13 +18,11 @@ class AnimatedLandscapeSpread extends StatelessWidget {
     @required this.startBookmark,
     @required this.endBookmark,
     @required this.flipDirection,
-    @required this.controller,
     @required this.animation,
     @required this.hyperlinkFunction,
   });
 
-  bool get _isFirstPhase => controller.value < 0.5;
-  bool get _running => controller.isAnimating;
+  bool get _running => !animation.isCompleted;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +31,7 @@ class AnimatedLandscapeSpread extends StatelessWidget {
         animation: animation,
         builder: (_, __) => LandscapeFlip(
           flipDirection: flipDirection,
-          animationProgress: animation.value,
-          isFirstPhase: _isFirstPhase,
+          animation: animation,
           leftStart: _leftStartPage,
           leftEnd: _leftEndPage,
           rightStart: _rightStartPage,

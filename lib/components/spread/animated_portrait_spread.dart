@@ -10,7 +10,6 @@ class AnimatedPortraitSpread extends StatelessWidget {
   final Bookmark startBookmark;
   final Bookmark endBookmark;
   final FlipDirection flipDirection;
-  final AnimationController controller;
   final Animation animation;
   final Function(int, int) hyperlinkFunction;
 
@@ -18,12 +17,11 @@ class AnimatedPortraitSpread extends StatelessWidget {
     @required this.startBookmark,
     @required this.endBookmark,
     @required this.flipDirection,
-    @required this.controller,
     @required this.animation,
     @required this.hyperlinkFunction,
   });
 
-  bool get _running => controller.isAnimating;
+  bool get _running => !animation.isCompleted;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +30,7 @@ class AnimatedPortraitSpread extends StatelessWidget {
         animation: animation,
         builder: (_, __) => PortraitSwipe(
           flipDirection: flipDirection,
-          animationProgress: animation.value,
+          animation: animation,
           start: _startPage,
           end: _endPage,
         ),

@@ -5,8 +5,7 @@ import 'flip_direction.dart';
 
 class LandscapeFlip extends StatelessWidget {
   final FlipDirection flipDirection;
-  final double animationProgress;
-  final bool isFirstPhase;
+  final Animation animation;
 
   final Widget leftStart;
   final Widget leftEnd;
@@ -17,13 +16,14 @@ class LandscapeFlip extends StatelessWidget {
 
   const LandscapeFlip({
     @required this.flipDirection,
-    @required this.animationProgress,
-    @required this.isFirstPhase,
+    @required this.animation,
     @required this.leftStart,
     @required this.leftEnd,
     @required this.rightStart,
     @required this.rightEnd,
   });
+
+  bool get _isFirstPhase => animation.value < 0.5;
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +42,12 @@ class LandscapeFlip extends StatelessWidget {
           child: Stack(
             children: [
               leftStart,
-              !isFirstPhase
+              !_isFirstPhase
                   ? Transform(
                       alignment: Alignment.centerRight,
                       transform: Matrix4.identity()
                         ..setEntry(3, 2, perspective)
-                        ..rotateY((animationProgress * pi) + pi),
+                        ..rotateY((animation.value * pi) + pi),
                       child: leftEnd,
                     )
                   : Container(),
@@ -58,12 +58,12 @@ class LandscapeFlip extends StatelessWidget {
           child: Stack(
             children: [
               rightEnd,
-              isFirstPhase
+              _isFirstPhase
                   ? Transform(
                       alignment: Alignment.centerLeft,
                       transform: Matrix4.identity()
                         ..setEntry(3, 2, perspective)
-                        ..rotateY(animationProgress * pi),
+                        ..rotateY(animation.value * pi),
                       child: rightStart,
                     )
                   : Container(),
@@ -83,12 +83,12 @@ class LandscapeFlip extends StatelessWidget {
           child: Stack(
             children: [
               leftEnd,
-              isFirstPhase
+              _isFirstPhase
                   ? Transform(
                       alignment: Alignment.centerRight,
                       transform: Matrix4.identity()
                         ..setEntry(3, 2, perspective)
-                        ..rotateY(-(animationProgress * pi)),
+                        ..rotateY(-(animation.value * pi)),
                       child: leftStart,
                     )
                   : Container(),
@@ -99,12 +99,12 @@ class LandscapeFlip extends StatelessWidget {
           child: Stack(
             children: [
               rightStart,
-              !isFirstPhase
+              !_isFirstPhase
                   ? Transform(
                       alignment: Alignment.centerLeft,
                       transform: Matrix4.identity()
                         ..setEntry(3, 2, perspective)
-                        ..rotateY(pi - (animationProgress * pi)),
+                        ..rotateY(pi - (animation.value * pi)),
                       child: rightEnd,
                     )
                   : Container(),
