@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'flip_direction.dart';
 
 class PortraitSwipe extends StatelessWidget {
+  static const double padding = 32;
+
   final FlipDirection flipDirection;
   final Animation animation;
   final Widget start;
@@ -17,30 +19,41 @@ class PortraitSwipe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width - padding;
+
     switch (flipDirection) {
       case FlipDirection.left:
-        return Stack(
-          children: [
-            end,
-            ClipRect(
-              clipper: LeftSwipeClip(progress: animation.value),
-              child: start,
-            ),
-          ],
+        return ClipRect(
+          child: Stack(
+            children: [
+              Transform.translate(
+                offset: Offset(-width * animation.value, 0),
+                child: start,
+              ),
+              Transform.translate(
+                offset: Offset(width * (1 - animation.value), 0),
+                child: end,
+              ),
+            ],
+          ),
         );
-        break;
       case FlipDirection.right:
-      default:
-        return Stack(
-          children: [
-            end,
-            ClipRect(
-              clipper: RightSwipeClip(progress: animation.value),
-              child: start,
-            ),
-          ],
+        return ClipRect(
+          child: Stack(
+            children: [
+              Transform.translate(
+                offset: Offset(width * animation.value, 0),
+                child: start,
+              ),
+              Transform.translate(
+                offset: Offset(-width * (1 - animation.value), 0),
+                child: end,
+              ),
+            ],
+          ),
         );
-        break;
+      default:
+        throw FallThroughError();
     }
   }
 }

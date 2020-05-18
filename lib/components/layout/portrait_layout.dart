@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../control_layer/button_control_layer.dart';
 import '../control_layer/keyboard_control_layer.dart';
-import '../spread/portrait_spread.dart';
 import '../../model/bookmark.dart';
 
 class PortraitLayout extends StatelessWidget {
