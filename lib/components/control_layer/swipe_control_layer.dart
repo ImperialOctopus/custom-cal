@@ -34,12 +34,13 @@ class SwipeControlLayer extends StatelessWidget {
     );
   }
 
-  static Widget builder(bool backEnabled, Function onBackPressed,
-          bool forwardEnabled, Function onForwardPressed) =>
-      SwipeControlLayer(
-        backEnabled: backEnabled,
-        onBackPressed: onBackPressed,
-        forwardEnabled: forwardEnabled,
-        onForwardPressed: onForwardPressed,
-      );
+  static Function(bool, Function, bool, Function) get builder =>
+      (bool backEnabled, Function onBackPressed, bool forwardEnabled,
+              Function onForwardPressed) =>
+          SwipeControlLayer(
+            backEnabled: backEnabled,
+            onBackPressed: onBackPressed,
+            forwardEnabled: forwardEnabled,
+            onForwardPressed: onForwardPressed,
+          );
 }
