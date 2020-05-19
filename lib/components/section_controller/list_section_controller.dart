@@ -9,30 +9,41 @@ class ListSectionController extends StatelessWidget {
   final List<SectionData> sections;
   final int activeSection;
   final Function(int i) onSectionPressed;
+  final Orientation orientation;
+  final bool hero;
 
   const ListSectionController({
     @required this.sections,
     @required this.activeSection,
     @required this.onSectionPressed,
+    this.orientation = Orientation.landscape,
+    this.hero = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: 'ActiveSection',
-      flightShuttleBuilder: _flightShuttleBuilder,
-      child: SectionListElement(
-        color: sections[activeSection].color,
-        leading: FaIcon(sections[activeSection].icon),
-        title: Text(sections[activeSection].title),
-        trailing: FaIcon(Icons.menu),
-        onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => ListSectionControllerScreen(
-              sections: sections,
-              activeSection: activeSection,
-              onSectionPressed: onSectionPressed,
-            ),
+    return hero
+        ? Hero(
+            tag: 'ActiveSection',
+            flightShuttleBuilder: _flightShuttleBuilder,
+            child: _buildListElement(context),
+          )
+        : _buildListElement(context);
+  }
+
+  Widget _buildListElement(BuildContext context) {
+    return SectionListElement(
+      color: sections[activeSection].color,
+      leading: FaIcon(sections[activeSection].icon),
+      title: Text(sections[activeSection].title),
+      trailing: FaIcon(Icons.menu),
+      orientation: orientation,
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => ListSectionControllerScreen(
+            sections: sections,
+            activeSection: activeSection,
+            onSectionPressed: onSectionPressed,
           ),
         ),
       ),

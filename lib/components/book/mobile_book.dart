@@ -1,6 +1,7 @@
 import 'package:custom_cal/components/animation/portrait_swipe.dart';
 import 'package:custom_cal/components/control_layer/button_control_layer.dart';
 import 'package:custom_cal/components/control_layer/swipe_control_layer.dart';
+import 'package:custom_cal/components/layout/landscape_horizontal_layout.dart';
 import 'package:custom_cal/components/layout/landscape_layout.dart';
 import 'package:custom_cal/components/layout/portrait_layout.dart';
 import 'package:custom_cal/components/spread/animated_landscape_spread.dart';
@@ -60,7 +61,7 @@ class MobileBookState extends State<MobileBook>
       builder: (context, orientation) {
         switch (orientation) {
           case Orientation.landscape:
-            return LandscapeLayout(
+            return LandscapeHorizontalLayout(
               bookmark: bookmark,
               updateBookmark: _updateBookmark,
               hyperlinkFunction: _hyperlinkFunction,

@@ -14,19 +14,17 @@ class BookScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        //child: _buildPlatform(context),
-        child: _buildMobile(context),
+        child: _buildPlatform(context),
+        //child: _buildMobile(context),
       ),
     );
   }
 
   Widget _buildPlatform(BuildContext context) {
-    if (kIsWeb) {
-      return _buildWeb(context);
-    } else if (Platform.isAndroid) {
+    if (Platform.isAndroid) {
       return _buildMobile(context);
     } else {
-      throw FallThroughError();
+      return _buildWeb(context);
     }
   }
 
