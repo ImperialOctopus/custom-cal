@@ -20,7 +20,7 @@ class SwipeControlLayer extends StatelessWidget {
         onHorizontalDragEnd: (DragEndDetails details) {
           print(details);
 
-          if (details.primaryVelocity > 0) {
+          if (details.primaryVelocity <= 0) {
             if (forwardEnabled) {
               onForwardPressed();
             }
