@@ -1,3 +1,4 @@
+import 'package:custom_cal/components/decoration/shadow_decoration.dart';
 import 'package:custom_cal/model/book_data.dart';
 import 'package:flutter/material.dart';
 
@@ -15,27 +16,12 @@ class MenuScreen extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           child: Container(
-            decoration: BoxDecoration(
-              color: Colors.black12,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black38,
-                  blurRadius: 5.0, // has the effect of softening the shadow
-                  spreadRadius: 0.0, // has the effect of extending the shadow
-                  offset: Offset(
-                    -3, // horizontal, move right 10
-                    3, // vertical, move down 10
-                  ),
-                )
-              ],
-            ),
+            decoration: ShadowDecoration.decoration,
             child: Container(
               color: Theme.of(context).backgroundColor,
               padding: EdgeInsets.all(32),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                //mainAxisAlignment: MainAxisAlignment.center,
-                //crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 12.0),

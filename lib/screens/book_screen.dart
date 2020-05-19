@@ -3,7 +3,6 @@ import 'package:custom_cal/components/book/web_book.dart';
 import 'package:custom_cal/model/model.dart';
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
-import 'package:flutter/foundation.dart' show kIsWeb;
 
 class BookScreen extends StatelessWidget {
   final BookData book;
