@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 
 import 'menu_screen/arc_clipper.dart';
 
-class NewMenuScreen extends StatelessWidget {
+class GradientMenuScreen extends StatelessWidget {
   final BookData book;
 
-  const NewMenuScreen({this.book});
+  const GradientMenuScreen({this.book});
 
   static List<Color> gradient = [
     // new Color.fromRGBO(103, 218, 255, 1.0),

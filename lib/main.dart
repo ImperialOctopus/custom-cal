@@ -1,9 +1,10 @@
+import 'package:custom_cal/screens/clean_menu_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:custom_cal/data/dog_species_data.dart';
 import 'package:custom_cal/theme/styles.dart';
 
-import 'screens/new_menu_screen.dart';
+import 'screens/menu_screen.dart';
 
 void main() {
   runApp(CustomCalApp());
@@ -15,7 +16,7 @@ class CustomCalApp extends StatelessWidget {
     return MaterialApp(
       title: 'CustomCAL Dog',
       theme: theme,
-      home: NewMenuScreen(book: dogSpeciesData),
+      home: CleanMenuScreen(book: dogSpeciesData),
     );
   }
 }

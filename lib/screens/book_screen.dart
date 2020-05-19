@@ -1,6 +1,7 @@
 import 'package:custom_cal/components/book/mobile_book.dart';
 import 'package:custom_cal/components/book/web_book.dart';
 import 'package:custom_cal/model/model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 
@@ -20,10 +21,15 @@ class BookScreen extends StatelessWidget {
   }
 
   Widget _buildPlatform(BuildContext context) {
-    if (Platform.isAndroid) {
-      return _buildMobile(context);
-    } else {
+    if (kIsWeb) {
       return _buildWeb(context);
+    }
+    switch (Theme.of(context).platform) {
+      case TargetPlatform.android:
+      case TargetPlatform.iOS:
+        return _buildMobile(context);
+      default:
+        throw FallThroughError();
     }
   }
 
