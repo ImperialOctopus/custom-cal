@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/page/page.dart';
 import '../model/model.dart';
 
-const BookData dogSpeciesData = BookData(
-  title: 'Dog Species',
+const BookData dogBreedData = BookData(
+  title: 'Dog Breeds',
   subtitle: 'Custom CAL App',
   credit: 'Created by Zoey Child',
   sections: [

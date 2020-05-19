@@ -23,7 +23,7 @@ class CleanMenuScreen extends StatelessWidget {
               Spacer(flex: 2),
               AppIcon(size: 128),
               Text(
-                'Dog Species',
+                'Dog Breeds',
                 style: Theme.of(context).textTheme.headline2,
               ),
               Container(height: 8),
