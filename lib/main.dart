@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:custom_cal/data/dog_species_data.dart';
 import 'package:custom_cal/theme/styles.dart';
 
-import 'screens/menu_screen.dart';
-
 void main() {
   runApp(CustomCalApp());
 }
