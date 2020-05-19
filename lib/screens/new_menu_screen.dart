@@ -1,5 +1,6 @@
 import 'package:custom_cal/components/decoration/app_icon.dart';
 import 'package:custom_cal/model/book_data.dart';
+import 'package:custom_cal/screens/menu_screen/book_card.dart';
 import 'package:flutter/material.dart';
 
 import 'menu_screen/arc_clipper.dart';
@@ -51,8 +52,7 @@ class NewMenuScreen extends StatelessWidget {
                   child: SizedBox(
                     height: deviceSize.height / 8,
                     width: deviceSize.width / 2,
-                    //child: AppIcon(),
-                    child: Container(),
+                    child: AppIcon(),
                   ),
                 ),
               ],
@@ -68,15 +68,19 @@ class NewMenuScreen extends StatelessWidget {
   }
 
   Widget _buildForeground(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 100.0,
-            ),
-            Text('AAAAAAAAAAaaaaaaaaa'),
-          ],
+    return Padding(
+      padding: EdgeInsets.all(48),
+      child: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              BookCard(
+                image: AppIcon(),
+                title: Text('Dogs'),
+                description: Text('Bottom text'),
+              ),
+            ],
+          ),
         ),
       ),
     );
