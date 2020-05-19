@@ -32,4 +32,13 @@ class KeyboardControlLayer extends StatelessWidget {
       child: Container(),
     );
   }
+
+  static Widget builder(bool backEnabled, Function onBackPressed,
+          bool forwardEnabled, Function onForwardPressed) =>
+      KeyboardControlLayer(
+        backEnabled: backEnabled,
+        onBackPressed: onBackPressed,
+        forwardEnabled: forwardEnabled,
+        onForwardPressed: onForwardPressed,
+      );
 }
