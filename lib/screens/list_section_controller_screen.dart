@@ -30,23 +30,26 @@ class _ListSectionControllerScreenState
     return Scaffold(
       body: SafeArea(
         child: Container(
-          child: Column(
-            children: List.generate(widget.sections.length, (index) {
-              if (index == activeSection) {
-                return Hero(
-                  tag: 'ActiveSection',
-                  child: _buildListElement(context, index),
-                );
-              } else {
-                return _buildListElement(context, index);
-              }
-            })
-              ..add(
-                CloseListElement(onTap: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).pop();
-                }),
-              ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: List.generate(widget.sections.length, (index) {
+                if (index == activeSection) {
+                  return Hero(
+                    tag: 'ActiveSection',
+                    child: _buildListElement(context, index),
+                  );
+                } else {
+                  return _buildListElement(context, index);
+                }
+              })
+                ..add(
+                  CloseListElement(onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pop();
+                  }),
+                ),
+            ),
           ),
         ),
       ),

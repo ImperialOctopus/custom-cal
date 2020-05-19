@@ -1,3 +1,4 @@
+import 'package:custom_cal/components/decoration/shadow_decoration.dart';
 import 'package:flutter/material.dart';
 
 import '../control_layer/button_control_layer.dart';
@@ -71,22 +72,7 @@ class LandscapeLayout extends StatelessWidget {
               fit: StackFit.expand,
               children: <Widget>[
                 Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black12,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black38,
-                        blurRadius:
-                            5.0, // has the effect of softening the shadow
-                        spreadRadius:
-                            0.0, // has the effect of extending the shadow
-                        offset: Offset(
-                          -3, // horizontal, move right 10
-                          3, // vertical, move down 10
-                        ),
-                      )
-                    ],
-                  ),
+                  decoration: ShadowDecoration.decoration,
                   child: spread,
                 ),
                 Stack(
