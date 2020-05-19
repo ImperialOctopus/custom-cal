@@ -14,7 +14,8 @@ class BookScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: _buildPlatform(context),
+        //child: _buildPlatform(context),
+        child: _buildMobile(context),
       ),
     );
   }

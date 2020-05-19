@@ -1,3 +1,5 @@
+import 'package:custom_cal/components/control_layer/button_control_layer.dart';
+import 'package:custom_cal/components/control_layer/keyboard_control_layer.dart';
 import 'package:custom_cal/components/layout/landscape_layout.dart';
 import 'package:custom_cal/components/layout/portrait_layout.dart';
 import 'package:custom_cal/components/spread/landscape_spread.dart';
@@ -36,6 +38,10 @@ class BookState extends State<Book> {
                 bookmark: bookmark,
                 hyperlinkFunction: _hyperlinkFunction,
               ),
+              controlLayerBuilders: [
+                ButtonControlLayer.builder,
+                KeyboardControlLayer.builder,
+              ],
             );
           case Orientation.portrait:
             return PortraitLayout(
@@ -46,6 +52,10 @@ class BookState extends State<Book> {
                 bookmark: bookmark,
                 hyperlinkFunction: _hyperlinkFunction,
               ),
+              controlLayerBuilders: [
+                ButtonControlLayer.builder,
+                KeyboardControlLayer.builder,
+              ],
             );
           default:
             throw FallThroughError();

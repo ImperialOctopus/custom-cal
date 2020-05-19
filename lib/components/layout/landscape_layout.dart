@@ -1,9 +1,7 @@
-import 'package:custom_cal/components/decoration/shadow_decoration.dart';
 import 'package:flutter/material.dart';
 
-import '../control_layer/button_control_layer.dart';
+import '../decoration/shadow_decoration.dart';
 import '../section_controller/tabbed_section_controller.dart';
-import '../control_layer/keyboard_control_layer.dart';
 import '../../model/bookmark.dart';
 
 class LandscapeLayout extends StatelessWidget {
@@ -11,12 +9,14 @@ class LandscapeLayout extends StatelessWidget {
   final Function(Bookmark) updateBookmark;
   final Function(int, int) hyperlinkFunction;
   final Widget spread;
+  final List<Function(bool, Function, bool, Function)> controlLayerBuilders;
 
   const LandscapeLayout({
     @required this.bookmark,
     @required this.updateBookmark,
     @required this.hyperlinkFunction,
     @required this.spread,
+    @required this.controlLayerBuilders,
   });
 
   bool get _backEnabled => bookmark.pageBeforeExists(1);
@@ -38,28 +38,11 @@ class LandscapeLayout extends StatelessWidget {
     );
   }
 
-  List<Widget> get controlLayer {
-    return [
-      KeyboardControlLayer(
-        backEnabled: _backEnabled,
-        onBackPressed: _onBackPressed,
-        forwardEnabled: _forwardEnabled,
-        onForwardPressed: _onForwardPressed,
-      ),
-      ButtonControlLayer(
-        backEnabled: _backEnabled,
-        onBackPressed: _onBackPressed,
-        forwardEnabled: _forwardEnabled,
-        onForwardPressed: _onForwardPressed,
-      ),
-      /*SwipeControlLayer(
-        backEnabled: _backEnabled,
-        onBackPressed: _onBackPressed,
-        forwardEnabled: _forwardEnabled,
-        onForwardPressed: _onForwardPressed,
-      ),*/
-    ];
-  }
+  List<Widget> get controlLayer => controlLayerBuilders
+      .map<Widget>((Function(bool, Function, bool, Function) builder) =>
+          builder(
+              _backEnabled, _onBackPressed, _forwardEnabled, _onForwardPressed))
+      .toList();
 
   @override
   Widget build(BuildContext context) {

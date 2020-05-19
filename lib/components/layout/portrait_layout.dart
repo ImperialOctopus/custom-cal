@@ -1,8 +1,6 @@
 import 'package:custom_cal/components/section_controller/list_section_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../control_layer/button_control_layer.dart';
-import '../control_layer/keyboard_control_layer.dart';
 import '../../model/bookmark.dart';
 
 class PortraitLayout extends StatelessWidget {
@@ -10,12 +8,14 @@ class PortraitLayout extends StatelessWidget {
   final Function(Bookmark) updateBookmark;
   final Function(int, int) hyperlinkFunction;
   final Widget spread;
+  final List<Function(bool, Function, bool, Function)> controlLayerBuilders;
 
   const PortraitLayout({
     @required this.bookmark,
     @required this.updateBookmark,
     @required this.hyperlinkFunction,
     @required this.spread,
+    @required this.controlLayerBuilders,
   });
 
   bool get _backEnabled => bookmark.pageBeforeExists(1);
@@ -32,30 +32,11 @@ class PortraitLayout extends StatelessWidget {
     );
   }
 
-  List<Widget> get controlLayer {
-    return [
-      KeyboardControlLayer(
-        backEnabled: _backEnabled,
-        onBackPressed: _onBackPressed,
-        forwardEnabled: _forwardEnabled,
-        onForwardPressed: _onForwardPressed,
-      ),
-      ButtonControlLayer(
-        backEnabled: _backEnabled,
-        onBackPressed: _onBackPressed,
-        forwardEnabled: _forwardEnabled,
-        onForwardPressed: _onForwardPressed,
-      ),
-      /*
-      SwipeControlLayer(
-        backEnabled: _backEnabled,
-        onBackPressed: _onBackPressed,
-        forwardEnabled: _forwardEnabled,
-        onForwardPressed: _onForwardPressed,
-      ),
-      */
-    ];
-  }
+  List<Widget> get controlLayer => controlLayerBuilders
+      .map<Widget>((Function(bool, Function, bool, Function) builder) =>
+          builder(
+              _backEnabled, _onBackPressed, _forwardEnabled, _onForwardPressed))
+      .toList();
 
   @override
   Widget build(BuildContext context) {

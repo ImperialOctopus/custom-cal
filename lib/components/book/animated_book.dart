@@ -1,4 +1,6 @@
 import 'package:custom_cal/components/animation/portrait_flip.dart';
+import 'package:custom_cal/components/control_layer/button_control_layer.dart';
+import 'package:custom_cal/components/control_layer/keyboard_control_layer.dart';
 import 'package:custom_cal/components/layout/landscape_layout.dart';
 import 'package:custom_cal/components/layout/portrait_layout.dart';
 import 'package:custom_cal/components/spread/animated_landscape_spread.dart';
@@ -69,6 +71,10 @@ class AnimatedBookState extends State<AnimatedBook>
                 animation: _animation,
                 hyperlinkFunction: _hyperlinkFunction,
               ),
+              controlLayerBuilders: [
+                ButtonControlLayer.builder,
+                KeyboardControlLayer.builder,
+              ],
             );
           case Orientation.portrait:
             return PortraitLayout(
@@ -83,6 +89,10 @@ class AnimatedBookState extends State<AnimatedBook>
                 hyperlinkFunction: _hyperlinkFunction,
                 animationBuilder: PortraitFlip.builder,
               ),
+              controlLayerBuilders: [
+                ButtonControlLayer.builder,
+                KeyboardControlLayer.builder,
+              ],
             );
           default:
             throw FallThroughError();

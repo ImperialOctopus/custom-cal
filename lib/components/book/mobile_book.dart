@@ -1,4 +1,6 @@
 import 'package:custom_cal/components/animation/portrait_swipe.dart';
+import 'package:custom_cal/components/control_layer/button_control_layer.dart';
+import 'package:custom_cal/components/control_layer/swipe_control_layer.dart';
 import 'package:custom_cal/components/layout/landscape_layout.dart';
 import 'package:custom_cal/components/layout/portrait_layout.dart';
 import 'package:custom_cal/components/spread/animated_landscape_spread.dart';
@@ -69,6 +71,10 @@ class MobileBookState extends State<MobileBook>
                 animation: _animation,
                 hyperlinkFunction: _hyperlinkFunction,
               ),
+              controlLayerBuilders: [
+                ButtonControlLayer.builder,
+                SwipeControlLayer.builder,
+              ],
             );
           case Orientation.portrait:
             return PortraitLayout(
@@ -83,6 +89,10 @@ class MobileBookState extends State<MobileBook>
                 hyperlinkFunction: _hyperlinkFunction,
                 animationBuilder: PortraitSwipe.builder,
               ),
+              controlLayerBuilders: [
+                ButtonControlLayer.builder,
+                SwipeControlLayer.builder,
+              ],
             );
           default:
             throw FallThroughError();
