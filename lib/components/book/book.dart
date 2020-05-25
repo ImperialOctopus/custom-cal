@@ -1,9 +1,9 @@
-import 'package:custom_cal/components/control_layer/button_control_layer.dart';
-import 'package:custom_cal/components/control_layer/keyboard_control_layer.dart';
-import 'package:custom_cal/components/layout/landscape_layout.dart';
-import 'package:custom_cal/components/layout/portrait_layout.dart';
-import 'package:custom_cal/components/spread/landscape_spread.dart';
-import 'package:custom_cal/components/spread/portrait_spread.dart';
+import 'package:dog_breeds/components/control_layer/button_control_layer.dart';
+import 'package:dog_breeds/components/control_layer/keyboard_control_layer.dart';
+import 'package:dog_breeds/components/layout/landscape_layout.dart';
+import 'package:dog_breeds/components/layout/portrait_layout.dart';
+import 'package:dog_breeds/components/spread/landscape_spread.dart';
+import 'package:dog_breeds/components/spread/portrait_spread.dart';
 import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';

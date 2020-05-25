@@ -1,6 +1,6 @@
-import 'package:custom_cal/components/book/mobile_book.dart';
-import 'package:custom_cal/components/book/web_book.dart';
-import 'package:custom_cal/model/model.dart';
+import 'package:dog_breeds/components/book/mobile_book.dart';
+import 'package:dog_breeds/components/book/web_book.dart';
+import 'package:dog_breeds/model/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

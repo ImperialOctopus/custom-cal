@@ -1,5 +1,5 @@
-import 'package:custom_cal/components/decoration/shadow_decoration.dart';
-import 'package:custom_cal/model/book_data.dart';
+import 'package:dog_breeds/components/decoration/shadow_decoration.dart';
+import 'package:dog_breeds/model/book_data.dart';
 import 'package:flutter/material.dart';
 
 import 'book_screen.dart';

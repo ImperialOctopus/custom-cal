@@ -1,6 +1,6 @@
-import 'package:custom_cal/components/decoration/app_icon.dart';
-import 'package:custom_cal/model/book_data.dart';
-import 'package:custom_cal/screens/menu_screen/book_card.dart';
+import 'package:dog_breeds/components/decoration/app_icon.dart';
+import 'package:dog_breeds/model/book_data.dart';
+import 'package:dog_breeds/screens/menu_screen/book_card.dart';
 import 'package:flutter/material.dart';
 
 import 'menu_screen/arc_clipper.dart';

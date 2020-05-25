@@ -1,4 +1,4 @@
-package com.imperialoctopus.custom_cal
+package com.imperialoctopus.dog_breeds
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

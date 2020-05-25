@@ -1,4 +1,4 @@
-import 'package:custom_cal/components/section_controller/list_section_controller.dart';
+import 'package:dog_breeds/components/section_controller/list_section_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../../model/bookmark.dart';

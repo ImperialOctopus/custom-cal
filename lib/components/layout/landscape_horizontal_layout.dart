@@ -1,7 +1,7 @@
-import 'package:custom_cal/components/section_controller/list_section_controller.dart';
+import 'package:dog_breeds/components/section_controller/list_section_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:custom_cal/components/decoration/shadow_decoration.dart';
-import 'package:custom_cal/model/bookmark.dart';
+import 'package:dog_breeds/components/decoration/shadow_decoration.dart';
+import 'package:dog_breeds/model/bookmark.dart';
 
 class LandscapeHorizontalLayout extends StatelessWidget {
   final Bookmark bookmark;

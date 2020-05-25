@@ -1,6 +1,6 @@
 {
-  "name": "custom_cal",
-  "short_name": "custom_cal",
+  "name": "dog_breeds",
+  "short_name": "dog_breeds",
   "start_url": ".",
   "display": "minimal-ui",
   "background_color": "#0175C2",

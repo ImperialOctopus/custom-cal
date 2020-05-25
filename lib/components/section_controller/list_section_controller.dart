@@ -1,4 +1,4 @@
-import 'package:custom_cal/screens/list_section_controller_screen.dart';
+import 'package:dog_breeds/screens/list_section_controller_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

@@ -1,8 +1,8 @@
-import 'package:custom_cal/screens/clean_menu_screen.dart';
+import 'package:dog_breeds/screens/clean_menu_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'package:custom_cal/data/dog_breed_data.dart';
-import 'package:custom_cal/theme/styles.dart';
+import 'package:dog_breeds/data/dog_breed_data.dart';
+import 'package:dog_breeds/theme/styles.dart';
 
 void main() {
   runApp(CustomCalApp());

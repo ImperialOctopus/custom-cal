@@ -1,4 +1,4 @@
-module custom_cal/go
+module dog_breeds/go
 
 go 1.14
 
