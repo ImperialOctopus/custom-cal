@@ -12,7 +12,7 @@ class CustomCalApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Dog Species',
+      title: 'Dog Breeds',
       theme: theme,
       home: CleanMenuScreen(book: dogBreedData),
     );
